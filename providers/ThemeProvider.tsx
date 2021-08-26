@@ -6,21 +6,33 @@ interface Theme {
   menuBackgroundColor: string;
   separatorBackgroundColor: string;
   widgetBackgroundColor: string;
+  gradient: string;
 
   mainTextColor: string;
   secondaryTextColor: string;
   disabledTextColor: string;
+
+  borderRadius: string;
 }
+
+const FONT = {
+  URL: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap',
+  NAME: 'Montserrat',
+};
 
 const DARK_THEME: Theme = {
   mainBackgroundColor: '#212124',
   menuBackgroundColor: '#18181A',
   separatorBackgroundColor: '#2F2F2F',
   widgetBackgroundColor: '#2C2C30',
+  gradient:
+    'linear-gradient(242.9deg, #8E80F9 15.28%, #BE7BF6 116.16%)',
 
   mainTextColor: '#FFFFFF',
   secondaryTextColor: '#EBEBEB',
   disabledTextColor: '#888888',
+
+  borderRadius: '15px',
 };
 
 const LIGHT_THEME: Theme = {
@@ -28,10 +40,14 @@ const LIGHT_THEME: Theme = {
   menuBackgroundColor: '#F5F5F5',
   separatorBackgroundColor: '#EBEBEB',
   widgetBackgroundColor: '#F1F1F3',
+  gradient:
+    'linear-gradient(242.9deg, #8E80F9 15.28%, #BE7BF6 116.16%)',
 
   mainTextColor: '#18181A',
   secondaryTextColor: '#2F2F2F',
   disabledTextColor: '#888888',
+
+  borderRadius: '15px',
 };
 
 const ThemeContext = createContext<{
@@ -56,9 +72,12 @@ export function ThemeProvider({ children }: Props) {
   return (
     <ThemeContext.Provider value={{ toggleLightMode }}>
       {children}
-      <style>{`
+      <style suppressHydrationWarning scoped>{`
         body {
           ${variables}
+          @import url('${FONT.URL}');
+          font-family: '${FONT.NAME}', sans-serif;
+          background-color: var(--mainBackgroundColor);
         }
       `}</style>
     </ThemeContext.Provider>

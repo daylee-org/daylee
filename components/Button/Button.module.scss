@@ -1,0 +1,16 @@
+$spacing: 50px;
+
+.Button {
+  border: none;
+  background: var(--gradient);
+  border-radius: var(--borderRadius);
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 60px;
+  padding-left: $spacing;
+  padding-right: $spacing;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

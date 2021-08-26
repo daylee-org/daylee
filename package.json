@@ -8,7 +8,8 @@
     "start": "next start",
     "format": "prettier --write .",
     "lint": "next lint",
-    "generate": "graphql-codegen --tagName=gql --config ./codegen.yml"
+    "generate": "graphql-codegen --tagName=gql --config ./codegen.yml",
+    "predev": "npm run generate"
   },
   "dependencies": {
     "@apollo/client": "^3.4.8",
