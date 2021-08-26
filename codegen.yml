@@ -1,0 +1,10 @@
+schema: https://nightlee.herokuapp.com
+documents: [./**/*.graphql]
+generates:
+  ./types/withhooks.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      withHooks: true
