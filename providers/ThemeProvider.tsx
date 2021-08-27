@@ -73,7 +73,7 @@ export function ThemeProvider({ children }: Props) {
     <ThemeContext.Provider value={{ toggleLightMode }}>
       {children}
       <style suppressHydrationWarning scoped>{`
-          @import url('${FONT.URL}');
+        @import url('${FONT.URL}');
 
         body {
           ${variables}

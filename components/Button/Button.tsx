@@ -6,11 +6,23 @@ import styles from './Button.module.scss';
 
 interface Props {
   children: ReactChild | ReactChildren;
+  variant?: 'primary' | 'secondary' | 'tertiary';
+  pressed?: boolean;
   onClick?(): void;
 }
 
-export function Button({ onClick, children }: Props) {
-  const classes = classNames(styles.Button);
+export function Button({
+  onClick,
+  children,
+  pressed,
+  variant = 'primary',
+}: Props) {
+  const classes = classNames(styles.Button, {
+    [styles.pressed]: pressed,
+    [styles.primary]: variant === 'primary',
+    [styles.secondary]: variant === 'secondary',
+    [styles.tertiary]: variant === 'tertiary',
+  });
 
   return (
     <button className={classes} onClick={onClick}>

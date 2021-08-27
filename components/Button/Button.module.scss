@@ -1,16 +1,60 @@
-$spacing: 50px;
+$margin: 2px;
+$paddingHorizontal: 40px;
+$borderWidth: 1.5px;
+$maskGradient: linear-gradient(#fff 0 0);
+$height: 60px;
+
+$regularShadow: 0px 4px 4px rgba(105, 104, 104, 0.25);
+$pressedShadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
 
 .Button {
   border: none;
-  background: var(--gradient);
   border-radius: var(--borderRadius);
+  margin: $margin;
+  box-shadow: $regularShadow;
+  height: $height;
+  padding-left: $paddingHorizontal;
+  padding-right: $paddingHorizontal;
+  opacity: 1;
+  font-family: inherit;
 
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  height: 60px;
-  padding-left: $spacing;
-  padding-right: $spacing;
+  transition: 0.1s opacity;
 
   &:hover {
     cursor: pointer;
+    opacity: 0.8;
+  }
+
+  &:active {
+    box-shadow: $pressedShadow;
+    opacity: 0.6;
+  }
+}
+
+.primary {
+  background: var(--gradient);
+}
+
+.secondary {
+  display: inline-block;
+  position: relative;
+  background: transparent;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: $borderWidth;
+    border-radius: var(--borderRadius);
+    background: var(--gradient);
+
+    -webkit-mask: $maskGradient content-box, $maskGradient;
+    mask: $maskGradient content-box, $maskGradient;
+
+    -webkit-mask-composite: destination-out;
+    mask-composite: destination-out;
   }
 }

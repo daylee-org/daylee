@@ -17,7 +17,10 @@ export function Landing() {
       <Typography element="h2">
         This will be the landing page at some point
       </Typography>
-      <Button onClick={toggleLightMode}>
+      <Button variant="secondary" onClick={toggleLightMode}>
+        Toggle Light Mode
+      </Button>
+      <Button variant="primary" onClick={toggleLightMode}>
         Toggle Light Mode
       </Button>
     </div>
