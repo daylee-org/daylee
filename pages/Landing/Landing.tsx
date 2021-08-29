@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Typography, Button } from 'components';
+import { Typography, Button, Input } from 'components';
 import { useSignupMutation } from 'types/withhooks';
 import { useTheme } from 'providers/ThemeProvider';
 import { useState } from 'react';
@@ -32,6 +32,17 @@ export function Landing() {
       >
         Collapse
       </Button>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: 400,
+          padding: 10,
+        }}
+      >
+        <Input label="Name" />
+        <Input label="Username" />
+      </div>
     </div>
   );
 

@@ -1,0 +1,44 @@
+$mainColor: var(--mainTextColor);
+$lighterColor: var(--disabledTextColor);
+
+.Input {
+  position: relative;
+
+  > label {
+    position: absolute;
+    pointer-events: none;
+    bottom: 0.5em;
+    transition: 0.2s ease all;
+    color: $lighterColor;
+  }
+
+  > input {
+    padding: 1em 0px;
+    border: 0;
+    display: block;
+    width: 100%;
+    margin-top: 1.5em;
+    border-bottom: 1px solid $lighterColor;
+    color: $mainColor;
+    background: linear-gradient(
+      rgba(27, 27, 27, 0) 97%,
+      $mainColor 20%
+    );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0%;
+    transition: 0.2s cubic-bezier(0.64, 0.09, 0.08, 1) all;
+    &:focus,
+    &:valid {
+      ~ label {
+        color: $mainColor;
+        bottom: 2.5rem;
+      }
+      background-size: 100%;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}

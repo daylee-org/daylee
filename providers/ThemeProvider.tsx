@@ -8,7 +8,7 @@ import { noop } from 'utils/noop';
 
 interface Theme {
   mainBackgroundColor: string;
-  menuBackgroundColor: string;
+  secondaryBackgroundColor: string;
   separatorBackgroundColor: string;
   widgetBackgroundColor: string;
   gradient: string;
@@ -27,7 +27,7 @@ const FONT = {
 
 const DARK_THEME: Theme = {
   mainBackgroundColor: '#212124',
-  menuBackgroundColor: '#18181A',
+  secondaryBackgroundColor: '#18181A',
   separatorBackgroundColor: '#2F2F2F',
   widgetBackgroundColor: '#2C2C30',
   gradient:
@@ -42,7 +42,7 @@ const DARK_THEME: Theme = {
 
 const LIGHT_THEME: Theme = {
   mainBackgroundColor: '#FFFFFF',
-  menuBackgroundColor: '#F5F5F5',
+  secondaryBackgroundColor: '#F5F5F5',
   separatorBackgroundColor: '#EBEBEB',
   widgetBackgroundColor: '#F1F1F3',
   gradient:
