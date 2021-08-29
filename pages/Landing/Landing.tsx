@@ -1,5 +1,10 @@
 import Head from 'next/head';
-import { Typography, Button, Input } from 'components';
+import {
+  Typography,
+  Button,
+  Input,
+  Logo,
+} from 'components';
 import { useSignupMutation } from 'types/withhooks';
 import { useTheme } from 'providers/ThemeProvider';
 import { useState } from 'react';
@@ -16,6 +21,7 @@ export function Landing() {
         <meta name="description" content="Daylee web app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Logo />
       <Typography element="h2">
         This will be the landing page at some point
       </Typography>
