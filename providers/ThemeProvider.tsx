@@ -1,4 +1,9 @@
-import { useState, createContext, useContext } from 'react';
+import {
+  useState,
+  createContext,
+  useContext,
+  useCallback,
+} from 'react';
 import { noop } from 'utils/noop';
 
 interface Theme {
@@ -52,8 +57,10 @@ const LIGHT_THEME: Theme = {
 
 const ThemeContext = createContext<{
   toggleLightMode(): void;
+  isLightMode: boolean;
 }>({
   toggleLightMode: noop,
+  isLightMode: false,
 });
 
 interface Props {
@@ -69,25 +76,32 @@ export function ThemeProvider({ children }: Props) {
     .map(([key, value]) => `--${key}: ${value};`)
     .join('\n');
 
+  const toggleLightMode = useCallback(
+    function () {
+      isLightModeSet((prev) => !prev);
+    },
+    [isLightModeSet],
+  );
+
   return (
-    <ThemeContext.Provider value={{ toggleLightMode }}>
+    <ThemeContext.Provider
+      value={{ toggleLightMode, isLightMode }}
+    >
       {children}
       <style suppressHydrationWarning scoped>{`
         @import url('${FONT.URL}');
+        
+        :root {
+          ${variables}
+        }
 
         body {
-          ${variables}
           font-family: '${FONT.NAME}', sans-serif;
           background-color: var(--mainBackgroundColor);
-          line-height: 0px;
         }
       `}</style>
     </ThemeContext.Provider>
   );
-
-  function toggleLightMode() {
-    isLightModeSet((prev) => !prev);
-  }
 }
 
 export function useTheme() {

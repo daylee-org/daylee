@@ -1,7 +1,12 @@
 .Typography {
   color: var(--mainTextColor);
+  line-height: 0;
 }
 
-.Bold {
+.bold {
   font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
 }

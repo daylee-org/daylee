@@ -2,9 +2,11 @@ import Head from 'next/head';
 import { Typography, Button } from 'components';
 import { useSignupMutation } from 'types/withhooks';
 import { useTheme } from 'providers/ThemeProvider';
+import { useState } from 'react';
 
 export function Landing() {
   const { toggleLightMode } = useTheme();
+  const [collapsed, collapsedSet] = useState(false);
   const [signupMutation, { loading }] = useSignupMutation();
 
   return (
@@ -18,10 +20,17 @@ export function Landing() {
         This will be the landing page at some point
       </Typography>
       <Button variant="secondary" onClick={toggleLightMode}>
-        Toggle Light Mode
+        Toggle mode
       </Button>
-      <Button variant="primary" onClick={toggleLightMode}>
-        Toggle Light Mode
+      <Button variant="primary">Click me</Button>
+      <Button variant="add">Add</Button>
+      <Button
+        onClick={() => collapsedSet(!collapsed)}
+        selected={collapsed}
+        variant="collapse"
+        underline
+      >
+        Collapse
       </Button>
     </div>
   );
