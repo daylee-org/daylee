@@ -11,6 +11,7 @@ export function Input({ label, onChange, value }: Props) {
   return (
     <p className={styles.Input}>
       <input
+        required
         id="name"
         type="text"
         value={value}
