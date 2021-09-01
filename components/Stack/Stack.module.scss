@@ -1,15 +1,9 @@
-.Wrapper {
-  all: none;
-
-  & > .Stack {
-    padding: var(--paddingY) var(--paddingX) var(--paddingY)
-      var(--paddingX);
-  }
-}
-
 .Stack {
   display: flex;
   flex-direction: row;
+
+  padding: var(--paddingY) var(--paddingX) var(--paddingY)
+    var(--paddingX);
 
   border-radius: var(--borderRadius);
 

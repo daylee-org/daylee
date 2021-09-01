@@ -1,6 +1,45 @@
-import classNames from 'classnames';
 import { ThemeType } from 'providers';
-import styles from './Stack.module.scss';
+import styled from 'styled-components';
+
+const Wrapper = styled.div<Props>`
+  display: flex;
+  flex-direction: row;
+
+  padding: ${(prop) => getSize(prop.py)}
+    ${(prop) => getSize(prop.px)}
+    ${(prop) => getSize(prop.py)}
+    ${(prop) => getSize(prop.px)};
+
+  border-radius: var(--borderRadius);
+
+  background: ${(prop) =>
+    getBackgroundColor(prop.background)};
+
+  width: ${(prop) => getSize(prop.width, 'auto')};
+  height: ${(prop) => getSize(prop.height, 'auto')};
+
+  & > *:not(:last-child) {
+    margin-right: ${(prop) => getSize(prop.spacing)};
+  }
+
+  ${(prop) =>
+    prop.vertical
+      ? `
+    flex-direction: column;
+
+    width: ${prop.width};
+    height: ${prop.height};
+
+    & > *:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: ${getSize(prop.spacing)};
+    }
+    `
+      : ``}
+  ${(prop) => (prop.center ? `align-items: center;` : ``)}
+  ${(prop) =>
+    prop.spread ? `justify-content: space-between;` : ``}
+`;
 
 type SpacingType =
   | 'none'
@@ -9,75 +48,46 @@ type SpacingType =
   | 'loose'
   | string;
 
+type Colors = keyof Omit<ThemeType, 'borderRadius'>;
+
 interface Props {
   id: string;
   spacing?: SpacingType;
-  paddingX?: SpacingType;
-  paddingY?: SpacingType;
+  px?: SpacingType;
+  py?: SpacingType;
   center?: boolean;
   vertical?: boolean;
   children?: React.ReactNode;
-  length?: string;
-  breadth?: string;
+  width?: string;
+  height?: string;
   spread?: boolean;
-  background?: keyof Omit<ThemeType, 'borderRadius'>;
+  background?: Colors;
 }
 
-export function Stack({
-  id,
-  center,
-  spread,
-  vertical,
-  children,
-  length = 'auto',
-  breadth = 'auto',
-  spacing = 'auto',
-  paddingX = 'auto',
-  paddingY = 'auto',
-  background,
-}: Props) {
-  const classes = classNames(styles.Stack, {
-    [styles.vertical]: vertical,
-    [styles.center]: center,
-    [styles.spread]: spread,
-  });
+export function Stack({ children, ...props }: Props) {
+  return <Wrapper {...props}>{children}</Wrapper>;
+}
 
-  const backgroundColor = background
+function getSize(
+  length?: SpacingType,
+  defaultValue?: string,
+) {
+  switch (length) {
+    case 'loose':
+      return '73px';
+    case 'normal':
+      return '32px';
+    case 'none':
+      return '0px';
+    case 'tight':
+      return '10px';
+    default:
+      return length ?? defaultValue ?? '0px';
+  }
+}
+
+function getBackgroundColor(background?: Colors) {
+  return background
     ? `var(--${background})`
     : 'transparent';
-
-  return (
-    <div className={styles.Wrapper}>
-      <div id={id} className={classes}>
-        {children}
-      </div>
-      <style>{`
-        #${id} {
-          --margin: ${getSize(spacing)};
-
-          --paddingX: ${getSize(paddingX)};
-          --paddingY: ${getSize(paddingY)};
-
-          --breadth: ${breadth};
-          --length: ${length};
-          --background: ${backgroundColor};
-        }
-      `}</style>
-    </div>
-  );
-
-  function getSize(length: SpacingType) {
-    switch (length) {
-      case 'loose':
-        return '73px';
-      case 'normal':
-        return '32px';
-      case 'none':
-        return '0px';
-      case 'tight':
-        return '10px';
-      default:
-        return length;
-    }
-  }
 }

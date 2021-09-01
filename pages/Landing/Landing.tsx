@@ -1,24 +1,33 @@
-import Head from 'next/head';
 import {
   Typography,
   Button,
   Input,
   Logo,
   Stack,
+  TabInfo,
 } from 'components';
 import { useSignupMutation } from 'types/withhooks';
 import { useTheme } from 'providers/ThemeProvider';
-import { useState } from 'react';
 
 export function Landing() {
   const { toggleLightMode } = useTheme();
-  const [collapsed, collapsedSet] = useState(false);
   const [signupMutation, { loading }] = useSignupMutation();
+
+  const headerMarkup = (
+    <Stack id="header" spread>
+      <Logo />
+      <Stack spacing="loose" center id="main-actions">
+        <Typography>Our features</Typography>
+        <Typography>Contact</Typography>
+        <Button variant="primary">Use as guest</Button>
+      </Stack>
+    </Stack>
+  );
 
   const mainTitles = (
     <Stack
       vertical
-      breadth="500px"
+      width="25rem"
       spacing="normal"
       id="main-titles"
     >
@@ -36,9 +45,9 @@ export function Landing() {
 
   const authBox = (
     <Stack
+      px="normal"
       background="separatorBackgroundColor"
-      breadth="20rem"
-      paddingY="20px"
+      width="20rem"
       vertical
       id="inputs"
       spacing="normal"
@@ -53,36 +62,25 @@ export function Landing() {
       <div />
     </Stack>
   );
+
+  const bodyMarkup = (
+    <Stack id="body" center spread>
+      {mainTitles}
+      {authBox}
+    </Stack>
+  );
+
   return (
-    <Stack vertical breadth="100%" id="main">
-      <Head>
-        <title>Daylee</title>
-        <meta name="description" content="Daylee web app" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Stack
-        id="header"
-        spread
-        paddingY="tight"
-        paddingX="loose"
-      >
-        <Logo />
-        <Stack spacing="loose" center id="main-actions">
-          <Typography>Our features</Typography>
-          <Typography>Contact</Typography>
-          <Button variant="primary">Use as guest</Button>
-        </Stack>
-      </Stack>
-      <Stack
-        id="main-area"
-        center
-        spread
-        paddingY="tight"
-        paddingX="loose"
-      >
-        {mainTitles}
-        {authBox}
-      </Stack>
+    <Stack
+      vertical
+      id="page"
+      py="normal"
+      px="15vw"
+      spacing="loose"
+    >
+      <TabInfo />
+      {headerMarkup}
+      {bodyMarkup}
     </Stack>
   );
 
