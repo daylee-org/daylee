@@ -12,6 +12,7 @@ interface Props {
   underline?: boolean;
   selected?: boolean;
   onClick?(): void;
+  tight?: boolean;
 }
 
 export function Button({
@@ -19,6 +20,7 @@ export function Button({
   selected,
   children,
   underline,
+  tight,
   variant = 'primary',
 }: Props) {
   const isTertiary =
@@ -29,6 +31,8 @@ export function Button({
     [styles.primary]: variant === 'primary',
     [styles.secondary]: variant === 'secondary',
     [styles.tertiary]: isTertiary,
+    [styles.tertiary]: isTertiary,
+    [styles.tight]: tight,
   });
 
   return (

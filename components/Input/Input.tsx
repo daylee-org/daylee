@@ -12,12 +12,11 @@ export function Input({ label, onChange, value }: Props) {
     <p className={styles.Input}>
       <input
         required
-        id="name"
         type="text"
         value={value}
         onChange={(event) => onChange?.(event.target.value)}
       />
-      <label htmlFor="name">{label}</label>
+      <label>{label}</label>
     </p>
   );
 }

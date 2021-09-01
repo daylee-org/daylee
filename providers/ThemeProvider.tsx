@@ -6,7 +6,7 @@ import {
 } from 'react';
 import { noop } from 'utils/noop';
 
-interface Theme {
+export interface ThemeType {
   mainBackgroundColor: string;
   secondaryBackgroundColor: string;
   separatorBackgroundColor: string;
@@ -21,11 +21,11 @@ interface Theme {
 }
 
 const FONT = {
-  URL: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap',
+  URL: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap',
   NAME: 'Montserrat',
 };
 
-const DARK_THEME: Theme = {
+const DARK_THEME: ThemeType = {
   mainBackgroundColor: '#212124',
   secondaryBackgroundColor: '#18181A',
   separatorBackgroundColor: '#2F2F2F',
@@ -37,10 +37,10 @@ const DARK_THEME: Theme = {
   secondaryTextColor: '#EBEBEB',
   disabledTextColor: '#888888',
 
-  borderRadius: '15px',
+  borderRadius: '12px',
 };
 
-const LIGHT_THEME: Theme = {
+const LIGHT_THEME: ThemeType = {
   mainBackgroundColor: '#FFFFFF',
   secondaryBackgroundColor: '#F5F5F5',
   separatorBackgroundColor: '#EBEBEB',
@@ -52,7 +52,7 @@ const LIGHT_THEME: Theme = {
   secondaryTextColor: '#2F2F2F',
   disabledTextColor: '#888888',
 
-  borderRadius: '15px',
+  borderRadius: '12px',
 };
 
 const ThemeContext = createContext<{

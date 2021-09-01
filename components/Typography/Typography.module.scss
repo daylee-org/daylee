@@ -1,5 +1,6 @@
 .Typography {
   color: var(--mainTextColor);
+  white-space: nowrap;
   line-height: 0;
 }
 
@@ -9,4 +10,9 @@
 
 .underline {
   text-decoration: underline;
+}
+
+.wrap {
+  white-space: normal;
+  line-height: normal;
 }

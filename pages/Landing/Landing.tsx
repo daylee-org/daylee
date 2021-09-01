@@ -4,6 +4,7 @@ import {
   Button,
   Input,
   Logo,
+  Stack,
 } from 'components';
 import { useSignupMutation } from 'types/withhooks';
 import { useTheme } from 'providers/ThemeProvider';
@@ -14,42 +15,75 @@ export function Landing() {
   const [collapsed, collapsedSet] = useState(false);
   const [signupMutation, { loading }] = useSignupMutation();
 
+  const mainTitles = (
+    <Stack
+      vertical
+      breadth="500px"
+      spacing="normal"
+      id="main-titles"
+    >
+      <Typography wrap element="h1">
+        A productivity app & digital journal
+      </Typography>
+      <Typography wrap element="p">
+        Making life easier by organizing your thoughts,
+        schedule and life. Balance your work, projects,
+        social life and personal growth.
+      </Typography>
+      <Button tight>Use as guest</Button>
+    </Stack>
+  );
+
+  const authBox = (
+    <Stack
+      background="separatorBackgroundColor"
+      breadth="20rem"
+      paddingY="20px"
+      vertical
+      id="inputs"
+      spacing="normal"
+    >
+      <Input label="Email" />
+      <Input label="Password" />
+      <Button>Log in</Button>
+      <Button variant="secondary">Sign up</Button>
+      <Button variant="collapse" underline>
+        Use as a guest
+      </Button>
+      <div />
+    </Stack>
+  );
   return (
-    <div>
+    <Stack vertical breadth="100%" id="main">
       <Head>
         <title>Daylee</title>
         <meta name="description" content="Daylee web app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Logo />
-      <Typography element="h2">
-        This will be the landing page at some point
-      </Typography>
-      <Button variant="secondary" onClick={toggleLightMode}>
-        Toggle mode
-      </Button>
-      <Button variant="primary">Click me</Button>
-      <Button variant="add">Add</Button>
-      <Button
-        onClick={() => collapsedSet(!collapsed)}
-        selected={collapsed}
-        variant="collapse"
-        underline
+      <Stack
+        id="header"
+        spread
+        paddingY="tight"
+        paddingX="loose"
       >
-        Collapse
-      </Button>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: 400,
-          padding: 10,
-        }}
+        <Logo />
+        <Stack spacing="loose" center id="main-actions">
+          <Typography>Our features</Typography>
+          <Typography>Contact</Typography>
+          <Button variant="primary">Use as guest</Button>
+        </Stack>
+      </Stack>
+      <Stack
+        id="main-area"
+        center
+        spread
+        paddingY="tight"
+        paddingX="loose"
       >
-        <Input label="Name" />
-        <Input label="Username" />
-      </div>
-    </div>
+        {mainTitles}
+        {authBox}
+      </Stack>
+    </Stack>
   );
 
   async function handleSignupMutation() {

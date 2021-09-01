@@ -10,10 +10,12 @@ interface Props {
   subdued?: boolean;
   underline?: boolean;
   className?: string;
+  wrap?: boolean;
 }
 
 export function Typography({
   bold,
+  wrap,
   children,
   className,
   underline,
@@ -23,6 +25,7 @@ export function Typography({
   const classes = classnames(styles.Typography, className, {
     [styles.bold]: bold,
     [styles.underline]: underline,
+    [styles.wrap]: wrap,
   });
 
   return <Element className={classes}>{children}</Element>;

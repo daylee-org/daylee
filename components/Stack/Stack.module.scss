@@ -1,0 +1,44 @@
+.Wrapper {
+  all: none;
+
+  & > .Stack {
+    padding: var(--paddingY) var(--paddingX) var(--paddingY)
+      var(--paddingX);
+  }
+}
+
+.Stack {
+  display: flex;
+  flex-direction: row;
+
+  border-radius: var(--borderRadius);
+
+  background: var(--background);
+
+  height: var(--breadth);
+  width: var(--length);
+
+  & > *:not(:last-child) {
+    margin-right: var(--margin);
+  }
+}
+
+.vertical {
+  flex-direction: column;
+
+  width: var(--breadth);
+  height: var(--length);
+
+  & > *:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: var(--margin);
+  }
+}
+
+.center {
+  align-items: center;
+}
+
+.spread {
+  justify-content: space-between;
+}
