@@ -8,10 +8,8 @@ import {
   ThemeToggle,
 } from 'components';
 import { useSignupMutation } from 'types/withhooks';
-import { useTheme } from 'providers/ThemeProvider';
 
 export function Landing() {
-  const { toggleLightMode } = useTheme();
   const [signupMutation, { loading }] = useSignupMutation();
 
   const headerMarkup = (
