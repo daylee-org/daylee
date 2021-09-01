@@ -22,7 +22,7 @@ export interface ThemeType {
 }
 
 const FONT = {
-  URL: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap',
+  URL: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap',
   NAME: 'Montserrat',
 };
 
