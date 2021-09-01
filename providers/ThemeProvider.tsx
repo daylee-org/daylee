@@ -5,6 +5,7 @@ import {
   useCallback,
 } from 'react';
 import { noop } from 'utils/noop';
+import { useLocalStorage } from 'hooks';
 
 export interface ThemeType {
   mainBackgroundColor: string;
@@ -68,7 +69,10 @@ interface Props {
 }
 
 export function ThemeProvider({ children }: Props) {
-  const [isLightMode, isLightModeSet] = useState(false);
+  const [isLightMode, isLightModeSetter] = useLocalStorage(
+    'isLightMode',
+    false,
+  );
 
   const variables = Object.entries(
     isLightMode ? LIGHT_THEME : DARK_THEME,
@@ -78,9 +82,9 @@ export function ThemeProvider({ children }: Props) {
 
   const toggleLightMode = useCallback(
     function () {
-      isLightModeSet((prev) => !prev);
+      isLightModeSetter(!isLightMode);
     },
-    [isLightModeSet],
+    [isLightModeSetter],
   );
 
   return (

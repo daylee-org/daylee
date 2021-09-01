@@ -1,0 +1,68 @@
+.Container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.switch {
+  display: flex;
+  height: 36px;
+  position: relative;
+  width: 70px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #fff;
+  border: 1px solid #000;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: #333;
+  border: 1px solid #000;
+  bottom: 3px;
+  content: '';
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+  z-index: 421;
+}
+
+input:checked + .slider {
+  background-color: #101211;
+}
+
+input:checked + .slider:before {
+  transform: translateX(34px);
+  border-color: #cfcfcf;
+  background-color: #efefef;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggleMoon,
+.toggleSun {
+  width: 50%;
+  text-align: center;
+  padding: 0.25em;
+  position: relative;
+  z-index: 420;
+}

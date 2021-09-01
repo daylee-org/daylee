@@ -5,6 +5,7 @@ import {
   Logo,
   Stack,
   TabInfo,
+  ThemeToggle,
 } from 'components';
 import { useSignupMutation } from 'types/withhooks';
 import { useTheme } from 'providers/ThemeProvider';
@@ -20,6 +21,7 @@ export function Landing() {
         <Typography>Our features</Typography>
         <Typography>Contact</Typography>
         <Button variant="primary">Use as guest</Button>
+        <ThemeToggle />
       </Stack>
     </Stack>
   );
