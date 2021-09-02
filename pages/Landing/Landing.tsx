@@ -18,8 +18,7 @@ export function Landing() {
       <Stack spacing="loose" center id="main-actions">
         <Typography>Our features</Typography>
         <Typography>Contact</Typography>
-        <Button variant="primary">Use as guest</Button>
-        <ThemeToggle />
+        <Button label="Use as guest" variant="primary" />
       </Stack>
     </Stack>
   );
@@ -39,7 +38,7 @@ export function Landing() {
         schedule and life. Balance your work, projects,
         social life and personal growth.
       </Typography>
-      <Button tight>Use as guest</Button>
+      <Button label="Use as guest" tight />
     </Stack>
   );
 
@@ -52,13 +51,15 @@ export function Landing() {
       id="inputs"
       spacing="normal"
     >
-      <Input label="Email" />
-      <Input label="Password" />
-      <Button>Log in</Button>
-      <Button variant="secondary">Sign up</Button>
-      <Button variant="collapse" underline>
-        Use as a guest
-      </Button>
+      <Input placeholder="you@email.com" label="Email" />
+      <Input placeholder="abcd1234!" label="Password" />
+      <Button label="Log in" />
+      <Button label="Sign up" variant="secondary" />
+      <Button
+        label="Use as a guest"
+        variant="collapse"
+        underline
+      />
       <div />
     </Stack>
   );
@@ -75,10 +76,11 @@ export function Landing() {
       vertical
       id="page"
       py="normal"
-      px="15vw"
+      px="20vw"
       spacing="loose"
     >
       <TabInfo />
+      <ThemeToggle />
       {headerMarkup}
       {bodyMarkup}
     </Stack>

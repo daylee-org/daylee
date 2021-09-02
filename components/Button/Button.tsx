@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import React, { ReactChild, ReactChildren } from 'react';
 import { Typography } from '../Typography/Typography';
 import { AddButton } from './Icons/AddButton';
 import { Chevron } from './Icons/Chevron';
@@ -7,7 +6,7 @@ import { Chevron } from './Icons/Chevron';
 import styles from './Button.module.scss';
 
 interface Props {
-  children: ReactChild | ReactChildren;
+  label: string;
   variant?: 'primary' | 'secondary' | 'add' | 'collapse';
   underline?: boolean;
   selected?: boolean;
@@ -16,11 +15,11 @@ interface Props {
 }
 
 export function Button({
+  label,
+  tight,
   onClick,
   selected,
-  children,
   underline,
-  tight,
   variant = 'primary',
 }: Props) {
   const isTertiary =
@@ -39,7 +38,7 @@ export function Button({
     <button className={classes} onClick={onClick}>
       {getIcon()}
       <Typography underline={underline} element="h3">
-        {children}
+        {label}
       </Typography>
     </button>
   );

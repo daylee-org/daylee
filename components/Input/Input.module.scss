@@ -29,6 +29,7 @@ $lighterColor: var(--disabledTextColor);
     background-position: center;
     background-size: 0%;
     transition: 0.2s cubic-bezier(0.64, 0.09, 0.08, 1) all;
+
     &:focus,
     &:valid {
       ~ label {
@@ -37,8 +38,19 @@ $lighterColor: var(--disabledTextColor);
       }
       background-size: 100%;
     }
+
+    &::placeholder {
+      transition: 0.2s cubic-bezier(0.64, 0.09, 0.08, 1)
+        color;
+      color: transparent;
+      letter-spacing: 1px;
+    }
+
     &:focus {
       outline: none;
+      &::placeholder {
+        color: $lighterColor;
+      }
     }
   }
 }

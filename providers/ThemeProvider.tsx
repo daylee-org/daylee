@@ -1,5 +1,4 @@
 import {
-  useState,
   createContext,
   useContext,
   useCallback,
@@ -38,7 +37,7 @@ const DARK_THEME: ThemeType = {
   secondaryTextColor: '#EBEBEB',
   disabledTextColor: '#888888',
 
-  borderRadius: '12px',
+  borderRadius: '10px',
 };
 
 const LIGHT_THEME: ThemeType = {
@@ -53,7 +52,7 @@ const LIGHT_THEME: ThemeType = {
   secondaryTextColor: '#2F2F2F',
   disabledTextColor: '#888888',
 
-  borderRadius: '12px',
+  borderRadius: '10px',
 };
 
 const ThemeContext = createContext<{
