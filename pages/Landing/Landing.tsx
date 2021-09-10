@@ -8,6 +8,14 @@ import {
   ThemeToggle,
 } from 'components';
 import { useSignupMutation } from 'types/withhooks';
+import styles from './Landing.module.scss';
+import Image from 'next/image';
+import calendar from './Images/calendar.png';
+import plant from './Images/plant.png';
+import pomodoro from './Images/pomodoro.png';
+import postit from './Images/postit.png';
+import todo from './Images/todo.png';
+import tracker from './Images/tracker.png';
 
 export function Landing() {
   const [signupMutation, { loading }] = useSignupMutation();
@@ -89,7 +97,40 @@ export function Landing() {
     </Stack>
   );
 
-  const gridMarkup = <div></div>;
+  const gridMarkup = (
+    <div className={styles.Grid}>
+      <GridItem
+        image={tracker}
+        title="Habit Tracker"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
+      />
+      <GridItem
+        image={todo}
+        title="To-Do List"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
+      />
+      <GridItem
+        image={pomodoro}
+        title="Pomodoro Clock"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
+      />
+      <GridItem
+        image={calendar}
+        title="Custom Calendar"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
+      />
+      <GridItem
+        image={plant}
+        title="Gratitude Practice"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
+      />
+      <GridItem
+        image={postit}
+        title="Post-It Board"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
+      />
+    </div>
+  );
 
   const bottomMessageMarkup = (
     <Stack
@@ -196,4 +237,26 @@ export function Landing() {
       },
     });
   }
+}
+
+interface GridItemProps {
+  title: string;
+  description: string;
+  image: StaticImageData;
+}
+
+function GridItem({
+  title,
+  description,
+  image,
+}: GridItemProps) {
+  return (
+    <div className={styles.GridItem}>
+      <Image src={image} alt="Picture of the author" />
+      <Typography element="h3">{title}</Typography>
+      <Typography center wrap thin>
+        {description}
+      </Typography>
+    </div>
+  );
 }

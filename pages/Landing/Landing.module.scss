@@ -1,0 +1,36 @@
+$borderColor: var(--separatorBackgroundColor);
+
+.Grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+
+  .GridItem:nth-child(-n + 3) {
+    border-top: none;
+  }
+  .GridItem:nth-child(n + 3) {
+    border-bottom: none;
+  }
+  .GridItem:nth-child(3n + 1) {
+    border-left: none;
+  }
+  .GridItem:nth-child(n + 3) {
+    border-right: none;
+  }
+}
+
+.GridItem {
+  margin: 0;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid $borderColor;
+
+  img {
+    height: 2rem;
+    width: 2rem;
+  }
+}
