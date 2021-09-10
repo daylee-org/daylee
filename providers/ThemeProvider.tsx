@@ -12,16 +12,23 @@ export interface ThemeType {
   separatorBackgroundColor: string;
   widgetBackgroundColor: string;
   gradient: string;
+  baseBoxShadow: string;
 
   mainTextColor: string;
   secondaryTextColor: string;
   disabledTextColor: string;
+  dangerTextColor: string;
 
   borderRadius: string;
 }
 
+export type ThemeColors = keyof Omit<
+  ThemeType,
+  'borderRadius'
+>;
+
 const FONT = {
-  URL: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap',
+  URL: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap',
   NAME: 'Montserrat',
 };
 
@@ -32,10 +39,12 @@ const DARK_THEME: ThemeType = {
   widgetBackgroundColor: '#2C2C30',
   gradient:
     'linear-gradient(242.9deg, #8E80F9 15.28%, #BE7BF6 116.16%)',
+  baseBoxShadow: '3px 4px 10px rgb(0 0 0 / 18%);',
 
   mainTextColor: '#FFFFFF',
   secondaryTextColor: '#EBEBEB',
   disabledTextColor: '#888888',
+  dangerTextColor: '#FF6262',
 
   borderRadius: '10px',
 };
@@ -47,10 +56,12 @@ const LIGHT_THEME: ThemeType = {
   widgetBackgroundColor: '#F1F1F3',
   gradient:
     'linear-gradient(242.9deg, #8E80F9 15.28%, #BE7BF6 116.16%)',
+  baseBoxShadow: '3px 4px 10px rgba(105, 104, 104, 0.25);',
 
   mainTextColor: '#18181A',
   secondaryTextColor: '#2F2F2F',
   disabledTextColor: '#888888',
+  dangerTextColor: '#FF6262',
 
   borderRadius: '10px',
 };

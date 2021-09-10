@@ -1,21 +1,31 @@
-import { ReactChild, ReactChildren } from 'react';
+import {
+  ReactChild,
+  ReactChildren,
+  ReactNode,
+} from 'react';
 import classnames from 'classnames';
 
 import styles from './Typography.module.scss';
 
 interface Props {
-  children: ReactChild | ReactChildren;
+  children: ReactNode;
   element?: 'h1' | 'h2' | 'h3' | 'p';
   bold?: boolean;
   subdued?: boolean;
   underline?: boolean;
   className?: string;
   wrap?: boolean;
+  thin?: boolean;
+  center?: boolean;
+  danger?: boolean;
 }
 
 export function Typography({
   bold,
   wrap,
+  thin,
+  danger,
+  center,
   children,
   className,
   underline,
@@ -26,6 +36,9 @@ export function Typography({
     [styles.bold]: bold,
     [styles.underline]: underline,
     [styles.wrap]: wrap,
+    [styles.thin]: thin,
+    [styles.center]: center,
+    [styles.danger]: danger,
   });
 
   return <Element className={classes}>{children}</Element>;

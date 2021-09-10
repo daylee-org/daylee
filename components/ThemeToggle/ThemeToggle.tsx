@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { useTheme } from 'providers/ThemeProvider';
-import { useLocalStorage } from 'hooks';
 
 import styles from './ThemeToggle.module.scss';
 

@@ -23,17 +23,17 @@ export function Landing() {
     </Stack>
   );
 
-  const mainTitles = (
+  const mainTitlesMarkup = (
     <Stack
       vertical
       width="25rem"
       spacing="normal"
-      id="main-titles"
+      id="mainTitles"
     >
       <Typography wrap element="h1">
         A productivity app & digital journal
       </Typography>
-      <Typography wrap element="p">
+      <Typography thin wrap>
         Making life easier by organizing your thoughts,
         schedule and life. Balance your work, projects,
         social life and personal growth.
@@ -44,6 +44,7 @@ export function Landing() {
 
   const authBox = (
     <Stack
+      shadow
       px="normal"
       background="separatorBackgroundColor"
       width="20rem"
@@ -66,23 +67,121 @@ export function Landing() {
 
   const bodyMarkup = (
     <Stack id="body" center spread>
-      {mainTitles}
+      {mainTitlesMarkup}
       {authBox}
     </Stack>
   );
 
-  return (
+  const middleMessageMarkup = (
     <Stack
+      center
       vertical
-      id="page"
-      py="normal"
-      px="20vw"
-      spacing="loose"
+      spacing="tight"
+      id="middleMessage"
     >
-      <TabInfo />
-      <ThemeToggle />
-      {headerMarkup}
-      {bodyMarkup}
+      <Typography element="h2">
+        Built to empower everyone
+      </Typography>
+      <Typography thin>
+        Living more intentionally with Daylee’s
+        self-actualizing features
+      </Typography>
+    </Stack>
+  );
+
+  const gridMarkup = <div></div>;
+
+  const bottomMessageMarkup = (
+    <Stack
+      center
+      vertical
+      spacing="tight"
+      id="middleMessage"
+    >
+      <Typography element="h2">
+        Help us grow with you
+      </Typography>
+      <Typography center wrap thin>
+        Growth and self-actualization is at the center of
+        what we do. Help us by sending your feedback,
+        experience, bugs, extra features you would like to
+        see, etc.
+      </Typography>
+      <Typography danger center wrap thin>
+        <Typography danger center wrap bold>
+          Note:
+        </Typography>{' '}
+        if you choose to stay anonymous insert ‘Anonymous’
+        your name instead of using a fake name
+      </Typography>
+    </Stack>
+  );
+
+  const footerMarkup = (
+    <Stack spread id="footer">
+      <Stack
+        width="70vw"
+        vertical
+        spacing="normal"
+        id="footer-left"
+      >
+        <Typography element="h1">You have...</Typography>
+        <Stack
+          px="loose"
+          id="footer-messages"
+          vertical
+          spacing="normal"
+        >
+          <Typography thin>
+            Feedback/comments for us?
+          </Typography>
+          <Typography thin>
+            Features you would like to see on Daylee?
+          </Typography>
+          <Typography thin>
+            Experienced issues or bugs?
+          </Typography>
+        </Stack>
+        <Typography element="h1">Let us know!</Typography>
+      </Stack>
+      <Stack
+        spacing="tight"
+        width="30vw"
+        vertical
+        id="footer-right"
+      >
+        <Input placeholder="John Doe" label="Your name" />
+        <Input
+          placeholder="you@email.com"
+          label="Your email"
+        />
+        <Input
+          placeholder="Hi, Daylee team..."
+          label="Your message"
+        />
+        <Button label="Send" variant="collapse" />
+      </Stack>
+    </Stack>
+  );
+
+  return (
+    <Stack id="wrapper" vertical center>
+      <Stack
+        vertical
+        width="60rem"
+        id="page"
+        py="normal"
+        spacing="extra-loose"
+      >
+        <TabInfo />
+        <ThemeToggle />
+        {headerMarkup}
+        {bodyMarkup}
+        {middleMessageMarkup}
+        {gridMarkup}
+        {bottomMessageMarkup}
+        {footerMarkup}
+      </Stack>
     </Stack>
   );
 

@@ -2,6 +2,7 @@
   color: var(--mainTextColor);
   white-space: nowrap;
   line-height: 0;
+  display: inline;
 }
 
 .bold {
@@ -15,4 +16,16 @@
 .wrap {
   white-space: normal;
   line-height: normal;
+}
+
+.thin {
+  font-weight: 200;
+}
+
+.center {
+  text-align: center;
+}
+
+.danger {
+  color: var(--dangerTextColor);
 }

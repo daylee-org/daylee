@@ -1,4 +1,4 @@
-import { ThemeType } from 'providers';
+import { ThemeColors } from 'providers';
 import styled from 'styled-components';
 
 const Wrapper = styled.div<Props>`
@@ -9,6 +9,9 @@ const Wrapper = styled.div<Props>`
     ${(prop) => getSize(prop.px)}
     ${(prop) => getSize(prop.py)}
     ${(prop) => getSize(prop.px)};
+
+  box-shadow: ${(props) =>
+    props.shadow ? 'var(--baseBoxShadow)' : 'none'};
 
   border-radius: var(--borderRadius);
 
@@ -27,9 +30,6 @@ const Wrapper = styled.div<Props>`
       ? `
     flex-direction: column;
 
-    width: ${prop.width};
-    height: ${prop.height};
-
     & > *:not(:last-child) {
       margin-right: 0;
       margin-bottom: ${getSize(prop.spacing)};
@@ -46,9 +46,8 @@ type SpacingType =
   | 'tight'
   | 'normal'
   | 'loose'
+  | 'extra-loose'
   | string;
-
-type Colors = keyof Omit<ThemeType, 'borderRadius'>;
 
 interface Props {
   id: string;
@@ -61,7 +60,8 @@ interface Props {
   width?: string;
   height?: string;
   spread?: boolean;
-  background?: Colors;
+  shadow?: boolean;
+  background?: ThemeColors;
 }
 
 export function Stack({ children, ...props }: Props) {
@@ -73,6 +73,8 @@ function getSize(
   defaultValue?: string,
 ) {
   switch (length) {
+    case 'extra-loose':
+      return '100px';
     case 'loose':
       return '73px';
     case 'normal':
@@ -86,7 +88,7 @@ function getSize(
   }
 }
 
-function getBackgroundColor(background?: Colors) {
+function getBackgroundColor(background?: ThemeColors) {
   return background
     ? `var(--${background})`
     : 'transparent';
