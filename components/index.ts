@@ -5,3 +5,6 @@ export { Input } from './Input/Input';
 export { Logo } from './Logo/Logo';
 export { Stack } from './Stack/Stack';
 export { TabInfo } from './TabInfo/TabInfo';
+
+// Pages
+export { Landing } from './Landing/Landing';
