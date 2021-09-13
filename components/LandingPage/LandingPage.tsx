@@ -8,7 +8,7 @@ import {
   ThemeToggle,
 } from 'components';
 import { useSignupMutation } from 'types/withhooks';
-import styles from './Landing.module.scss';
+import styles from './LandingPage.module.scss';
 import Image from 'next/image';
 import calendar from './Images/calendar.png';
 import plant from './Images/plant.png';
@@ -17,7 +17,7 @@ import postit from './Images/postit.png';
 import todo from './Images/todo.png';
 import tracker from './Images/tracker.png';
 
-export function Landing() {
+export function LandingPage() {
   const [signupMutation, { loading }] = useSignupMutation();
 
   const headerMarkup = (

@@ -7,4 +7,4 @@ export { Stack } from './Stack/Stack';
 export { TabInfo } from './TabInfo/TabInfo';
 
 // Pages
-export { Landing } from './Landing/Landing';
+export { LandingPage } from './LandingPage/LandingPage';
