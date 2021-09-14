@@ -7,7 +7,7 @@ import {
   TabInfo,
   ThemeToggle,
 } from 'components';
-import { useSignupMutation } from 'types/withhooks';
+import { useSigninLazyQuery } from 'types/withhooks';
 import styles from './LandingPage.module.scss';
 import Image from 'next/image';
 import calendar from './Images/calendar.png';
@@ -16,9 +16,20 @@ import pomodoro from './Images/pomodoro.png';
 import postit from './Images/postit.png';
 import todo from './Images/todo.png';
 import tracker from './Images/tracker.png';
+import { useState } from 'react';
 
 export function LandingPage() {
-  const [signupMutation, { loading }] = useSignupMutation();
+  const [signin, { loading }] = useSigninLazyQuery({
+    onCompleted(data) {
+      console.log(data);
+    },
+    onError(error) {
+      console.log(error);
+    },
+  });
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const headerMarkup = (
     <Stack id="header" spread>
@@ -60,9 +71,23 @@ export function LandingPage() {
       id="inputs"
       spacing="normal"
     >
-      <Input placeholder="you@email.com" label="Email" />
-      <Input placeholder="abcd1234!" label="Password" />
-      <Button label="Log in" />
+      <Input
+        value={email}
+        onChange={setEmail}
+        placeholder="you@email.com"
+        label="Email"
+      />
+      <Input
+        value={password}
+        onChange={setPassword}
+        placeholder="abcd1234!"
+        label="Password"
+      />
+      <Button
+        onClick={handleSigninMutation}
+        label="Log in"
+        disabled={loading}
+      />
       <Button label="Sign up" variant="secondary" />
       <Button
         label="Use as a guest"
@@ -148,13 +173,15 @@ export function LandingPage() {
         experience, bugs, extra features you would like to
         see, etc.
       </Typography>
-      <Typography danger center wrap thin>
+      <Stack spacing="tight" id="note-msg">
         <Typography danger center wrap bold>
           Note:
         </Typography>{' '}
-        if you choose to stay anonymous insert ‘Anonymous’
-        your name instead of using a fake name
-      </Typography>
+        <Typography danger center wrap>
+          if you choose to stay anonymous insert ‘Anonymous’
+          your name instead of using a fake name
+        </Typography>
+      </Stack>
     </Stack>
   );
 
@@ -226,13 +253,12 @@ export function LandingPage() {
     </Stack>
   );
 
-  async function handleSignupMutation() {
-    const { data } = await signupMutation({
+  async function handleSigninMutation() {
+    signin({
       variables: {
         args: {
-          email: 'email',
-          password: 'password',
-          username: 'username',
+          email: email,
+          password: password,
         },
       },
     });

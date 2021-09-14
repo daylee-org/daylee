@@ -1,0 +1,6 @@
+query signin($args: UserSigninInput!) {
+  userSignin(args: $args) {
+    id
+    email
+  }
+}

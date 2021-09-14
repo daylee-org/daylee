@@ -81,7 +81,7 @@ interface Props {
 export function ThemeProvider({ children }: Props) {
   const [isLightMode, isLightModeSetter] = useLocalStorage(
     'isLightMode',
-    false,
+    true,
   );
 
   const variables = Object.entries(

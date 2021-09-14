@@ -215,6 +215,19 @@ export type WeatherwidgetInput = {
   location: Scalars['String'];
 };
 
+export type SigninQueryVariables = Exact<{
+  args: UserSigninInput;
+}>;
+
+
+export type SigninQuery = (
+  { __typename?: 'Query' }
+  & { userSignin: (
+    { __typename?: 'User' }
+    & Pick<User, 'id' | 'email'>
+  ) }
+);
+
 export type SignupMutationVariables = Exact<{
   args: UserSignupInput;
 }>;
@@ -229,6 +242,42 @@ export type SignupMutation = (
 );
 
 
+export const SigninDocument = gql`
+    query signin($args: UserSigninInput!) {
+  userSignin(args: $args) {
+    id
+    email
+  }
+}
+    `;
+
+/**
+ * __useSigninQuery__
+ *
+ * To run a query within a React component, call `useSigninQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSigninQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSigninQuery({
+ *   variables: {
+ *      args: // value for 'args'
+ *   },
+ * });
+ */
+export function useSigninQuery(baseOptions: Apollo.QueryHookOptions<SigninQuery, SigninQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<SigninQuery, SigninQueryVariables>(SigninDocument, options);
+      }
+export function useSigninLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SigninQuery, SigninQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<SigninQuery, SigninQueryVariables>(SigninDocument, options);
+        }
+export type SigninQueryHookResult = ReturnType<typeof useSigninQuery>;
+export type SigninLazyQueryHookResult = ReturnType<typeof useSigninLazyQuery>;
+export type SigninQueryResult = Apollo.QueryResult<SigninQuery, SigninQueryVariables>;
 export const SignupDocument = gql`
     mutation signup($args: UserSignupInput!) {
   userSignup(args: $args) {
