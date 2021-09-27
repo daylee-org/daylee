@@ -236,13 +236,13 @@ export function LandingPage() {
     <Stack id="wrapper" vertical center>
       <Stack
         vertical
-        width="60rem"
+        width="65rem"
         id="page"
         py="normal"
         spacing="extra-loose"
       >
         <TabInfo />
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
         {headerMarkup}
         {bodyMarkup}
         {middleMessageMarkup}
