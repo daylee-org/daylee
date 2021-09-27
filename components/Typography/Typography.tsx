@@ -21,7 +21,7 @@ type TypographyType =
   | 'smallText';
 interface Props {
   children: ReactNode;
-  element?: 'h1' | 'h2' | 'h3' | 'p';
+  // element?: 'h1' | 'h2' | 'h3' | 'p';
   bold?: boolean;
   subdued?: boolean;
   underline?: boolean;
@@ -30,7 +30,6 @@ interface Props {
   thin?: boolean;
   center?: boolean;
   danger?: boolean;
-
   type?: TypographyType;
 }
 

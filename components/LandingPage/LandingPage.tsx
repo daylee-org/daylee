@@ -45,14 +45,14 @@ export function LandingPage() {
   const mainTitlesMarkup = (
     <Stack
       vertical
-      width="25rem"
+      width="38rem"
       spacing="normal"
       id="mainTitles"
     >
-      <Typography wrap element="h1">
+      <Typography wrap type="header1">
         A productivity app & digital journal
       </Typography>
-      <Typography thin wrap>
+      <Typography wrap type="bigCaption">
         Making life easier by organizing your thoughts,
         schedule and life. Balance your work, projects,
         social life and personal growth.
@@ -109,13 +109,13 @@ export function LandingPage() {
     <Stack
       center
       vertical
-      spacing="tight"
+      spacing="normal"
       id="middleMessage"
     >
-      <Typography element="h2">
+      <Typography type="header2">
         Built to empower everyone
       </Typography>
-      <Typography thin>
+      <Typography type="mediumCaption">
         Living more intentionally with Daylee’s
         self-actualizing features
       </Typography>
