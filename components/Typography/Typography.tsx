@@ -43,8 +43,6 @@ export function Typography({
   children,
   className,
   underline,
-  element = 'p',
-
   type,
 }: Props) {
   const Element = getElement(type);
@@ -61,7 +59,12 @@ export function Typography({
     [styles.header3]: type === 'header3',
     [styles.header4]: type === 'header4',
     [styles.header5]: type === 'header5',
+    [styles.bigCaption]: type === 'bigCaption',
+    [styles.mediumCaption]: type === 'mediumCaption',
+    [styles.smallCaption]: type === 'smallCaption',
     [styles.bigText]: type === 'bigText',
+    [styles.mediumText]: type === 'mediumText',
+    [styles.smallText]: type === 'smallText',
   });
 
   return <Element className={classes}>{children}</Element>;
@@ -70,6 +73,14 @@ export function Typography({
     switch (type) {
       case 'header1':
         return 'h1';
+      case 'header2':
+        return 'h2';
+      case 'header3':
+        return 'h3';
+      case 'header4':
+        return 'h4';
+      case 'header5':
+        return 'h5';
       default:
         return 'p';
     }
