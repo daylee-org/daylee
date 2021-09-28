@@ -46,12 +46,14 @@ export function LandingPage() {
     <Stack
       vertical
       width="38rem"
-      spacing="normal"
+      spacing="45px"
       id="mainTitles"
     >
-      <Typography wrap type="header1">
-        A productivity app & digital journal
-      </Typography>
+      <Stack vertical width="30rem" id="bigTitle">
+        <Typography wrap type="header1">
+          A productivity app & digital journal
+        </Typography>
+      </Stack>
       <Typography wrap type="bigCaption">
         Making life easier by organizing your thoughts,
         schedule and life. Balance your work, projects,
@@ -105,88 +107,90 @@ export function LandingPage() {
     </Stack>
   );
 
-  const middleMessageMarkup = (
-    <Stack
-      center
-      vertical
-      spacing="normal"
-      id="middleMessage"
-    >
-      <Typography type="header2">
-        Built to empower everyone
-      </Typography>
-      <Typography type="mediumCaption">
-        Living more intentionally with Daylee’s
-        self-actualizing features
-      </Typography>
-    </Stack>
-  );
-
   const gridMarkup = (
-    <div className={styles.Grid}>
-      <GridItem
-        image={tracker}
-        title="Habit Tracker"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
-      />
-      <GridItem
-        image={todo}
-        title="To-Do List"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
-      />
-      <GridItem
-        image={pomodoro}
-        title="Pomodoro Clock"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
-      />
-      <GridItem
-        image={calendar}
-        title="Custom Calendar"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
-      />
-      <GridItem
-        image={plant}
-        title="Gratitude Practice"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
-      />
-      <GridItem
-        image={postit}
-        title="Post-It Board"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
-      />
-    </div>
-  );
-
-  const bottomMessageMarkup = (
     <Stack
       center
       vertical
-      spacing="tight"
-      id="middleMessage"
+      spacing="extra-loose"
+      id="features"
     >
-      <Typography element="h2">
-        Help us grow with you
-      </Typography>
-      <Typography center wrap thin>
-        Growth and self-actualization is at the center of
-        what we do. Help us by sending your feedback,
-        experience, bugs, extra features you would like to
-        see, etc.
-      </Typography>
-      <Stack spacing="tight" id="note-msg">
-        <Typography danger center wrap bold>
-          Note:
-        </Typography>{' '}
-        <Typography danger center wrap>
-          if you choose to stay anonymous insert ‘Anonymous’
-          your name instead of using a fake name
+      <Stack
+        center
+        vertical
+        spacing="normal"
+        id="middleMessage"
+      >
+        <Typography type="header2">
+          Built to empower everyone
+        </Typography>
+        <Typography type="mediumCaption">
+          Living more intentionally with Daylee’s
+          self-actualizing features
         </Typography>
       </Stack>
+      <div className={styles.Grid}>
+        <GridItem
+          image={tracker}
+          title="Habit Tracker"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
+        />
+        <GridItem
+          image={todo}
+          title="To-Do List"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
+        />
+        <GridItem
+          image={pomodoro}
+          title="Pomodoro Clock"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
+        />
+        <GridItem
+          image={calendar}
+          title="Custom Calendar"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
+        />
+        <GridItem
+          image={plant}
+          title="Gratitude Practice"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
+        />
+        <GridItem
+          image={postit}
+          title="Post-It Board"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
+        />
+      </div>
     </Stack>
   );
 
   const footerMarkup = (
-    <Stack spread id="footer">
+    <Stack center vertical spread id="footer">
+      <Stack
+        center
+        vertical
+        spacing="normal"
+        id="bottomMessage"
+      >
+        <Typography type="header2">
+          Help us grow with you
+        </Typography>
+        <Typography center wrap type="mediumCaption">
+          Growth and self-actualization is at the center of
+          what we do. Help us by sending your feedback,
+          experience, bugs, extra features you would like to
+          see, etc.
+        </Typography>
+        <Stack spacing="tight" id="note-msg">
+          <Typography danger center wrap bold>
+            Note:
+          </Typography>{' '}
+          <Typography danger center wrap>
+            if you choose to stay anonymous insert
+            ‘Anonymous’ your name instead of using a fake
+            name
+          </Typography>
+        </Stack>
+      </Stack>
       <Stack
         width="70vw"
         vertical
@@ -239,15 +243,13 @@ export function LandingPage() {
         width="65rem"
         id="page"
         py="normal"
-        spacing="extra-loose"
+        spacing="200px"
       >
         <TabInfo />
         {/* <ThemeToggle /> */}
         {headerMarkup}
         {bodyMarkup}
-        {middleMessageMarkup}
         {gridMarkup}
-        {bottomMessageMarkup}
         {footerMarkup}
       </Stack>
     </Stack>
@@ -279,10 +281,19 @@ function GridItem({
   return (
     <div className={styles.GridItem}>
       <Image src={image} alt="Picture of the author" />
-      <Typography element="h3">{title}</Typography>
-      <Typography center wrap thin>
-        {description}
-      </Typography>
+      <Stack
+        center
+        vertical
+        py="normal"
+        spacing="20px"
+        width="280px"
+        id="feature-text"
+      >
+        <Typography type="header4">{title}</Typography>
+        <Typography center wrap type="bigText">
+          {description}
+        </Typography>
+      </Stack>
     </div>
   );
 }
