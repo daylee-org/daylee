@@ -44,9 +44,7 @@ export function Button({
       onClick={onClick}
     >
       {getIcon()}
-      <Typography underline={underline} element="h3">
-        {label}
-      </Typography>
+      <Typography underline={underline}>{label}</Typography>
     </button>
   );
 
