@@ -9,8 +9,6 @@ interface Props {
 export function Logo({}: Props) {
   const { isLightMode } = useTheme();
 
-  console.log(isLightMode);
-
   if (isLightMode) {
     return (
       <div className={styles.Logo}>

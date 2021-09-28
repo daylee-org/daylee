@@ -7,6 +7,7 @@ import {
 const client = new ApolloClient({
   uri: 'https://nightlee.herokuapp.com',
   cache: new InMemoryCache(),
+  credentials: 'include',
 });
 
 interface Props {

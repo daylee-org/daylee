@@ -6,8 +6,12 @@ import {
   Stack,
   TabInfo,
   ThemeToggle,
+  Loader,
 } from 'components';
-import { useSigninLazyQuery } from 'types/withhooks';
+import {
+  useSigninLazyQuery,
+  useUserAccountQuery,
+} from 'types/withhooks';
 import styles from './LandingPage.module.scss';
 import Image from 'next/image';
 import calendar from './Images/calendar.png';
@@ -19,9 +23,16 @@ import tracker from './Images/tracker.png';
 import { useState } from 'react';
 
 export function LandingPage() {
+  const { data, refetch } = useUserAccountQuery({
+    fetchPolicy: 'network-only',
+  });
   const [signin, { loading }] = useSigninLazyQuery({
+    nextFetchPolicy: 'network-only',
     onCompleted(data) {
       console.log(data);
+      setTimeout(() => {
+        refetch();
+      }, 2000);
     },
     onError(error) {
       console.log(error);
@@ -57,7 +68,7 @@ export function LandingPage() {
         schedule and life. Balance your work, projects,
         social life and personal growth.
       </Typography>
-      <Button label="Use as guest" tight />
+      <Button disabled label="Use as guest" tight />
     </Stack>
   );
 
@@ -164,9 +175,7 @@ export function LandingPage() {
       spacing="tight"
       id="middleMessage"
     >
-      <Typography element="h2">
-        Help us grow with you
-      </Typography>
+      {/* <Typography>Help us grow with you</Typography> */}
       <Typography center wrap thin>
         Growth and self-actualization is at the center of
         what we do. Help us by sending your feedback,
@@ -193,7 +202,7 @@ export function LandingPage() {
         spacing="normal"
         id="footer-left"
       >
-        <Typography element="h1">You have...</Typography>
+        {/* <Typography>You have...</Typography> */}
         <Stack
           px="loose"
           id="footer-messages"
@@ -210,7 +219,7 @@ export function LandingPage() {
             Experienced issues or bugs?
           </Typography>
         </Stack>
-        <Typography element="h1">Let us know!</Typography>
+        {/* <Typography>Let us know!</Typography> */}
       </Stack>
       <Stack
         spacing="tight"
@@ -234,6 +243,9 @@ export function LandingPage() {
 
   return (
     <Stack id="wrapper" vertical center>
+      {loading && <Loader />}
+      <TabInfo />
+      <ThemeToggle />
       <Stack
         vertical
         width="65rem"
@@ -242,7 +254,7 @@ export function LandingPage() {
         spacing="extra-loose"
       >
         <TabInfo />
-        {/* <ThemeToggle /> */}
+        <ThemeToggle />
         {headerMarkup}
         {bodyMarkup}
         {middleMessageMarkup}
@@ -253,7 +265,7 @@ export function LandingPage() {
     </Stack>
   );
 
-  async function handleSigninMutation() {
+  function handleSigninMutation() {
     signin({
       variables: {
         args: {
@@ -279,7 +291,7 @@ function GridItem({
   return (
     <div className={styles.GridItem}>
       <Image src={image} alt="Picture of the author" />
-      <Typography element="h3">{title}</Typography>
+      <Typography>{title}</Typography>
       <Typography center wrap thin>
         {description}
       </Typography>

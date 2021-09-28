@@ -38,7 +38,11 @@ export function Button({
   });
 
   return (
-    <button className={classes} onClick={onClick}>
+    <button
+      disabled={disabled}
+      className={classes}
+      onClick={onClick}
+    >
       {getIcon()}
       <Typography underline={underline} element="h3">
         {label}

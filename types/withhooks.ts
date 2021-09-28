@@ -241,6 +241,17 @@ export type SignupMutation = (
   )> }
 );
 
+export type UserAccountQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type UserAccountQuery = (
+  { __typename?: 'Query' }
+  & { userAccount: (
+    { __typename?: 'User' }
+    & Pick<User, 'id' | 'email'>
+  ) }
+);
+
 
 export const SigninDocument = gql`
     query signin($args: UserSigninInput!) {
@@ -312,3 +323,38 @@ export function useSignupMutation(baseOptions?: Apollo.MutationHookOptions<Signu
 export type SignupMutationHookResult = ReturnType<typeof useSignupMutation>;
 export type SignupMutationResult = Apollo.MutationResult<SignupMutation>;
 export type SignupMutationOptions = Apollo.BaseMutationOptions<SignupMutation, SignupMutationVariables>;
+export const UserAccountDocument = gql`
+    query UserAccount {
+  userAccount {
+    id
+    email
+  }
+}
+    `;
+
+/**
+ * __useUserAccountQuery__
+ *
+ * To run a query within a React component, call `useUserAccountQuery` and pass it any options that fit your needs.
+ * When your component renders, `useUserAccountQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useUserAccountQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useUserAccountQuery(baseOptions?: Apollo.QueryHookOptions<UserAccountQuery, UserAccountQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<UserAccountQuery, UserAccountQueryVariables>(UserAccountDocument, options);
+      }
+export function useUserAccountLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<UserAccountQuery, UserAccountQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<UserAccountQuery, UserAccountQueryVariables>(UserAccountDocument, options);
+        }
+export type UserAccountQueryHookResult = ReturnType<typeof useUserAccountQuery>;
+export type UserAccountLazyQueryHookResult = ReturnType<typeof useUserAccountLazyQuery>;
+export type UserAccountQueryResult = Apollo.QueryResult<UserAccountQuery, UserAccountQueryVariables>;

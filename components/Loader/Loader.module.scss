@@ -1,0 +1,53 @@
+$wrapperHeight: 120px;
+
+$gap: 20px;
+
+$loaderItemHeightMax: $wrapperHeight;
+$loaderItemHeightMin: $wrapperHeight - 65;
+$loaderItemWidth: 25px;
+
+.Wrapper {
+  cursor: progress;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.Loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: $gap;
+  height: $wrapperHeight;
+}
+.Loader div {
+  width: $loaderItemWidth;
+  background: #fff;
+  animation: Loader 1.2s cubic-bezier(0, 0.5, 0.5, 1)
+    infinite;
+}
+.Loader div:nth-child(1) {
+  animation-delay: -0.24s;
+}
+.Loader div:nth-child(2) {
+  animation-delay: -0.12s;
+}
+.Loader div:nth-child(3) {
+  animation-delay: 0;
+}
+
+@keyframes Loader {
+  0% {
+    height: $loaderItemHeightMax;
+  }
+  50%,
+  100% {
+    height: $loaderItemHeightMin;
+  }
+}

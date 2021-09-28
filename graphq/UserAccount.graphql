@@ -1,0 +1,6 @@
+query UserAccount {
+  userAccount {
+    id
+    email
+  }
+}
