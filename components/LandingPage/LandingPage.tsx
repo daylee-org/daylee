@@ -295,7 +295,6 @@ function GridItem({
   return (
     <div className={styles.GridItem}>
       <Image src={image} alt="Picture of the author" />
-<<<<<<< HEAD
       <Stack
         center
         vertical
@@ -309,12 +308,6 @@ function GridItem({
           {description}
         </Typography>
       </Stack>
-=======
-      <Typography>{title}</Typography>
-      <Typography center wrap thin>
-        {description}
-      </Typography>
->>>>>>> beaf250eee9e6742dbc2b660b01c058ced157ffa
     </div>
   );
 }
