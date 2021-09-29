@@ -219,7 +219,7 @@ export function LandingPage() {
               wrap
             >
               if you choose to stay anonymous insert
-              ‘Anonymous’ your name instead of using a fake
+              'Anonymous' your name instead of using a fake
               name
             </Typography>
           </Stack>
@@ -280,7 +280,7 @@ export function LandingPage() {
         width="65rem"
         id="page"
         py="normal"
-        spacing="200px"
+        spacing="120px"
       >
         <TabInfo />
         {/* <ThemeToggle /> */}
@@ -321,7 +321,7 @@ function GridItem({
       <Stack
         center
         vertical
-        py="normal"
+        py="tight"
         spacing="20px"
         width="280px"
         id="feature-text"
