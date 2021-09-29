@@ -321,7 +321,7 @@ function GridItem({
       <Stack
         center
         vertical
-        py="tight"
+        py="normal"
         spacing="20px"
         width="280px"
         id="feature-text"
