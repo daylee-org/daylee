@@ -46,8 +46,12 @@ export function LandingPage() {
     <Stack id="header" spread>
       <Logo />
       <Stack spacing="loose" center id="main-actions">
-        <Typography type="header4">Our features</Typography>
-        <Typography type="header4">Contact</Typography>
+        <Typography type="mediumCaption">
+          Our features
+        </Typography>
+        <Typography type="mediumCaption">
+          Contact
+        </Typography>
         <Button label="Use as guest" variant="primary" />
       </Stack>
     </Stack>
@@ -235,19 +239,17 @@ export function LandingPage() {
             vertical
             spacing="tight"
           >
-            <Typography type="header4">
+            <Typography secondary type="header4">
               Feedback/comments for us?
             </Typography>
-            <Typography type="header4">
+            <Typography secondary type="header4">
               Features you would like to see on Daylee?
             </Typography>
-            <Typography type="header4">
+            <Typography secondary type="header4">
               Experienced issues or bugs?
             </Typography>
           </Stack>
-          <Typography type="header2">
-            Let us know!
-          </Typography>
+          <Typography gradient>Let us know!</Typography>
         </Stack>
         <Stack
           width="25rem"

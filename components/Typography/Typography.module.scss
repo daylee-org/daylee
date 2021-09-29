@@ -31,6 +31,22 @@
   color: var(--dangerTextColor) !important;
 }
 
+.secondary {
+  color: var(--secondaryTextColor) !important;
+}
+
+.disabled {
+  color: var(--disabledTextColor) !important;
+}
+
+.gradient {
+  background: (var(--gradient));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  font-size: 48px;
+}
+
 .header1 {
   font-weight: 700;
   font-size: 48px;
@@ -38,7 +54,7 @@
 }
 
 .header2 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 36px;
   color: white;
 }
@@ -51,7 +67,7 @@
 }
 
 .header4 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   color: var(--mainTextColor);
   letter-spacing: 5%;

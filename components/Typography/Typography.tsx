@@ -29,6 +29,9 @@ interface Props {
   thin?: boolean;
   center?: boolean;
   danger?: boolean;
+  secondary?: boolean;
+  disabled?: boolean;
+  gradient?: boolean;
   type?: TypographyType;
 }
 
@@ -37,6 +40,9 @@ export function Typography({
   wrap,
   thin,
   danger,
+  secondary,
+  disabled,
+  gradient,
   center,
   children,
   className,
@@ -52,6 +58,9 @@ export function Typography({
     [styles.thin]: thin,
     [styles.center]: center,
     [styles.danger]: danger,
+    [styles.secondary]: secondary,
+    [styles.disabled]: disabled,
+    [styles.gradient]: gradient,
     [styles.header1]: type === 'header1',
     [styles.header2]: type === 'header2',
     [styles.header3]: type === 'header3',
