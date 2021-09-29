@@ -10,14 +10,15 @@ $lighterColor: var(--disabledTextColor);
     bottom: 0.5em;
     transition: 0.2s ease all;
     color: $lighterColor;
+    font-size: 14px;
   }
 
   > input {
-    padding: 1em 0px;
+    padding: 0.4em 0px;
     border: 0;
     display: block;
     width: 100%;
-    margin-top: 1.5em;
+    margin-top: 3em;
     border-bottom: 1px solid $lighterColor;
     color: $mainColor;
     background: linear-gradient(
@@ -28,6 +29,8 @@ $lighterColor: var(--disabledTextColor);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 0%;
+    font-size: 14px;
+    font-family: inherit;
     transition: 0.2s cubic-bezier(0.64, 0.09, 0.08, 1) all;
 
     &:focus,
@@ -35,6 +38,7 @@ $lighterColor: var(--disabledTextColor);
       ~ label {
         color: $mainColor;
         bottom: 2.5rem;
+        font-size: 10px;
       }
       background-size: 100%;
     }

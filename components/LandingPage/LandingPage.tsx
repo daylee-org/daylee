@@ -91,7 +91,7 @@ export function LandingPage() {
       <Input
         value={email}
         onChange={setEmail}
-        placeholder="you@email.com"
+        placeholder="your@email.com"
         label="Email"
       />
       <Input
@@ -259,7 +259,7 @@ export function LandingPage() {
         >
           <Input placeholder="John Doe" label="Your name" />
           <Input
-            placeholder="you@email.com"
+            placeholder="your@email.com"
             label="Your email"
           />
           <Input
@@ -282,7 +282,7 @@ export function LandingPage() {
         width="65rem"
         id="page"
         py="normal"
-        spacing="120px"
+        spacing="15vh"
       >
         <TabInfo />
         {/* <ThemeToggle /> */}
