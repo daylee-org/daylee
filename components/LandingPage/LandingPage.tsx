@@ -46,8 +46,8 @@ export function LandingPage() {
     <Stack id="header" spread>
       <Logo />
       <Stack spacing="loose" center id="main-actions">
-        <Typography>Our features</Typography>
-        <Typography>Contact</Typography>
+        <Typography type="header4">Our features</Typography>
+        <Typography type="header4">Contact</Typography>
         <Button label="Use as guest" variant="primary" />
       </Stack>
     </Stack>
@@ -102,11 +102,7 @@ export function LandingPage() {
         disabled={loading}
       />
       <Button label="Sign up" variant="secondary" />
-      <Button
-        label="Use as a guest"
-        variant="collapse"
-        underline
-      />
+      <Button label="Use as a guest" variant="collapse" />
       <div />
     </Stack>
   );
