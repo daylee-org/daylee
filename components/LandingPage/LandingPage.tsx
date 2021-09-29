@@ -171,7 +171,12 @@ export function LandingPage() {
   );
 
   const footerMarkup = (
-    <Stack center vertical spread id="footer">
+    <Stack
+      center
+      vertical
+      spacing="extra-loose"
+      id="footer"
+    >
       <Stack
         center
         vertical
@@ -181,64 +186,86 @@ export function LandingPage() {
         <Typography type="header2">
           Help us grow with you
         </Typography>
-        <Typography center wrap type="mediumCaption">
-          Growth and self-actualization is at the center of
-          what we do. Help us by sending your feedback,
-          experience, bugs, extra features you would like to
-          see, etc.
-        </Typography>
-        <Stack spacing="tight" id="note-msg">
-          <Typography danger center wrap bold>
-            Note:
-          </Typography>{' '}
-          <Typography danger center wrap>
-            if you choose to stay anonymous insert
-            ‘Anonymous’ your name instead of using a fake
-            name
-          </Typography>
-        </Stack>
-      </Stack>
-      <Stack
-        width="70vw"
-        vertical
-        spacing="normal"
-        id="footer-left"
-      >
-        <Typography>You have...</Typography>
         <Stack
-          px="loose"
-          id="footer-messages"
           vertical
-          spacing="normal"
+          center
+          spacing="tight"
+          id="message-caption"
         >
-          <Typography thin>
-            Feedback/comments for us?
+          <Stack
+            center
+            vertical
+            spacing="2px"
+            id="first-caption"
+          >
+            <Typography center wrap type="mediumCaption">
+              Growth and self-actualization is at the center
+              of what we do.
+            </Typography>
+            <Typography center wrap type="mediumCaption">
+              Help us by sending your feedback, experience,
+              bugs, extra features you would like to see,
+              etc.
+            </Typography>
+          </Stack>
+          <Stack spacing="tight" center id="note-msg">
+            <Typography danger center wrap bold>
+              Note:
+            </Typography>{' '}
+            <Typography
+              type="mediumCaption"
+              danger
+              center
+              wrap
+            >
+              if you choose to stay anonymous insert
+              ‘Anonymous’ your name instead of using a fake
+              name
+            </Typography>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack width="65rem" spread id="footer-content">
+        <Stack vertical spacing="normal" id="footer-left">
+          <Typography type="header2">
+            You have...
           </Typography>
-          <Typography thin>
-            Features you would like to see on Daylee?
-          </Typography>
-          <Typography thin>
-            Experienced issues or bugs?
+          <Stack
+            id="footer-messages"
+            vertical
+            spacing="tight"
+          >
+            <Typography type="header4">
+              Feedback/comments for us?
+            </Typography>
+            <Typography type="header4">
+              Features you would like to see on Daylee?
+            </Typography>
+            <Typography type="header4">
+              Experienced issues or bugs?
+            </Typography>
+          </Stack>
+          <Typography type="header2">
+            Let us know!
           </Typography>
         </Stack>
-        <Typography>Let us know!</Typography>
-      </Stack>
-      <Stack
-        spacing="tight"
-        width="30vw"
-        vertical
-        id="footer-right"
-      >
-        <Input placeholder="John Doe" label="Your name" />
-        <Input
-          placeholder="you@email.com"
-          label="Your email"
-        />
-        <Input
-          placeholder="Hi, Daylee team..."
-          label="Your message"
-        />
-        <Button label="Send" variant="collapse" />
+        <Stack
+          width="25rem"
+          spacing="tight"
+          vertical
+          id="footer-right"
+        >
+          <Input placeholder="John Doe" label="Your name" />
+          <Input
+            placeholder="you@email.com"
+            label="Your email"
+          />
+          <Input
+            placeholder="Hi, Daylee team..."
+            label="Your message"
+          />
+          <Button label="Send" variant="collapse" />
+        </Stack>
       </Stack>
     </Stack>
   );
