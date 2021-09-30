@@ -9,7 +9,12 @@ import { KeyboardEvent } from 'react';
 
 interface Props {
   label: string;
-  variant?: 'primary' | 'secondary' | 'add' | 'collapse';
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'add'
+    | 'collapse'
+    | 'nav';
   underline?: boolean;
   selected?: boolean;
   onClick?(): void;
@@ -29,7 +34,9 @@ export function Button({
   variant = 'primary',
 }: Props) {
   const isTertiary =
-    variant === 'add' || variant === 'collapse';
+    variant === 'add' ||
+    variant === 'collapse' ||
+    variant === 'nav';
 
   const classes = classNames(styles.Button, {
     [styles.rotate]: selected,

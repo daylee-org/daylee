@@ -10,7 +10,8 @@ import {
 } from '..';
 
 export function SignUpPage() {
-  const [username, setUsername] = useState('');
+  const [Firstname, setFirstname] = useState('');
+  const [Lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordAgain, setPasswordAgain] = useState('');
@@ -34,25 +35,25 @@ export function SignUpPage() {
           </Typography>
           <Logo />
         </Stack>
-        <Stack width="100%" spacing="tight" id="username">
+        <Stack width="100%" spacing="loose" id="username">
           <Input
             fill
             label="First name"
             placeholder="John"
-            onChange={setUsername}
-            value={username}
+            onChange={setFirstname}
+            value={Firstname}
           />
           <Input
             fill
             label="Last name"
             placeholder="Doe"
-            onChange={setUsername}
-            value={username}
+            onChange={setLastname}
+            value={Lastname}
           />
         </Stack>
         <Input
           label="Email"
-          placeholder="you@email.com"
+          placeholder="your@email.com"
           onChange={setEmail}
           value={email}
         />

@@ -47,9 +47,9 @@ export function LandingPage() {
         <Typography type="mediumCaption">
           Our features
         </Typography>
-        <Typography type="mediumCaption">
+        <Button label="Use as guest" variant="nav">
           Contact
-        </Typography>
+        </Button>
         <Button label="Use as guest" variant="primary" />
       </Stack>
     </Stack>
@@ -87,7 +87,7 @@ export function LandingPage() {
       id="inputs"
       spacing="normal"
     >
-      <Stack spacing="normal" vertical id="inputs-area">
+      <Stack spacing="60px" vertical id="inputs-area">
         <Input
           value={email}
           onChange={setEmail}
@@ -258,7 +258,7 @@ export function LandingPage() {
         </Stack>
         <Stack
           width="25rem"
-          spacing="normal"
+          spacing="60px"
           vertical
           id="footer-right"
         >
@@ -271,7 +271,7 @@ export function LandingPage() {
             placeholder="Hi, Daylee team..."
             label="Your message"
           />
-          <Button label="Send" variant="collapse" />
+          <Button label="Send Email" variant="secondary" />
         </Stack>
       </Stack>
     </Stack>
