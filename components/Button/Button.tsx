@@ -5,7 +5,7 @@ import { Chevron } from './Icons/Chevron';
 import Link from 'next/link';
 
 import styles from './Button.module.scss';
-import { KeyboardEvent } from 'react';
+import { KeyboardEvent, ReactNode } from 'react';
 
 interface Props {
   label: string;
@@ -16,6 +16,7 @@ interface Props {
   tight?: boolean;
   linkTo?: string;
   disabled?: boolean;
+  children?: ReactNode;
 }
 
 export function Button({
@@ -27,6 +28,7 @@ export function Button({
   disabled,
   linkTo,
   variant = 'primary',
+  children,
 }: Props) {
   const isTertiary =
     variant === 'add' || variant === 'collapse';
@@ -41,16 +43,25 @@ export function Button({
     [styles.disabled]: disabled,
   });
 
+  const childrendMarkup = children ? (
+    <div className={styles.Child}>{children}</div>
+  ) : null;
+
   const buttonMarkup = (
-    <button
-      disabled={disabled}
-      className={classes}
-      onClick={onClick}
-      onKeyPress={handleKeyPress}
-    >
-      {getIcon()}
-      <Typography underline={underline}>{label}</Typography>
-    </button>
+    <div>
+      <button
+        disabled={disabled}
+        className={classes}
+        onClick={onClick}
+        onKeyPress={handleKeyPress}
+      >
+        {getIcon()}
+        <Typography underline={underline}>
+          {label}
+        </Typography>
+      </button>
+      {childrendMarkup}
+    </div>
   );
 
   return linkTo ? (

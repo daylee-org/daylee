@@ -10,3 +10,4 @@ export { Loader } from './Loader/Loader';
 // Pages
 export { LandingPage } from './LandingPage/LandingPage';
 export { SignUpPage } from './SignUpPage/SignUpPage';
+export { DashboardPage } from './DashboardPage/DashboardPage';
