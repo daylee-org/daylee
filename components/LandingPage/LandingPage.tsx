@@ -20,7 +20,7 @@ import pomodoro from './Images/pomodoro.png';
 import postit from './Images/postit.png';
 import todo from './Images/todo.png';
 import tracker from './Images/tracker.png';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { URLS } from 'utils';
 
 export function LandingPage() {
@@ -37,6 +37,17 @@ export function LandingPage() {
     },
   });
 
+  const featureRef = useRef(null);
+  const contactRef = useRef(null);
+
+  useEffect(() => {
+    if (featureRef.current) {
+      goToFeatures();
+    } else if (contactRef.current) {
+      goToContact();
+    }
+  });
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -44,12 +55,16 @@ export function LandingPage() {
     <Stack id="header" spread>
       <Logo />
       <Stack spacing="loose" center id="main-actions">
-        <Typography type="mediumCaption">
-          Our features
-        </Typography>
-        <Button label="Use as guest" variant="nav">
-          Contact
-        </Button>
+        <Button
+          label="Our features"
+          variant="nav"
+          onClick={goToFeatures}
+        />
+        <Button
+          label="Contact"
+          variant="nav"
+          onClick={goToContact}
+        />
         <Button label="Use as guest" variant="primary" />
       </Stack>
     </Stack>
@@ -291,8 +306,8 @@ export function LandingPage() {
       >
         {headerMarkup}
         {bodyMarkup}
-        {gridMarkup}
-        {footerMarkup}
+        <div ref={featureRef}>{gridMarkup}</div>
+        <div ref={contactRef}>{footerMarkup}</div>
       </Stack>
     </Stack>
   );
@@ -305,6 +320,20 @@ export function LandingPage() {
           password: password,
         },
       },
+    });
+  }
+
+  function goToFeatures() {
+    featureRef.current.scrollIntoView({
+      block: 'end',
+      behavior: 'smooth',
+    });
+  }
+
+  function goToContact() {
+    contactRef.current.scrollIntoView({
+      block: 'end',
+      behavior: 'smooth',
     });
   }
 }

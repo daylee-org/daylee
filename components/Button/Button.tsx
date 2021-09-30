@@ -21,6 +21,7 @@ interface Props {
   tight?: boolean;
   linkTo?: string;
   disabled?: boolean;
+  fontSize?: 'big' | 'medium' | 'small';
 }
 
 export function Button({
@@ -32,6 +33,7 @@ export function Button({
   disabled,
   linkTo,
   variant = 'primary',
+  fontSize = 'big',
 }: Props) {
   const isTertiary =
     variant === 'add' ||
@@ -46,6 +48,9 @@ export function Button({
     [styles.tertiary]: isTertiary,
     [styles.tight]: tight,
     [styles.disabled]: disabled,
+    [styles.big]: fontSize === 'big',
+    [styles.medium]: fontSize === 'medium',
+    [styles.small]: fontSize === 'small',
   });
 
   const buttonMarkup = (
