@@ -50,19 +50,19 @@
 .header1 {
   font-weight: 700;
   font-size: 48px;
-  color: white;
+  color: var(--mainTextColor);
 }
 
 .header2 {
   font-weight: 600;
   font-size: 36px;
-  color: white;
+  color: var(--mainTextColor);
 }
 
 .header3 {
   font-weight: 700;
   font-size: 24px;
-  color: #ebebeb;
+  color: var(--secondaryTextColor);
   letter-spacing: 5%;
 }
 

@@ -2,8 +2,10 @@ import classNames from 'classnames';
 import { Typography } from '../Typography/Typography';
 import { AddButton } from './Icons/AddButton';
 import { Chevron } from './Icons/Chevron';
+import Link from 'next/link';
 
 import styles from './Button.module.scss';
+import { KeyboardEvent } from 'react';
 
 interface Props {
   label: string;
@@ -12,6 +14,7 @@ interface Props {
   selected?: boolean;
   onClick?(): void;
   tight?: boolean;
+  linkTo?: string;
   disabled?: boolean;
 }
 
@@ -22,6 +25,7 @@ export function Button({
   selected,
   underline,
   disabled,
+  linkTo,
   variant = 'primary',
 }: Props) {
   const isTertiary =
@@ -37,15 +41,22 @@ export function Button({
     [styles.disabled]: disabled,
   });
 
-  return (
+  const buttonMarkup = (
     <button
       disabled={disabled}
       className={classes}
       onClick={onClick}
+      onKeyPress={handleKeyPress}
     >
       {getIcon()}
       <Typography underline={underline}>{label}</Typography>
     </button>
+  );
+
+  return linkTo ? (
+    <Link href={linkTo}>{buttonMarkup}</Link>
+  ) : (
+    buttonMarkup
   );
 
   function getIcon() {
@@ -56,6 +67,14 @@ export function Button({
         return <Chevron />;
       default:
         return null;
+    }
+  }
+
+  function handleKeyPress(
+    event: KeyboardEvent<HTMLButtonElement>,
+  ) {
+    if (onClick && event.keyCode === 13) {
+      onClick();
     }
   }
 }

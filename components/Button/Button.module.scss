@@ -4,12 +4,12 @@ $borderWidth: 1.5px;
 $maskGradient: linear-gradient(#fff 0 0);
 $height: 46px;
 
-$smallerHeight: 30px;
-
 $regularShadow: var(--baseBoxShadow);
 $pressedShadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
 
 .Button {
+  box-sizing: border-box;
+
   border: none;
   border-radius: var(--borderRadius);
   margin: $margin;
@@ -78,7 +78,8 @@ $pressedShadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
   width: fit-content;
   padding: 5px;
   padding-bottom: 0;
-  height: $smallerHeight;
+  padding-top: 0;
+  margin: 0;
   font-weight: 500;
   position: relative;
   color: red !important;
@@ -96,19 +97,27 @@ $pressedShadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
     }
   }
 
-  &::before {
-    content: '';
-    border-bottom: 1px solid var(--mainTextColor);
-    position: absolute;
-    bottom: 0;
-    left: 15%;
-    right: 0;
-    width: 0;
-    transition: 0.2s;
+  & > p {
+    position: relative;
+    color: var(--disabledTextColor);
+
+    &::before {
+      content: '';
+      border-bottom: 1px solid var(--mainTextColor);
+      position: absolute;
+      bottom: 0;
+      width: 0%;
+      transition: 0.2s;
+    }
   }
 
-  &:hover::before {
-    width: 85%;
+  &:hover {
+    & > p {
+      color: var(--mainTextColor);
+      &::before {
+        width: 100%;
+      }
+    }
   }
 
   > svg {

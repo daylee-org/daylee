@@ -21,6 +21,7 @@ import postit from './Images/postit.png';
 import todo from './Images/todo.png';
 import tracker from './Images/tracker.png';
 import { useState } from 'react';
+import { URLS } from 'utils';
 
 export function LandingPage() {
   const { data, refetch } = useUserAccountQuery({
@@ -30,9 +31,6 @@ export function LandingPage() {
     nextFetchPolicy: 'network-only',
     onCompleted(data) {
       console.log(data);
-      setTimeout(() => {
-        refetch();
-      }, 2000);
     },
     onError(error) {
       console.log(error);
@@ -82,32 +80,39 @@ export function LandingPage() {
     <Stack
       shadow
       px="normal"
+      py="normal"
       background="separatorBackgroundColor"
       width="20rem"
       vertical
       id="inputs"
       spacing="normal"
     >
-      <Input
-        value={email}
-        onChange={setEmail}
-        placeholder="your@email.com"
-        label="Email"
-      />
-      <Input
-        value={password}
-        onChange={setPassword}
-        placeholder="abcd1234!"
-        label="Password"
-      />
+      <Stack spacing="normal" vertical id="inputs-area">
+        <Input
+          value={email}
+          onChange={setEmail}
+          placeholder="your@email.com"
+          label="Email"
+        />
+        <Input
+          value={password}
+          onChange={setPassword}
+          placeholder="abcd1234!"
+          label="Password"
+        />
+      </Stack>
+      <div />
       <Button
         onClick={handleSigninMutation}
         label="Log in"
         disabled={loading}
       />
-      <Button label="Sign up" variant="secondary" />
+      <Button
+        linkTo={URLS.SignUp}
+        label="Sign up"
+        variant="secondary"
+      />
       <Button label="Use as a guest" variant="collapse" />
-      <div />
     </Stack>
   );
 
@@ -222,9 +227,9 @@ export function LandingPage() {
               center
               wrap
             >
-              if you choose to stay anonymous insert
+              {`if you choose to stay anonymous insert
               'Anonymous' your name instead of using a fake
-              name
+              name`}
             </Typography>
           </Stack>
         </Stack>
@@ -253,7 +258,7 @@ export function LandingPage() {
         </Stack>
         <Stack
           width="25rem"
-          spacing="tight"
+          spacing="normal"
           vertical
           id="footer-right"
         >
@@ -274,9 +279,9 @@ export function LandingPage() {
 
   return (
     <Stack id="wrapper" vertical center>
+      <TabInfo title="Daylee | Maximize your productivity" />
+      <ThemeToggle />
       {loading && <Loader />}
-      <TabInfo />
-      {/* <ThemeToggle /> */}
       <Stack
         vertical
         width="65rem"
@@ -284,8 +289,6 @@ export function LandingPage() {
         py="normal"
         spacing="15vh"
       >
-        <TabInfo />
-        {/* <ThemeToggle /> */}
         {headerMarkup}
         {bodyMarkup}
         {gridMarkup}

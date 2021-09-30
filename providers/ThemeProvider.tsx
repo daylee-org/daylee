@@ -112,6 +112,7 @@ export function ThemeProvider({ children }: Props) {
         body {
           font-family: '${FONT.NAME}', sans-serif;
           background-color: var(--mainBackgroundColor);
+          box-sizing: border-box;
         }
       `}</style>
     </ThemeContext.Provider>
