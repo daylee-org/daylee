@@ -1,5 +1,9 @@
 $borderColor: var(--separatorBackgroundColor);
 
+.Logo {
+  cursor: pointer;
+}
+
 .Grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

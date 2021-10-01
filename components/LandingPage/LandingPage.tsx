@@ -21,6 +21,7 @@ import postit from './Images/postit.png';
 import todo from './Images/todo.png';
 import tracker from './Images/tracker.png';
 import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 import { URLS } from 'utils';
 
 export function LandingPage() {
@@ -37,23 +38,30 @@ export function LandingPage() {
     },
   });
 
+  const router = useRouter();
+
+  const topRef = useRef(null);
   const featureRef = useRef(null);
   const contactRef = useRef(null);
 
   useEffect(() => {
-    if (featureRef.current) {
-      goToFeatures();
+    if (topRef.current) {
+      goToTop();
     } else if (contactRef.current) {
       goToContact();
+    } else if (featureRef.current) {
+      goToFeatures();
     }
-  });
+  }, [featureRef.current, contactRef.current]);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const headerMarkup = (
     <Stack id="header" spread>
-      <Logo />
+      <div onClick={goToHome} className={styles.Logo}>
+        <Logo />
+      </div>
       <Stack spacing="loose" center id="main-actions">
         <Button
           label="Our features"
@@ -304,7 +312,7 @@ export function LandingPage() {
         py="normal"
         spacing="15vh"
       >
-        {headerMarkup}
+        <div ref={topRef}>{headerMarkup}</div>
         {bodyMarkup}
         <div ref={featureRef}>{gridMarkup}</div>
         <div ref={contactRef}>{footerMarkup}</div>
@@ -320,6 +328,17 @@ export function LandingPage() {
           password: password,
         },
       },
+    });
+  }
+
+  function goToHome() {
+    router.reload(window.location.pathname);
+  }
+
+  function goToTop() {
+    topRef.current.scrollIntoView({
+      block: 'end',
+      behavior: 'smooth',
     });
   }
 
