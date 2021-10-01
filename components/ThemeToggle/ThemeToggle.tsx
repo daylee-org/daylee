@@ -3,7 +3,6 @@ import { useTheme } from 'providers/ThemeProvider';
 
 import styles from './ThemeToggle.module.scss';
 
-// Credits to [Ryosuke](https://codepen.io/whoisryosuke/pen/gObPjWW)
 export function ThemeToggle() {
   const { isLightMode, toggleLightMode } = useTheme();
 
@@ -26,8 +25,8 @@ export function ThemeToggle() {
             styles.round,
           )}
         ></div>
-        <div className={styles.toggleMoon}></div>
-        <div className={styles.toggleSun}></div>
+        <div className={styles.toggleMoon} />
+        <div className={styles.toggleSun} />
       </label>
     </div>
   );

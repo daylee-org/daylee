@@ -38,11 +38,9 @@ export function LandingPage() {
     },
   });
 
-  const router = useRouter();
-
-  const topRef = useRef(null);
-  const featureRef = useRef(null);
-  const contactRef = useRef(null);
+  const topRef = useRef<HTMLDivElement>(null);
+  const featureRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (topRef.current) {
@@ -59,9 +57,7 @@ export function LandingPage() {
 
   const headerMarkup = (
     <Stack id="header" spread>
-      <div onClick={goToHome} className={styles.Logo}>
-        <Logo />
-      </div>
+      <Logo />
       <Stack spacing="normal" center id="main-actions">
         <ThemeToggle />
         <Button
@@ -331,26 +327,22 @@ export function LandingPage() {
     });
   }
 
-  function goToHome() {
-    router.reload(window.location.pathname);
-  }
-
   function goToTop() {
-    topRef.current.scrollIntoView({
+    topRef.current?.scrollIntoView({
       block: 'end',
       behavior: 'smooth',
     });
   }
 
   function goToFeatures() {
-    featureRef.current.scrollIntoView({
+    featureRef.current?.scrollIntoView({
       block: 'end',
       behavior: 'smooth',
     });
   }
 
   function goToContact() {
-    contactRef.current.scrollIntoView({
+    contactRef.current?.scrollIntoView({
       block: 'end',
       behavior: 'smooth',
     });
