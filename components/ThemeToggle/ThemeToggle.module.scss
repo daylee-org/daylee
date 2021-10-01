@@ -1,14 +1,14 @@
-.Container {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
+// .Container {
+//   position: absolute;
+//   top: 10px;
+//   right: 10px;
+// }
 
 .switch {
   display: flex;
-  height: 36px;
+  height: 23px;
   position: relative;
-  width: 70px;
+  width: 40px;
 }
 
 .switch input {
@@ -16,8 +16,8 @@
 }
 
 .slider {
-  background-color: #fff;
-  border: 1px solid #000;
+  background-color: #292929;
+  border: 3px solid #565656;
   bottom: 0;
   cursor: pointer;
   left: 0;
@@ -28,26 +28,29 @@
 }
 
 .slider:before {
-  background-color: #333;
-  border: 1px solid #000;
-  bottom: 3px;
+  background-color: #292929;
+  border: 1px solid #565656;
+  bottom: 2px;
   content: '';
-  height: 26px;
-  left: 4px;
+  height: 12px;
+  left: 1px;
   position: absolute;
   transition: 0.4s;
-  width: 26px;
+  width: 12px;
   z-index: 421;
+  filter: drop-shadow(3px 4px 4px #000);
 }
 
 input:checked + .slider {
-  background-color: #101211;
+  border-color: #cfcfcf;
+  background-color: #efefef;
 }
 
 input:checked + .slider:before {
-  transform: translateX(34px);
+  transform: translateX(17px);
   border-color: #cfcfcf;
   background-color: #efefef;
+  filter: drop-shadow(3px 4px 4px #565656);
 }
 
 .slider.round {

@@ -114,6 +114,10 @@ export function ThemeProvider({ children }: Props) {
           background-color: var(--mainBackgroundColor);
           box-sizing: border-box;
         }
+
+        ::selection {
+          background: #8E80F9;
+        }
       `}</style>
     </ThemeContext.Provider>
   );

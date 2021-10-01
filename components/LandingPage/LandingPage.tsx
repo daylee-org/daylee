@@ -62,7 +62,8 @@ export function LandingPage() {
       <div onClick={goToHome} className={styles.Logo}>
         <Logo />
       </div>
-      <Stack spacing="loose" center id="main-actions">
+      <Stack spacing="normal" center id="main-actions">
+        <ThemeToggle />
         <Button
           label="Our features"
           variant="nav"
@@ -73,7 +74,7 @@ export function LandingPage() {
           variant="nav"
           onClick={goToContact}
         />
-        <Button label="Use as guest" variant="primary" />
+        <Button label="Use as guest" variant="secondary" />
       </Stack>
     </Stack>
   );
@@ -303,7 +304,6 @@ export function LandingPage() {
   return (
     <Stack id="wrapper" vertical center>
       <TabInfo title="Daylee | Maximize your productivity" />
-      <ThemeToggle />
       {loading && <Loader />}
       <Stack
         vertical

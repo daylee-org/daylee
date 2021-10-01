@@ -26,8 +26,8 @@ export function ThemeToggle() {
             styles.round,
           )}
         ></div>
-        <div className={styles.toggleMoon}>🌙</div>
-        <div className={styles.toggleSun}>☀️</div>
+        <div className={styles.toggleMoon}></div>
+        <div className={styles.toggleSun}></div>
       </label>
     </div>
   );
