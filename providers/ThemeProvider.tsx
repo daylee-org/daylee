@@ -117,6 +117,7 @@ export function ThemeProvider({ children }: Props) {
 
         ::selection {
           background: #8E80F9;
+          color: #FFFFFF;
         }
       `}</style>
     </ThemeContext.Provider>

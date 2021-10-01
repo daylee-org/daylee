@@ -136,7 +136,7 @@ export function LandingPage() {
         label="Sign up"
         variant="secondary"
       />
-      <Button label="Use as a guest" variant="collapse" />
+      <div></div>
     </Stack>
   );
 
