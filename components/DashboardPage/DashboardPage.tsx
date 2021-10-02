@@ -8,6 +8,7 @@ import {
   TabInfo,
   Typography,
 } from '..';
+import { useRouting } from 'hooks';
 
 export function DashboardPage() {
   return (
@@ -46,10 +47,12 @@ interface YearItemProps {
   year: number;
 }
 function YearItem({ year }: YearItemProps) {
+  const { set } = useRouting();
+
   return (
     <NavItem label={String(year)}>
       {MONTHS.map((month) => (
-        <NavItem label={month}>
+        <NavItem key={`${year}-${month}`} label={month}>
           <Button thin variant="nav" label="Week 1" />
           <Button thin variant="nav" label="Week 2" />
           <Button thin variant="nav" label="Week 3" />
@@ -70,7 +73,7 @@ function NavItem({ label, children }: NavItemProps) {
   return (
     <Button
       collapsed={collapsed}
-      onToggleCollapse={handleCollapse}
+      onToggleCollapse={handleToggleCollapse}
       thin
       variant="collapse"
       label={label}
@@ -79,7 +82,7 @@ function NavItem({ label, children }: NavItemProps) {
     </Button>
   );
 
-  function handleCollapse() {
+  function handleToggleCollapse() {
     setCollapsed((col) => !col);
   }
 }
