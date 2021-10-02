@@ -1,0 +1,22 @@
+$height: 2.5px;
+$textPadding: 1.8rem;
+
+.Separator {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Line {
+  flex: 1;
+  height: $height;
+}
+
+.Label {
+  height: 0px;
+  line-height: 0px;
+  padding-left: $textPadding;
+  padding-right: $textPadding;
+}

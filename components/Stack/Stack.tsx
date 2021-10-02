@@ -13,7 +13,16 @@ const Wrapper = styled.div<Props>`
   box-shadow: ${(props) =>
     props.shadow ? 'var(--baseBoxShadow)' : 'none'};
 
-  border-radius: var(--borderRadius);
+  border-radius: ${(props) =>
+    props.noRadius ? '0px' : ' var(--borderRadius)'};
+
+  ::-webkit-scrollbar {
+    display: ${(props) =>
+      props.scroll ? 'inherit' : 'none'};
+  }
+
+  overflow-y: ${(props) =>
+    props.scroll ? 'scroll' : 'none'};
 
   background: ${(prop) =>
     getBackgroundColor(prop.background)};
@@ -50,7 +59,8 @@ type SpacingType =
   | string;
 
 interface Props {
-  id: string;
+  id?: string;
+  noRadius?: boolean;
   spacing?: SpacingType;
   px?: SpacingType;
   py?: SpacingType;
@@ -62,10 +72,15 @@ interface Props {
   spread?: boolean;
   shadow?: boolean;
   background?: ThemeColors;
+  scroll?: boolean;
 }
 
-export function Stack({ children, ...props }: Props) {
-  return <Wrapper {...props}>{children}</Wrapper>;
+export function Stack({ children, id, ...props }: Props) {
+  return (
+    <Wrapper id={id} {...props}>
+      {children}
+    </Wrapper>
+  );
 }
 
 function getSize(

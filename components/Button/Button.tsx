@@ -5,7 +5,7 @@ import { Chevron } from './Icons/Chevron';
 import Link from 'next/link';
 
 import styles from './Button.module.scss';
-import { KeyboardEvent } from 'react';
+import { KeyboardEvent, ReactNode } from 'react';
 
 interface Props {
   label: string;
@@ -16,24 +16,30 @@ interface Props {
     | 'collapse'
     | 'nav';
   underline?: boolean;
-  selected?: boolean;
+  collapsed?: boolean;
+  onToggleCollapse?(): void;
   onClick?(): void;
   tight?: boolean;
   linkTo?: string;
   disabled?: boolean;
   fontSize?: 'big' | 'medium' | 'small';
+  children?: ReactNode;
+  thin?: boolean;
 }
 
 export function Button({
   label,
   tight,
   onClick,
-  selected,
+  collapsed,
   underline,
   disabled,
   linkTo,
   variant = 'primary',
   fontSize = 'big',
+  onToggleCollapse,
+  children,
+  thin,
 }: Props) {
   const isTertiary =
     variant === 'add' ||
@@ -41,7 +47,7 @@ export function Button({
     variant === 'nav';
 
   const classes = classNames(styles.Button, {
-    [styles.rotate]: selected,
+    [styles.rotate]: collapsed,
     [styles.primary]: variant === 'primary',
     [styles.secondary]: variant === 'secondary',
     [styles.tertiary]: isTertiary,
@@ -51,18 +57,33 @@ export function Button({
     [styles.big]: fontSize === 'big',
     [styles.medium]: fontSize === 'medium',
     [styles.small]: fontSize === 'small',
+    [styles.thin]: thin,
   });
 
+  const childClasses = classNames(styles.Child, {
+    [styles.collapsed]: collapsed,
+  });
+
+  const childrendMarkup =
+    children && collapsed ? (
+      <div className={childClasses}>{children}</div>
+    ) : null;
+
   const buttonMarkup = (
-    <button
-      disabled={disabled}
-      className={classes}
-      onClick={onClick}
-      onKeyPress={handleKeyPress}
-    >
-      {getIcon()}
-      <Typography underline={underline}>{label}</Typography>
-    </button>
+    <div>
+      <button
+        disabled={disabled}
+        className={classes}
+        onClick={onClick}
+        onKeyPress={handleKeyPress}
+      >
+        {getIcon()}
+        <Typography underline={underline}>
+          {label}
+        </Typography>
+      </button>
+      {childrendMarkup}
+    </div>
   );
 
   return linkTo ? (
@@ -76,7 +97,7 @@ export function Button({
       case 'add':
         return <AddButton />;
       case 'collapse':
-        return <Chevron />;
+        return <Chevron onClick={onToggleCollapse} />;
       default:
         return null;
     }

@@ -20,6 +20,7 @@ $pressedShadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
   opacity: 1;
   font-family: inherit;
   font-weight: 700;
+  width: 100%;
 
   transition: 0.1s opacity;
 
@@ -127,15 +128,11 @@ $pressedShadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
     fill: #888;
     transition: 0.2s;
   }
-
-  .Typography {
-    color: red !important;
-  }
 }
 
 .rotate {
   > svg {
-    transform: translate(-5px, 5px) rotate(90deg);
+    transform: translate(0px, 5px) rotate(90deg);
   }
 }
 
@@ -168,4 +165,12 @@ $pressedShadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
 .small {
   font-size: 9px;
   font-weight: 500;
+}
+
+.Child {
+  padding-left: 20px;
+}
+
+.thin {
+  height: 1.5rem;
 }

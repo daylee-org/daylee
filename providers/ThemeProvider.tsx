@@ -24,7 +24,7 @@ export interface ThemeType {
 
 export type ThemeColors = keyof Omit<
   ThemeType,
-  'borderRadius'
+  'borderRadius' | 'baseBoxShadow'
 >;
 
 const FONT = {

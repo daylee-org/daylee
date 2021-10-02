@@ -6,7 +6,9 @@ export { Logo } from './Logo/Logo';
 export { Stack } from './Stack/Stack';
 export { TabInfo } from './TabInfo/TabInfo';
 export { Loader } from './Loader/Loader';
+export { Separator } from './Separator/Separator';
 
 // Pages
 export { LandingPage } from './LandingPage/LandingPage';
 export { SignUpPage } from './SignUpPage/SignUpPage';
+export { DashboardPage } from './DashboardPage/DashboardPage';
