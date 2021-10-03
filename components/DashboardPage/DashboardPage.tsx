@@ -28,11 +28,12 @@ export function DashboardPage() {
         <Logo />
         <Separator />
         <Stack spacing="tight" vertical>
-          <Typography>Profile</Typography>
-          <Typography>Settings</Typography>
+          <Button thin label="Profile" variant="nav" />
+          <Button thin label="Setting" variant="nav" />
         </Stack>
         <Separator />
         <Stack spacing="tight" vertical>
+          <YearItem year={2020} />
           <YearItem year={2021} />
           <YearItem year={2022} />
           <YearItem year={2023} />

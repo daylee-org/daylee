@@ -73,7 +73,11 @@ export function LandingPage() {
           variant="nav"
           onClick={goToContact}
         />
-        <Button label="Use as guest" variant="secondary" />
+        <Button
+          linkTo={URLS.Dashboard}
+          label="Use as guest"
+          variant="secondary"
+        />
       </Stack>
     </Stack>
   );
@@ -95,7 +99,11 @@ export function LandingPage() {
         schedule and life. Balance your work, projects,
         social life and personal growth.
       </Typography>
-      <Button label="Use as guest" tight />
+      <Button
+        linkTo={URLS.Dashboard}
+        label="Use as guest"
+        tight
+      />
     </Stack>
   );
 
