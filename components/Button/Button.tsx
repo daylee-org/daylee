@@ -14,10 +14,12 @@ interface Props {
     | 'secondary'
     | 'add'
     | 'collapse'
-    | 'nav';
+    | 'nav'
+    | 'side-collapse';
   underline?: boolean;
   collapsed?: boolean;
   onToggleCollapse?(): void;
+  onSelect?(): void;
   onClick?(): void;
   tight?: boolean;
   linkTo?: string;
@@ -38,6 +40,7 @@ export function Button({
   variant = 'primary',
   fontSize = 'big',
   onToggleCollapse,
+  onSelect,
   children,
   thin,
 }: Props) {
@@ -46,12 +49,14 @@ export function Button({
     variant === 'collapse' ||
     variant === 'nav';
 
+  const isSideNav = variant === 'side-collapse';
+
   const classes = classNames(styles.Button, {
     [styles.rotate]: collapsed,
     [styles.primary]: variant === 'primary',
     [styles.secondary]: variant === 'secondary',
     [styles.tertiary]: isTertiary,
-    [styles.tertiary]: isTertiary,
+    [styles.sideNav]: isSideNav,
     [styles.tight]: tight,
     [styles.disabled]: disabled,
     [styles.big]: fontSize === 'big',

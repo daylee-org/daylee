@@ -11,8 +11,10 @@ import {
 import { useRouting } from 'hooks';
 
 export function DashboardPage() {
+  const [selected, setSelected] = useState(false);
+
   return (
-    <Stack spread id="dashboard">
+    <Stack width="100%" id="dashboard">
       <TabInfo title="Daylee | Dashboard" />
       <Stack
         spacing="normal"
@@ -24,11 +26,17 @@ export function DashboardPage() {
         background="secondaryBackgroundColor"
         height="100vh"
         scroll
+        id="side-menu"
       >
         <Logo />
         <Separator />
         <Stack spacing="tight" vertical>
-          <Button thin label="Profile" variant="nav" />
+          <Button
+            thin
+            label="Profile"
+            variant="side-collapse"
+            onSelect={handleSelect}
+          />
           <Button thin label="Setting" variant="nav" />
         </Stack>
         <Separator />
@@ -40,10 +48,39 @@ export function DashboardPage() {
           <YearItem year={2024} />
         </Stack>
       </Stack>
+      <Stack vertical width="100%" id="dashboard-content">
+        <Stack
+          noRadius
+          spread
+          py="normal"
+          px="normal"
+          id="top-menu"
+        >
+          <Typography wrap type="header3">
+            Good morning, whOre
+          </Typography>
+          <Typography wrap type="header3">
+            2 October 2021
+          </Typography>
+        </Stack>
+        <Separator />
+        <Stack width="100%" id="features">
+          <Stack width="100%" id="widgets"></Stack>
+          <Stack
+            width="25rem"
+            height="100vh"
+            id="todos"
+            background="widgetBackgroundColor"
+          ></Stack>
+        </Stack>
+      </Stack>
     </Stack>
   );
-}
 
+  function handleSelect() {
+    setSelected(!selected);
+  }
+}
 interface YearItemProps {
   year: number;
 }
