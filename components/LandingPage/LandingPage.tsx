@@ -38,6 +38,7 @@ export function LandingPage() {
     },
   });
 
+  const router = useRouter();
   const topRef = useRef<HTMLDivElement>(null);
   const featureRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
@@ -57,7 +58,9 @@ export function LandingPage() {
 
   const headerMarkup = (
     <Stack id="header" spread>
-      <Logo />
+      <div onClick={goToHome}>
+        <Logo />
+      </div>
       <Stack spacing="normal" center id="main-actions">
         <ThemeToggle />
         <Button
@@ -325,6 +328,10 @@ export function LandingPage() {
         },
       },
     });
+  }
+
+  function goToHome() {
+    router.reload(window.location.pathname);
   }
 
   function goToTop() {
