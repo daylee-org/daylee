@@ -7,11 +7,14 @@ $height: 46px;
 $regularShadow: var(--baseBoxShadow);
 $pressedShadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
 
-@mixin selected {
+@mixin selected($showUnderline) {
   & > p {
     color: var(--mainTextColor);
-    &::before {
-      width: 100%;
+
+    @if $showUnderline == true {
+      &::before {
+        width: 100%;
+      }
     }
   }
 
@@ -115,7 +118,7 @@ $pressedShadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
   }
 
   &:hover {
-    @include selected;
+    @include selected($showUnderline: true);
   }
 
   > svg {
@@ -130,7 +133,7 @@ $pressedShadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
 
 .rotate {
   > svg {
-    transform: translate(0px, 5px) rotate(90deg);
+    transform: rotate(90deg);
   }
 }
 
@@ -174,5 +177,5 @@ $pressedShadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
 }
 
 .selected {
-  @include selected;
+  @include selected($showUnderline: false);
 }

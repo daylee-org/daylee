@@ -1,5 +1,6 @@
 import { ThemeColors } from 'providers';
 import styled from 'styled-components';
+import { getSize, SpacingType } from 'utils';
 
 const Wrapper = styled.div<Props>`
   display: flex;
@@ -50,14 +51,6 @@ const Wrapper = styled.div<Props>`
     prop.spread ? `justify-content: space-between;` : ``}
 `;
 
-type SpacingType =
-  | 'none'
-  | 'tight'
-  | 'normal'
-  | 'loose'
-  | 'extra-loose'
-  | string;
-
 interface Props {
   id?: string;
   noRadius?: boolean;
@@ -81,26 +74,6 @@ export function Stack({ children, id, ...props }: Props) {
       {children}
     </Wrapper>
   );
-}
-
-function getSize(
-  length?: SpacingType,
-  defaultValue?: string,
-) {
-  switch (length) {
-    case 'extra-loose':
-      return '100px';
-    case 'loose':
-      return '73px';
-    case 'normal':
-      return '32px';
-    case 'none':
-      return '0px';
-    case 'tight':
-      return '10px';
-    default:
-      return length ?? defaultValue ?? '0px';
-  }
 }
 
 function getBackgroundColor(background?: ThemeColors) {

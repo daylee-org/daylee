@@ -114,7 +114,12 @@ export function ThemeProvider({ children }: Props) {
           background-color: var(--mainBackgroundColor);
           box-sizing: border-box;
         }
-
+        
+        *, html {
+          font-family: '${FONT.NAME}', sans-serif;
+          box-sizing: border-box;
+        }
+        
         ::selection {
           background: #8E80F9;
           color: #FFFFFF;

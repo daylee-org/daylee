@@ -3,18 +3,25 @@ import Link from 'next/link';
 
 import styles from './Logo.module.scss';
 import { URLS } from 'utils';
+import classNames from 'classnames';
 
 interface Props {
-  size?: number;
+  size?: 'normal' | 'large' | 'small';
 }
 
-export function Logo({}: Props) {
+export function Logo({ size = 'normal' }: Props) {
   const { isLightMode } = useTheme();
 
+  const classes = classNames(styles.Logo, {
+    [styles.large]: size === 'large',
+    [styles.normal]: size === 'normal',
+    [styles.small]: size === 'small',
+  });
+
   const svgMarkup = isLightMode ? (
-    <div className={styles.Logo}>
+    <div className={classes}>
       <svg
-        className={styles.Logo}
+        className={classes}
         width="131"
         height="44"
         viewBox="0 0 131 44"
@@ -45,9 +52,9 @@ export function Logo({}: Props) {
       </svg>
     </div>
   ) : (
-    <div className={styles.Logo}>
+    <div className={classes}>
       <svg
-        className={styles.Logo}
+        className={classes}
         width="131"
         height="44"
         viewBox="0 0 131 44"
@@ -81,7 +88,7 @@ export function Logo({}: Props) {
 
   return (
     <Link href={URLS.Home}>
-      <div className={styles.Logo}>{svgMarkup}</div>
+      <div className={classes}>{svgMarkup}</div>
     </Link>
   );
 }
