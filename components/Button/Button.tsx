@@ -27,6 +27,7 @@ interface Props {
   fontSize?: 'big' | 'medium' | 'small';
   children?: ReactNode;
   thin?: boolean;
+  icon?: ReactNode;
 }
 
 export function Button({
@@ -43,20 +44,18 @@ export function Button({
   onSelect,
   children,
   thin,
+  icon,
 }: Props) {
   const isTertiary =
     variant === 'add' ||
     variant === 'collapse' ||
     variant === 'nav';
 
-  const isSideNav = variant === 'side-collapse';
-
   const classes = classNames(styles.Button, {
     [styles.rotate]: collapsed,
     [styles.primary]: variant === 'primary',
     [styles.secondary]: variant === 'secondary',
     [styles.tertiary]: isTertiary,
-    [styles.sideNav]: isSideNav,
     [styles.tight]: tight,
     [styles.disabled]: disabled,
     [styles.big]: fontSize === 'big',
@@ -98,6 +97,10 @@ export function Button({
   );
 
   function getIcon() {
+    if (icon != null) {
+      return icon;
+    }
+
     switch (variant) {
       case 'add':
         return <AddButton />;

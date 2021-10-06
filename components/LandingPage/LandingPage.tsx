@@ -339,7 +339,7 @@ export function LandingPage() {
   }
 
   function goToHome() {
-    router.reload(window.location.pathname);
+    router.reload();
   }
 
   function goToTop() {

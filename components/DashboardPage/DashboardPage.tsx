@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react';
-import { monthFromMonthNumber, MONTHS } from 'utils';
+import { MONTHS_MAP } from 'utils';
 import {
   Button,
   Logo,
@@ -9,6 +9,8 @@ import {
   Typography,
 } from '..';
 import { useRouting } from 'hooks';
+import { User } from './Icons/User';
+import { Setting } from './Icons/Setting';
 
 export function DashboardPage() {
   const [selected, setSelected] = useState(false);
@@ -34,10 +36,16 @@ export function DashboardPage() {
           <Button
             thin
             label="Profile"
-            variant="side-collapse"
+            variant="nav"
             onSelect={handleSelect}
+            icon={<User />}
           />
-          <Button thin label="Setting" variant="nav" />
+          <Button
+            thin
+            label="Setting"
+            variant="nav"
+            icon={<Setting />}
+          />
         </Stack>
         <Separator />
         <Stack spacing="tight" vertical>
@@ -85,20 +93,51 @@ interface YearItemProps {
   year: number;
 }
 function YearItem({ year }: YearItemProps) {
-  const { set } = useRouting();
+  const {
+    set,
+    get: { month },
+  } = useRouting();
+
+  console.log(month);
 
   return (
     <NavItem label={String(year)}>
-      {MONTHS.map((month) => (
+      {MONTHS_MAP.map(({ month, number }) => (
         <NavItem key={`${year}-${month}`} label={month}>
-          <Button thin variant="nav" label="Week 1" />
-          <Button thin variant="nav" label="Week 2" />
-          <Button thin variant="nav" label="Week 3" />
-          <Button thin variant="nav" label="Week 4" />
+          <Button
+            onClick={handleWeekSelect(number, 1)}
+            thin
+            variant="nav"
+            label="Week 1"
+          />
+          <Button
+            onClick={handleWeekSelect(number, 2)}
+            thin
+            variant="nav"
+            label="Week 2"
+          />
+          <Button
+            onClick={handleWeekSelect(number, 3)}
+            thin
+            variant="nav"
+            label="Week 3"
+          />
+          <Button
+            onClick={handleWeekSelect(number, 4)}
+            thin
+            variant="nav"
+            label="Week 4"
+          />
         </NavItem>
       ))}
     </NavItem>
   );
+
+  function handleWeekSelect(month: number, week: number) {
+    return function () {
+      set({ month, year, week });
+    };
+  }
 }
 
 interface NavItemProps {
