@@ -83,6 +83,7 @@ function YearItem({ year }: YearItemProps) {
           >
             {[1, 2, 3, 4].map((num) => (
               <Button
+                key={`week-${month}-${year}-${num}`}
                 selected={
                   isMonthSelected &&
                   num === Number(weekFromUrl)

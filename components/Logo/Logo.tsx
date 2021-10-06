@@ -87,7 +87,7 @@ export function Logo({ size = 'normal' }: Props) {
   );
 
   return (
-    <Link href={URLS.Home}>
+    <Link passHref href={URLS.Home}>
       <div className={classes}>{svgMarkup}</div>
     </Link>
   );
