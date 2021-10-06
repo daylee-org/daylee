@@ -37,7 +37,6 @@ export function DashboardPage() {
             thin
             label="Profile"
             variant="nav"
-            onSelect={handleSelect}
             icon={<User />}
           />
           <Button

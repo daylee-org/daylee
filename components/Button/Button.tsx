@@ -19,7 +19,6 @@ interface Props {
   underline?: boolean;
   collapsed?: boolean;
   onToggleCollapse?(): void;
-  onSelect?(): void;
   onClick?(): void;
   tight?: boolean;
   linkTo?: string;
@@ -27,6 +26,7 @@ interface Props {
   fontSize?: 'big' | 'medium' | 'small';
   children?: ReactNode;
   thin?: boolean;
+  selected?: boolean;
   icon?: ReactNode;
 }
 
@@ -41,7 +41,7 @@ export function Button({
   variant = 'primary',
   fontSize = 'big',
   onToggleCollapse,
-  onSelect,
+  selected,
   children,
   thin,
   icon,
@@ -62,6 +62,7 @@ export function Button({
     [styles.medium]: fontSize === 'medium',
     [styles.small]: fontSize === 'small',
     [styles.thin]: thin,
+    [styles.selected]: selected,
   });
 
   const childClasses = classNames(styles.Child, {

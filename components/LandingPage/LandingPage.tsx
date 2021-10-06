@@ -44,14 +44,8 @@ export function LandingPage() {
   const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (topRef.current) {
-      goToTop();
-    } else if (contactRef.current) {
-      goToContact();
-    } else if (featureRef.current) {
-      goToFeatures();
-    }
-  }, [featureRef.current, contactRef.current]);
+    goToTop();
+  }, []);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -344,21 +338,21 @@ export function LandingPage() {
 
   function goToTop() {
     topRef.current?.scrollIntoView({
-      block: 'end',
+      block: 'start',
       behavior: 'smooth',
     });
   }
 
   function goToFeatures() {
     featureRef.current?.scrollIntoView({
-      block: 'end',
+      block: 'start',
       behavior: 'smooth',
     });
   }
 
   function goToContact() {
     contactRef.current?.scrollIntoView({
-      block: 'end',
+      block: 'start',
       behavior: 'smooth',
     });
   }
