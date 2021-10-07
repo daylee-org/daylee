@@ -1,8 +1,11 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useUserSignupMutation } from 'types/withhooks';
 import { URLS } from 'utils';
 import {
   Button,
   Input,
+  Loader,
   Logo,
   Stack,
   TabInfo,
@@ -10,14 +13,26 @@ import {
 } from '..';
 
 export function SignUpPage() {
-  const [Firstname, setFirstname] = useState('');
-  const [Lastname, setLastname] = useState('');
+  const router = useRouter();
+
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordAgain, setPasswordAgain] = useState('');
 
+  const [signup, { loading: signingUp }] =
+    useUserSignupMutation({
+      onCompleted(data) {
+        if (data.userSignup?.email != null) {
+          router.push(URLS.Home);
+        }
+      },
+    });
+
   return (
     <Stack py="13vh" vertical center id="signup-main">
+      {signingUp && <Loader />}
       <TabInfo title="Daylee | Sign up" />
       <Stack
         shadow
@@ -41,14 +56,14 @@ export function SignUpPage() {
             label="First name"
             placeholder="John"
             onChange={setFirstname}
-            value={Firstname}
+            value={firstname}
           />
           <Input
             fill
             label="Last name"
             placeholder="Doe"
             onChange={setLastname}
-            value={Lastname}
+            value={lastname}
           />
         </Stack>
         <Input
@@ -70,7 +85,7 @@ export function SignUpPage() {
           value={passwordAgain}
         />
         <div />
-        <Button label="Sign up" />
+        <Button onClick={handleSignup} label="Sign up" />
         <Button
           linkTo={URLS.Home}
           variant="secondary"
@@ -79,4 +94,16 @@ export function SignUpPage() {
       </Stack>
     </Stack>
   );
+
+  function handleSignup() {
+    signup({
+      variables: {
+        args: {
+          email: email,
+          password: password,
+          username: `${firstname} ${lastname}`,
+        },
+      },
+    });
+  }
 }
