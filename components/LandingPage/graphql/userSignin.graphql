@@ -1,4 +1,4 @@
-query signin($args: UserSigninInput!) {
+query UserSignin($args: UserSigninInput!) {
   userSignin(args: $args) {
     id
     email

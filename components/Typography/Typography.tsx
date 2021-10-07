@@ -32,6 +32,7 @@ interface Props {
   secondary?: boolean;
   disabled?: boolean;
   gradient?: boolean;
+  capitalize?: boolean;
   type?: TypographyType;
 }
 
@@ -47,6 +48,7 @@ export function Typography({
   children,
   className,
   underline,
+  capitalize,
   type,
 }: Props) {
   const Element = getElement(type);
@@ -72,6 +74,7 @@ export function Typography({
     [styles.bigText]: type === 'bigText',
     [styles.mediumText]: type === 'mediumText',
     [styles.smallText]: type === 'smallText',
+    [styles.capitalize]: capitalize,
   });
 
   return <Element className={classes}>{children}</Element>;

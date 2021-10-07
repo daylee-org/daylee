@@ -1,12 +1,31 @@
-import { Stack, Logo, Separator, Button } from 'components';
+import {
+  Stack,
+  Logo,
+  Separator,
+  Button,
+  Loader,
+} from 'components';
 import { ReactNode, useState } from 'react';
 import { MONTHS_MAP } from 'utils';
 import { Setting } from '../Icons/Setting';
 import { User } from '../Icons/User';
+import { Logout } from '../Icons/Logout';
+
 import { useRouting } from 'hooks';
+import { useUserSignOutMutation } from 'types/withhooks';
+import { useRouter } from 'next/router';
 
 export function Sidebar() {
-  const [selected, setSelected] = useState(false);
+  const router = useRouter();
+
+  const [signout, { loading: signingOut }] =
+    useUserSignOutMutation({
+      onCompleted(data) {
+        if (data.userSignout) {
+          router.reload();
+        }
+      },
+    });
 
   return (
     <Stack
@@ -14,6 +33,7 @@ export function Sidebar() {
       background="secondaryBackgroundColor"
       vertical
     >
+      {signingOut && <Loader />}
       <Stack center noRadius px="normal" height="7vh">
         <Logo size="small" />
       </Stack>
@@ -39,6 +59,13 @@ export function Sidebar() {
             label="Setting"
             variant="nav"
             icon={<Setting />}
+          />
+          <Button
+            thin
+            label="Logout"
+            variant="nav"
+            onClick={signout}
+            icon={<Logout />}
           />
         </Stack>
         <Separator />
