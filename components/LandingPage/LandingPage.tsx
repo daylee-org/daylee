@@ -86,11 +86,7 @@ export function LandingPage() {
         schedule and life. Balance your work, projects,
         social life and personal growth.
       </Typography>
-      <Button
-        linkTo={URLS.Dashboard}
-        label="Use as guest"
-        tight
-      />
+      <Button label="Use as guest" tight />
     </Stack>
   );
 
