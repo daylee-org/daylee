@@ -64,11 +64,7 @@ export function LandingPage() {
           variant="nav"
           onClick={goToContact}
         />
-        <Button
-          linkTo={URLS.Dashboard}
-          label="Use as guest"
-          variant="secondary"
-        />
+        <Button label="Use as guest" variant="secondary" />
       </Stack>
     </Stack>
   );
