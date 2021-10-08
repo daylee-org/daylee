@@ -11,7 +11,7 @@ export function DashboardPage() {
       center
       spread
       px="loose"
-      height="7vh"
+      height="5rem"
       id="top-menu"
     >
       <Typography wrap type="header4">
