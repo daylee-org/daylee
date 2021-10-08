@@ -34,18 +34,10 @@ export function Sidebar() {
       vertical
     >
       {signingOut && <Loader />}
-      <Stack center noRadius px="normal" height="5rem">
+      <Stack center noRadius px="normal" height="4rem">
         <Logo size="small" />
       </Stack>
-      <Stack
-        spacing="normal"
-        px="normal"
-        noRadius
-        width="12rem"
-        vertical
-        scroll
-        id="side-menu"
-      >
+      <Stack noRadius vertical spacing="normal" px="normal">
         <Separator />
         <Stack spacing="tight" vertical>
           <Button
@@ -69,6 +61,17 @@ export function Sidebar() {
           />
         </Stack>
         <Separator />
+      </Stack>
+      <Stack
+        spacing="normal"
+        px="normal"
+        noRadius
+        width="12rem"
+        vertical
+        scroll
+        id="side-menu"
+      >
+        <div></div>
         <Stack spacing="tight" vertical>
           <YearItem year={2020} />
           <YearItem year={2021} />

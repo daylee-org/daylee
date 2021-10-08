@@ -17,10 +17,10 @@ const Wrapper = styled.div<Props>`
   border-radius: ${(props) =>
     props.noRadius ? '0px' : ' var(--borderRadius)'};
 
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     display: ${(props) =>
-      props.scroll ? 'inherit' : 'none'};
-  }
+    props.scroll ? 'inherit' : 'none'};
+  } */
 
   overflow-y: ${(props) =>
     props.scroll ? 'scroll' : 'none'};
@@ -30,6 +30,8 @@ const Wrapper = styled.div<Props>`
 
   width: ${(prop) => getSize(prop.width, 'auto')};
   height: ${(prop) => getSize(prop.height, 'auto')};
+  min-height: ${(prop) => getSize(prop.height, 'auto')};
+  max-height: ${(prop) => getSize(prop.height, 'auto')};
 
   & > *:not(:last-child) {
     margin-right: ${(prop) => getSize(prop.spacing)};

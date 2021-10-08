@@ -11,7 +11,7 @@ export function DashboardPage() {
       center
       spread
       px="loose"
-      height="5rem"
+      height="4rem"
       id="top-menu"
     >
       <Typography wrap type="header4">
@@ -27,7 +27,7 @@ export function DashboardPage() {
   );
 
   return (
-    <Stack height="100vh" width="100%" id="dashboard">
+    <Stack height="100vh" width="100vw" id="dashboard">
       <TabInfo title="Daylee | Dashboard" />
       <Sidebar />
       <Stack vertical width="100%" id="dashboard-content">
