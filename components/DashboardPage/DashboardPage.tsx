@@ -1,19 +1,26 @@
+import { useUserAccountQuery } from 'types/withhooks';
 import { Separator, Stack, TabInfo, Typography } from '..';
 import { Sidebar } from './components';
 
 export function DashboardPage() {
+  const { data } = useUserAccountQuery();
+
   const topBarMarkup = (
     <Stack
       noRadius
       center
-      px="normal"
+      spread
+      px="loose"
       height="7vh"
       id="top-menu"
     >
-      <Typography wrap type="header3">
-        Good morning, whOre
+      <Typography wrap type="header4">
+        Good morning,{' '}
+        <Typography thin capitalize>
+          {data?.userAccount.username}
+        </Typography>
       </Typography>
-      <Typography wrap type="header3">
+      <Typography wrap type="header4">
         2 October 2021
       </Typography>
     </Stack>
@@ -25,7 +32,7 @@ export function DashboardPage() {
       <Sidebar />
       <Stack vertical width="100%" id="dashboard-content">
         {topBarMarkup}
-        <Separator padding="loose" />
+        <Separator padding="extra-loose" />
         <Stack id="features">
           <Stack
             height="100%"

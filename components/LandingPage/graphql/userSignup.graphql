@@ -1,4 +1,4 @@
-mutation signup($args: UserSignupInput!) {
+mutation UserSignup($args: UserSignupInput!) {
   userSignup(args: $args) {
     id
     email

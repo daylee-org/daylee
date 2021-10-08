@@ -8,10 +8,7 @@ import {
   ThemeToggle,
   Loader,
 } from 'components';
-import {
-  useSigninLazyQuery,
-  useUserAccountQuery,
-} from 'types/withhooks';
+import { useUserSigninLazyQuery } from 'types/withhooks';
 import styles from './LandingPage.module.scss';
 import Image from 'next/image';
 import calendar from './Images/calendar.png';
@@ -25,20 +22,20 @@ import { useRouter } from 'next/router';
 import { URLS } from 'utils';
 
 export function LandingPage() {
-  const { data, refetch } = useUserAccountQuery({
-    fetchPolicy: 'network-only',
-  });
-  const [signin, { loading }] = useSigninLazyQuery({
+  const router = useRouter();
+
+  const [signin, { loading }] = useUserSigninLazyQuery({
     nextFetchPolicy: 'network-only',
     onCompleted(data) {
-      console.log(data);
+      if (data.userSignin.email != null) {
+        router.reload();
+      }
     },
     onError(error) {
-      console.log(error);
+      console.log('useUserSigninLazyQuery', error);
     },
   });
 
-  const router = useRouter();
   const topRef = useRef<HTMLDivElement>(null);
   const featureRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
@@ -67,11 +64,7 @@ export function LandingPage() {
           variant="nav"
           onClick={goToContact}
         />
-        <Button
-          linkTo={URLS.Dashboard}
-          label="Use as guest"
-          variant="secondary"
-        />
+        <Button label="Use as guest" variant="secondary" />
       </Stack>
     </Stack>
   );
@@ -93,11 +86,7 @@ export function LandingPage() {
         schedule and life. Balance your work, projects,
         social life and personal growth.
       </Typography>
-      <Button
-        linkTo={URLS.Dashboard}
-        label="Use as guest"
-        tight
-      />
+      <Button label="Use as guest" tight />
     </Stack>
   );
 
