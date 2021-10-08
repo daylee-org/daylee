@@ -107,7 +107,7 @@ export function LandingPage() {
       px="normal"
       py="normal"
       background="separatorBackgroundColor"
-      width="20rem"
+      width="23rem"
       vertical
       id="inputs"
       spacing="normal"
