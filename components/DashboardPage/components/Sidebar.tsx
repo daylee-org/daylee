@@ -34,7 +34,7 @@ export function Sidebar() {
       vertical
     >
       {signingOut && <Loader />}
-      <Stack center noRadius px="normal" height="4rem">
+      <Stack center noRadius px="normal" height="4.5rem">
         <Logo size="small" />
       </Stack>
       <Stack noRadius vertical spacing="normal" px="normal">

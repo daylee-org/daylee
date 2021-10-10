@@ -1,6 +1,7 @@
 import { useUserAccountQuery } from 'types/withhooks';
 import { Separator, Stack, TabInfo, Typography } from '..';
 import { Sidebar } from './components';
+import moment from 'moment';
 
 export function DashboardPage() {
   const { data } = useUserAccountQuery();
@@ -11,17 +12,17 @@ export function DashboardPage() {
       center
       spread
       px="loose"
-      height="4rem"
+      height="4.5rem"
       id="top-menu"
     >
       <Typography wrap type="header4">
         Good morning,{' '}
-        <Typography thin capitalize>
+        <Typography capitalize>
           {data?.userAccount.username}
         </Typography>
       </Typography>
       <Typography wrap type="header4">
-        2 October 2021
+        {moment().format('LL')}
       </Typography>
     </Stack>
   );
