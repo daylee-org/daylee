@@ -15,7 +15,7 @@ export function DashboardPage() {
       <Sidebar />
       <Stack vertical width="100%" id="dashboard-content">
         <TopBar />
-        <Separator padding="extra-loose" />
+        <Separator padding="loose" />
         <Stack vertical width="100%">
           <WeekMonthYearToggle />
           <Stack spacing="normal" px="loose" id="features">
