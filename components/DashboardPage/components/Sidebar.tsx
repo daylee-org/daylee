@@ -13,12 +13,14 @@ import { Setting } from '../Icons/Setting';
 import { User } from '../Icons/User';
 import { Logout } from '../Icons/Logout';
 
-import { useRouting } from 'hooks';
+import { useRoutingState } from 'hooks';
 import { useUserSignOutMutation } from 'types/withhooks';
 import { useRouter } from 'next/router';
+import { useTheme } from 'providers/ThemeProvider';
 
 export function Sidebar() {
   const router = useRouter();
+  const { isLightMode } = useTheme();
 
   const [signout, { loading: signingOut }] =
     useUserSignOutMutation({
@@ -83,8 +85,10 @@ export function Sidebar() {
         </Stack>
 
         <Separator />
-        <Stack spacing="tight">
-          <Typography thin>Theme</Typography>
+        <Stack center spacing="tight">
+          <Typography type="mediumCaption" thin>
+            {`${isLightMode ? 'Light' : 'Dark'} Mode`}
+          </Typography>
           <ThemeToggle />
         </Stack>
       </Stack>
@@ -103,18 +107,24 @@ function YearItem({ year }: YearItemProps) {
       year: yearFromUrl,
       week: weekFromUrl,
     },
-  } = useRouting();
+  } = useRoutingState();
 
   const isYearSelected = year === Number(yearFromUrl);
 
   return (
-    <NavItem selected={isYearSelected} label={String(year)}>
-      {MONTHS_MAP.map(({ month, number }) => {
+    <NavItem
+      onClick={handleYearSelect}
+      selected={isYearSelected}
+      label={String(year)}
+    >
+      {MONTHS_MAP.map(({ month, number: monthNumber }) => {
         const isMonthSelected =
-          isYearSelected && number === Number(monthFromUrl);
+          isYearSelected &&
+          monthNumber === Number(monthFromUrl);
 
         return (
           <NavItem
+            onClick={handleYearSelectMonth(monthNumber)}
             selected={isMonthSelected}
             key={`${year}-${month}`}
             label={month}
@@ -126,7 +136,7 @@ function YearItem({ year }: YearItemProps) {
                   isMonthSelected &&
                   num === Number(weekFromUrl)
                 }
-                onClick={handleWeekSelect(number, num)}
+                onClick={handleWeekSelect(monthNumber, num)}
                 thin
                 variant="nav"
                 label={`Week ${num}`}
@@ -138,9 +148,13 @@ function YearItem({ year }: YearItemProps) {
     </NavItem>
   );
 
-  function handleMonthSelect(month: number) {
+  function handleYearSelect() {
+    set({ year });
+  }
+
+  function handleYearSelectMonth(month: number) {
     return function () {
-      set({ month, year });
+      set({ year, month });
     };
   }
 
@@ -155,18 +169,21 @@ interface NavItemProps {
   label: string;
   selected?: boolean;
   children: ReactNode;
+  onClick?(): void;
 }
 function NavItem({
   label,
   selected,
   children,
+  onClick,
 }: NavItemProps) {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(selected);
 
   return (
     <Button
       collapsed={collapsed}
       onToggleCollapse={handleToggleCollapse}
+      onClick={handleOnclick}
       thin
       selected={selected}
       variant="collapse"
@@ -175,6 +192,13 @@ function NavItem({
       {children}
     </Button>
   );
+
+  function handleOnclick() {
+    onClick?.();
+    if (!collapsed) {
+      setCollapsed(true);
+    }
+  }
 
   function handleToggleCollapse() {
     setCollapsed((col) => !col);

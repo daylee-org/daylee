@@ -4,7 +4,7 @@ import {
   Sidebar,
   TopBar,
   WeeklyTodos,
-  WeekMonthToggle,
+  WeekMonthYearToggle,
   WidgetsArea,
 } from './components';
 
@@ -16,8 +16,8 @@ export function DashboardPage() {
       <Stack vertical width="100%" id="dashboard-content">
         <TopBar />
         <Separator padding="extra-loose" />
-        <Stack vertical spacing="normal" width="100%">
-          <WeekMonthToggle />
+        <Stack vertical width="100%">
+          <WeekMonthYearToggle />
           <Stack spacing="normal" px="loose" id="features">
             <WidgetsArea />
             <Separator vertical />

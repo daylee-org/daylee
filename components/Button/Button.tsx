@@ -106,7 +106,7 @@ export function Button({
       case 'add':
         return <AddButton />;
       case 'collapse':
-        return <Chevron onClick={onToggleCollapse} />;
+        return <Chevron onClick={handleToggleCollapse} />;
       default:
         return null;
     }
@@ -117,6 +117,13 @@ export function Button({
   ) {
     if (onClick && event.keyCode === 13) {
       onClick();
+    }
+  }
+
+  function handleToggleCollapse(e: any) {
+    if (onToggleCollapse != null) {
+      e.stopPropagation();
+      onToggleCollapse();
     }
   }
 }

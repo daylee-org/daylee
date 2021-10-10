@@ -1,5 +1,5 @@
 export { Sidebar } from './Sidebar';
-export { WeekMonthToggle } from './WeekMonthToggle';
+export { WeekMonthYearToggle } from './WeekMonthYearToggle';
 export { WidgetsArea } from './WidgetsArea';
 export { WeeklyTodos } from './WeeklyTodos';
 export { TopBar } from './TopBar';

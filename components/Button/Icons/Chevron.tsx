@@ -1,5 +1,5 @@
 interface Props {
-  onClick?(): void;
+  onClick?(event: any): void;
 }
 export function Chevron({ onClick }: Props) {
   return (
