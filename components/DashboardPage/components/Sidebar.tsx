@@ -73,6 +73,7 @@ export function Sidebar() {
         scroll
         id="side-menu"
       >
+        <div />
         <Stack spacing="tight" vertical>
           <YearItem year={2020} />
           <YearItem year={2021} />
