@@ -4,6 +4,8 @@ import {
   Separator,
   Button,
   Loader,
+  ThemeToggle,
+  Typography,
 } from 'components';
 import { ReactNode, useState } from 'react';
 import { MONTHS_MAP } from 'utils';
@@ -71,13 +73,18 @@ export function Sidebar() {
         scroll
         id="side-menu"
       >
-        <div></div>
         <Stack spacing="tight" vertical>
           <YearItem year={2020} />
           <YearItem year={2021} />
           <YearItem year={2022} />
           <YearItem year={2023} />
           <YearItem year={2024} />
+        </Stack>
+
+        <Separator />
+        <Stack spacing="tight">
+          <Typography thin>Theme</Typography>
+          <ThemeToggle />
         </Stack>
       </Stack>
     </Stack>
