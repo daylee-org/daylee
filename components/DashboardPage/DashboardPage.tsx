@@ -18,7 +18,7 @@ export function DashboardPage() {
         <Separator padding="loose" />
         <Stack vertical width="100%">
           <WeekMonthYearToggle />
-          <Stack spacing="normal" px="loose" id="features">
+          <Stack spacing="normal" px="normal" id="features">
             <WidgetsArea />
             <Separator vertical />
             <WeeklyTodos />

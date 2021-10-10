@@ -15,22 +15,35 @@ export function WeeklyTodos() {
       vertical
       spacing="normal"
     >
-      <Separator
-        thin
-        color="secondaryTextColor"
-        label="Week 1"
-      />
-      <Typography type="header5">Monday</Typography>
-      <Todo />
-      <Typography type="header5">Tuesday</Typography>
-      <Typography type="header5">Wednesday</Typography>
-      <Typography type="header5">Friday</Typography>
-      <Separator
-        thin
-        color="secondaryTextColor"
-        label="Week 2"
-      />
-      <Typography>Monday</Typography>
+      <Stack vertical spacing="20px">
+        <Separator
+          thin
+          color="secondaryTextColor"
+          label="Week 1"
+        />
+        <Stack vertical spacing="tight">
+          <Typography type="header5">Monday</Typography>
+          <Stack vertical>
+            <Todo label="This is a Todo" />
+            <Todo label="Thing done" />
+          </Stack>
+        </Stack>
+        <Typography type="header5">Tuesday</Typography>
+        <Typography type="header5">Wednesday</Typography>
+        <Typography type="header5">Friday</Typography>
+      </Stack>
+      <Stack vertical spacing="20px">
+        <Separator
+          thin
+          color="secondaryTextColor"
+          label="Week 2"
+        />
+        <Typography type="header5">Monday</Typography>
+        <Stack vertical>
+          <Todo label="This is a Todo" />
+          <Todo label="Thing done" />
+        </Stack>
+      </Stack>
     </Stack>
   );
 }
