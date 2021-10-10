@@ -43,6 +43,7 @@ export function DashboardPage() {
         <Stack vertical width="100%">
           <WeekMonthToggle />
           <Stack spacing="normal" py="normal" id="features">
+            <div></div>
             <Stack
               height="100%"
               width="100%"
@@ -57,6 +58,7 @@ export function DashboardPage() {
               background="widgetBackgroundColor"
               id="todos"
             ></Stack>
+            <div></div>
           </Stack>
         </Stack>
       </Stack>
