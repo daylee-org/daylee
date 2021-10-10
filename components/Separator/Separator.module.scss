@@ -20,3 +20,11 @@ $textPadding: 1.8rem;
   padding-left: $textPadding;
   padding-right: $textPadding;
 }
+
+.vertical {
+  width: $height;
+
+  .Line {
+    height: 100%;
+  }
+}

@@ -34,7 +34,7 @@ export function Sidebar() {
       vertical
     >
       {signingOut && <Loader />}
-      <Stack center noRadius px="normal" height="4.5rem">
+      <Stack center noRadius px="normal" height="5rem">
         <Logo size="small" />
       </Stack>
       <Stack noRadius vertical spacing="normal" px="normal">
@@ -129,6 +129,12 @@ function YearItem({ year }: YearItemProps) {
       })}
     </NavItem>
   );
+
+  function handleMonthSelect(month: number) {
+    return function () {
+      set({ month, year });
+    };
+  }
 
   function handleWeekSelect(month: number, week: number) {
     return function () {

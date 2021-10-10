@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styles from './Logo.module.scss';
 import { URLS } from 'utils';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 interface Props {
   size?: 'normal' | 'large' | 'small';
@@ -12,7 +12,7 @@ interface Props {
 export function Logo({ size = 'normal' }: Props) {
   const { isLightMode } = useTheme();
 
-  const classes = classNames(styles.Logo, {
+  const classes = classnames(styles.Logo, {
     [styles.large]: size === 'large',
     [styles.normal]: size === 'normal',
     [styles.small]: size === 'small',
