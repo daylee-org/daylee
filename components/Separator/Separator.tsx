@@ -9,6 +9,7 @@ interface Props {
   color?: ThemeColors;
   padding?: SpacingType;
   vertical?: boolean;
+  thin?: boolean;
 }
 
 export function Separator({
@@ -16,9 +17,10 @@ export function Separator({
   padding,
   color = 'separatorBackgroundColor',
   vertical,
+  thin,
 }: Props) {
   const labelMarkup = label ? (
-    <Typography className={styles.Label}>
+    <Typography type="header5" className={styles.Label}>
       {label}
     </Typography>
   ) : null;
@@ -27,6 +29,7 @@ export function Separator({
 
   const classes = classnames(styles.Separator, {
     [styles.vertical]: vertical,
+    [styles.thin]: thin,
   });
 
   const lineMarkup = (

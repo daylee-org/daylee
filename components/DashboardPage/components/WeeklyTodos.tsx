@@ -1,4 +1,9 @@
-import { Separator, Stack, Typography } from 'components';
+import {
+  Separator,
+  Stack,
+  Typography,
+  Todo,
+} from 'components';
 
 export function WeeklyTodos() {
   return (
@@ -11,14 +16,17 @@ export function WeeklyTodos() {
       spacing="normal"
     >
       <Separator
+        thin
         color="secondaryTextColor"
         label="Week 1"
       />
-      <Typography>Monday</Typography>
-      <Typography>Tuesday</Typography>
-      <Typography>Wednesday</Typography>
-      <Typography>Friday</Typography>
+      <Typography type="header5">Monday</Typography>
+      <Todo />
+      <Typography type="header5">Tuesday</Typography>
+      <Typography type="header5">Wednesday</Typography>
+      <Typography type="header5">Friday</Typography>
       <Separator
+        thin
         color="secondaryTextColor"
         label="Week 2"
       />

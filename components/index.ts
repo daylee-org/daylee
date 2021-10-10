@@ -7,6 +7,7 @@ export { Stack } from './Stack/Stack';
 export { TabInfo } from './TabInfo/TabInfo';
 export { Loader } from './Loader/Loader';
 export { Separator } from './Separator/Separator';
+export { Todo } from './Todo/Todo';
 
 // Pages
 export { LandingPage } from './LandingPage/LandingPage';

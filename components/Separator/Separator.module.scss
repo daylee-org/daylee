@@ -1,4 +1,4 @@
-$height: 2.5px;
+$height: 3px;
 $textPadding: 1.8rem;
 
 .Separator {
@@ -26,5 +26,14 @@ $textPadding: 1.8rem;
 
   .Line {
     height: 100%;
+    width: 1.5px;
+  }
+}
+
+.thin {
+  $height: 1px;
+
+  .Line {
+    height: $height;
   }
 }
