@@ -3,7 +3,6 @@ import {
   DashboardPage,
   Loader,
 } from 'components';
-import moment from 'moment';
 import { useEffect } from 'react';
 import { useUserAccountQuery } from 'types/withhooks';
 import { useRoutingState } from 'hooks';
@@ -13,28 +12,25 @@ export default function Home() {
     fetchPolicy: 'network-only',
   });
 
-  const { set } = useRoutingState();
+  const isSignedIn = data?.userAccount != null;
+
+  const { set, setToday } = useRoutingState();
 
   useEffect(() => {
-    function setInitialNavState() {
-      set({
-        week:
-          moment().weeks() -
-          moment().startOf('month').weeks() +
-          1,
-        month: moment().month(),
-        year: moment().year(),
-      });
-    }
-
-    setInitialNavState();
+    setToday();
   }, []);
+
+  useEffect(() => {
+    if (!loading && !isSignedIn) {
+      set({});
+    }
+  }, [loading, isSignedIn]);
 
   if (loading) {
     return <Loader />;
   }
 
-  if (data?.userAccount != null) {
+  if (isSignedIn) {
     return <DashboardPage />;
   }
 

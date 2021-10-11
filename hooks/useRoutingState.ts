@@ -1,3 +1,4 @@
+import moment from 'moment';
 import Router, { useRouter } from 'next/router';
 
 interface Param {
@@ -15,8 +16,20 @@ export function useRoutingState() {
     });
   }
 
+  function setToday() {
+    set({
+      week:
+        moment().weeks() -
+        moment().startOf('month').weeks() +
+        1,
+      month: moment().month(),
+      year: moment().year(),
+    });
+  }
+
   return {
     set,
+    setToday,
     get: {
       year: getNumberValue(query.year),
       week: getNumberValue(query.week),
