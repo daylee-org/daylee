@@ -17,10 +17,10 @@ const Wrapper = styled.div<Props>`
   border-radius: ${(props) =>
     props.noRadius ? '0px' : ' var(--borderRadius)'};
 
-  /* ::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     display: ${(props) =>
-    props.scroll ? 'inherit' : 'none'};
-  } */
+      props.scroll ? 'inherit' : 'none'};
+  }
 
   overflow-y: ${(props) =>
     props.scroll ? 'scroll' : 'none'};

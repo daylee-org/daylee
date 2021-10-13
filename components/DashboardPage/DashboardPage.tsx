@@ -15,10 +15,15 @@ export function DashboardPage() {
       <Sidebar />
       <Stack vertical width="100%" id="dashboard-content">
         <TopBar />
-        <Separator padding="loose" />
+        <Separator padding="extra-loose" />
         <Stack vertical width="100%">
           <WeekMonthYearToggle />
-          <Stack spacing="normal" px="normal" id="features">
+          <Stack
+            spacing="normal"
+            px="normal"
+            height="70vh"
+            id="features"
+          >
             <WidgetsArea />
             <Separator vertical />
             <WeeklyTodos />

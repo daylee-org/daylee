@@ -5,10 +5,19 @@ export function WidgetsArea() {
     <Stack
       height="100%"
       width="100%"
-      background="widgetBackgroundColor"
+      scroll
+      spacing="normal"
+      vertical
       id="widgets"
     >
-      Widgets
+      <div></div>
+      <Stack
+        height="100%"
+        width="100%"
+        background="widgetBackgroundColor"
+      >
+        Widgets
+      </Stack>
     </Stack>
   );
 }

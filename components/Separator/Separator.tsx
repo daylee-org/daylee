@@ -44,10 +44,17 @@ export function Separator({
   return (
     <div
       className={classes}
-      style={{
-        paddingLeft: paddingValue,
-        paddingRight: paddingValue,
-      }}
+      style={
+        vertical === true
+          ? {
+              paddingTop: paddingValue,
+              paddingBottom: paddingValue,
+            }
+          : {
+              paddingLeft: paddingValue,
+              paddingRight: paddingValue,
+            }
+      }
     >
       {lineMarkup}
       {labelMarkup}
@@ -55,3 +62,6 @@ export function Separator({
     </div>
   );
 }
+
+// paddingLeft: paddingValue,
+// paddingRight: paddingValue,

@@ -13,8 +13,10 @@ export function WeeklyTodos() {
       noRadius
       id="todos"
       vertical
+      scroll
       spacing="normal"
     >
+      <div></div>
       <Stack vertical spacing="20px">
         <Separator
           thin
@@ -31,6 +33,54 @@ export function WeeklyTodos() {
         <Typography type="header5">Tuesday</Typography>
         <Typography type="header5">Wednesday</Typography>
         <Typography type="header5">Friday</Typography>
+      </Stack>
+      <Stack vertical spacing="20px">
+        <Separator
+          thin
+          color="secondaryTextColor"
+          label="Week 2"
+        />
+        <Typography type="header5">Monday</Typography>
+        <Stack vertical>
+          <Todo label="This is a Todo" />
+          <Todo label="Thing done" />
+        </Stack>
+      </Stack>
+      <Stack vertical spacing="20px">
+        <Separator
+          thin
+          color="secondaryTextColor"
+          label="Week 2"
+        />
+        <Typography type="header5">Monday</Typography>
+        <Stack vertical>
+          <Todo label="This is a Todo" />
+          <Todo label="Thing done" />
+        </Stack>
+      </Stack>
+      <Stack vertical spacing="20px">
+        <Separator
+          thin
+          color="secondaryTextColor"
+          label="Week 2"
+        />
+        <Typography type="header5">Monday</Typography>
+        <Stack vertical>
+          <Todo label="This is a Todo" />
+          <Todo label="Thing done" />
+        </Stack>
+      </Stack>
+      <Stack vertical spacing="20px">
+        <Separator
+          thin
+          color="secondaryTextColor"
+          label="Week 2"
+        />
+        <Typography type="header5">Monday</Typography>
+        <Stack vertical>
+          <Todo label="This is a Todo" />
+          <Todo label="Thing done" />
+        </Stack>
       </Stack>
       <Stack vertical spacing="20px">
         <Separator
