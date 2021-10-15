@@ -63,6 +63,12 @@ export function Sidebar() {
             onClick={signout}
             icon={<Logout />}
           />
+          <Stack py="5px" center spacing="tight">
+            <ThemeToggle />
+            <Typography type="mediumCaption" disabled thin>
+              {`${isLightMode ? 'Light' : 'Dark'}`}
+            </Typography>
+          </Stack>
         </Stack>
         <Separator />
       </Stack>
@@ -82,14 +88,6 @@ export function Sidebar() {
           <YearItem year={2022} />
           <YearItem year={2023} />
           <YearItem year={2024} />
-        </Stack>
-
-        <Separator />
-        <Stack center spacing="tight">
-          <Typography type="mediumCaption" thin>
-            {`${isLightMode ? 'Light' : 'Dark'} Mode`}
-          </Typography>
-          <ThemeToggle />
         </Stack>
       </Stack>
     </Stack>
