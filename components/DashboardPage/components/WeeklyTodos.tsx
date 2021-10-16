@@ -5,7 +5,7 @@ import {
   Todo,
   Button,
 } from 'components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRoutingState } from 'hooks';
 
 export function WeeklyTodos() {
@@ -23,7 +23,20 @@ export function WeeklyTodos() {
     'Sunday',
   ];
 
-  const [todos, setTodos] = useState([]);
+  // const [day, setDay] = useState('');
+
+  // days.map((day) => (
+  //   const [todos{day}, setTodos{day}] = useState([]);
+  // )
+
+  const [todos0, setTodos0] = useState([]);
+  const [todos1, setTodos1] = useState([]);
+  const [todos2, setTodos2] = useState([]);
+  const [todos3, setTodos3] = useState([]);
+  const [todos4, setTodos4] = useState([]);
+  const [todos5, setTodos5] = useState([]);
+  const [todos6, setTodos6] = useState([]);
+
   const TodoMarkup = <Todo label="New Todo" />;
 
   return (
@@ -44,68 +57,38 @@ export function WeeklyTodos() {
           color="secondaryTextColor"
           label={`Week ${week}`}
         />
-        <Stack vertical spacing="tight">
-          <Typography type="header5">Monday</Typography>
-          <Stack vertical>
-            <Todo label="This is a Todo" />
-            <Todo label="Thing done" />
-            {todos.map((todo) => todo)}
-            <Button
-              variant="add"
-              label="New"
-              onClick={handleAddTodo}
-            />
-          </Stack>
-        </Stack>
-        <Stack vertical spacing="tight">
-          <Typography type="header5">Tuesday</Typography>
-          <Stack vertical>
-            {todos.map((todo) => todo)}
-            <Button
-              variant="add"
-              label="New"
-              onClick={handleAddTodo}
-            />
-          </Stack>
-        </Stack>
-        <Stack vertical spacing="tight">
-          <Typography type="header5">Wednesday</Typography>
-          <Stack vertical>
-            {todos.map((todo) => todo)}
-            <Button
-              variant="add"
-              label="New"
-              onClick={handleAddTodo}
-            />
-          </Stack>
-        </Stack>
-        <Stack vertical spacing="tight">
-          <Typography type="header5">Thursday</Typography>
-          <Stack vertical>
-            {todos.map((todo) => todo)}
-            <Button
-              variant="add"
-              label="New"
-              onClick={handleAddTodo}
-            />
-          </Stack>
-        </Stack>
-        <Stack vertical spacing="tight">
-          <Typography type="header5">Friday</Typography>
-          <Stack vertical>
-            {todos.map((todo) => todo)}
-            <Button
-              variant="add"
-              label="New"
-              onClick={handleAddTodo}
-            />
-          </Stack>
-        </Stack>
+        {days.map((day) => (
+          <DayTodo day={day} key={day} />
+        ))}
       </Stack>
     </Stack>
   );
 
-  function handleAddTodo() {
-    setTodos([...todos, TodoMarkup]);
+  interface DayTodosProps {
+    day: string;
+  }
+
+  function DayTodo({ day }: DayTodosProps) {
+    const [todos, setTodos] = useState([]);
+
+    return (
+      <Stack vertical spacing="tight" key={day}>
+        <Typography type="header5">{day}</Typography>
+        <Stack vertical>
+          <Todo label="This is a Todo" />
+          <Todo label="Thing done" />
+          {todos.map(() => TodoMarkup)}
+          <Button
+            variant="add"
+            label="New"
+            onClick={handleAddTodo}
+          />
+        </Stack>
+      </Stack>
+    );
+
+    function handleAddTodo(todo) {
+      setTodos([...todos, todo]);
+    }
   }
 }
