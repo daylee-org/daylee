@@ -14,6 +14,15 @@ export function WeeklyTodos() {
     set,
   } = useRoutingState();
 
+  const days = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
+
   const [todos, setTodos] = useState([]);
   const TodoMarkup = <Todo label="New Todo" />;
 
