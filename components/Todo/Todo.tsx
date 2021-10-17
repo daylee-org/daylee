@@ -1,15 +1,22 @@
-import { Typography } from '../Typography/Typography';
+// import { Typography } from '../Typography/Typography';
 import styles from './Todo.module.scss';
 
-interface Props {
-  label: string;
-}
+// interface Props {
+//   label: string;
+// }
 
-export function Todo({ label }: Props) {
+export function Todo({ handleAddTodo }: any) {
   return (
     <label className={styles.Todo}>
       <input type="checkbox" className={styles.Checkbox} />
-      <Typography type="bigText">{label}</Typography>
+      <input
+        type="text"
+        onKeyDown={(e) =>
+          e.key === 'Enter' && handleAddTodo
+        }
+        className={styles.Text}
+      />
+      {/* <Typography type="bigText">{label}</Typography>{' '} */}
     </label>
   );
 }

@@ -23,20 +23,6 @@ export function WeeklyTodos() {
     'Sunday',
   ];
 
-  // const [day, setDay] = useState('');
-
-  // days.map((day) => (
-  //   const [todos{day}, setTodos{day}] = useState([]);
-  // )
-
-  const [todos0, setTodos0] = useState([]);
-  const [todos1, setTodos1] = useState([]);
-  const [todos2, setTodos2] = useState([]);
-  const [todos3, setTodos3] = useState([]);
-  const [todos4, setTodos4] = useState([]);
-  const [todos5, setTodos5] = useState([]);
-  const [todos6, setTodos6] = useState([]);
-
   const TodoMarkup = <Todo label="New Todo" />;
 
   return (
@@ -75,8 +61,7 @@ export function WeeklyTodos() {
       <Stack vertical spacing="tight" key={day}>
         <Typography type="header5">{day}</Typography>
         <Stack vertical>
-          <Todo label="This is a Todo" />
-          <Todo label="Thing done" />
+          <Todo handleAddTodo={handleAddTodo} />
           {todos.map(() => TodoMarkup)}
           <Button
             variant="add"
