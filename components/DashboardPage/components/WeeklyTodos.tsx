@@ -4,9 +4,19 @@ import {
   Typography,
   Todo,
   Button,
+  MessageBox,
 } from 'components';
 import { useState, useEffect } from 'react';
 import { useRoutingState } from 'hooks';
+
+const days = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+];
 
 export function WeeklyTodos() {
   const {
@@ -14,27 +24,15 @@ export function WeeklyTodos() {
     set,
   } = useRoutingState();
 
-  const days = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-  ];
-
-  const TodoMarkup = <Todo label="New Todo" />;
-
   return (
     <Stack
-      width="20rem"
+      width="23rem"
       height="100%"
       noRadius
       id="todos"
       vertical
       scroll
       spacing="normal"
-      px="5px"
       py="10px"
     >
       <Stack vertical spacing="20px">
@@ -44,36 +42,62 @@ export function WeeklyTodos() {
           label={`Week ${week}`}
         />
         {days.map((day) => (
-          <DayTodo day={day} key={day} />
+          <DailyTodo day={day} key={day} />
         ))}
       </Stack>
     </Stack>
   );
+}
 
-  interface DayTodosProps {
-    day: string;
-  }
+interface DailyTodosProps {
+  day: string;
+}
 
-  function DayTodo({ day }: DayTodosProps) {
-    const [todos, setTodos] = useState([]);
+function DailyTodo({ day }: DailyTodosProps) {
+  const [todos, setTodos] = useState([]);
 
-    return (
-      <Stack vertical spacing="tight" key={day}>
-        <Typography type="header5">{day}</Typography>
-        <Stack vertical>
+  return (
+    <Stack vertical spacing="tight" key={day}>
+      <Typography type="header5">{day}</Typography>
+      <Stack vertical>
+        <Todo handleAddTodo={handleAddTodo} />
+        {todos.map(() => (
           <Todo handleAddTodo={handleAddTodo} />
-          {todos.map(() => TodoMarkup)}
-          <Button
-            variant="add"
-            label="New"
-            onClick={handleAddTodo}
-          />
-        </Stack>
+        ))}
+        <Button
+          variant="add"
+          fontSize="medium"
+          label="New"
+          onClick={handleAddTodo}
+        />
+        <Separator
+          thin
+          color="disabledTextColor"
+          padding="loose"
+        />
       </Stack>
-    );
+      <DailyMessage />
+    </Stack>
+  );
 
-    function handleAddTodo(todo) {
-      setTodos([...todos, todo]);
-    }
+  function handleAddTodo(todo) {
+    setTodos([...todos, todo]);
   }
+}
+
+function DailyMessage() {
+  const [displayMessage, setDisplayMessage] =
+    useState(false);
+  console.log(displayMessage);
+
+  return displayMessage ? (
+    <MessageBox placeholder="I am grateful for..." />
+  ) : (
+    <Button
+      variant="add"
+      fontSize="medium"
+      label="Add something you are grateful for"
+      onClick={() => setDisplayMessage(true)}
+    />
+  );
 }

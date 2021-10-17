@@ -1,0 +1,14 @@
+.MessageBox {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  font-weight: 400;
+  font-size: 9px;
+  color: var(--secondaryTextColor);
+  width: 100%;
+}
+
+.MessageBox:focus {
+  outline: none;
+}

@@ -6,7 +6,7 @@ export function WidgetsArea() {
       height="100%"
       width="100%"
       scroll
-      spacing="normal"
+      // spacing="normal"
       vertical
       py="10px"
       id="widgets"
