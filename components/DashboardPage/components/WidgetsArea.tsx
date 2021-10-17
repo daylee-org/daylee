@@ -8,9 +8,9 @@ export function WidgetsArea() {
       scroll
       spacing="normal"
       vertical
+      py="10px"
       id="widgets"
     >
-      <div></div>
       <Stack
         height="100%"
         width="100%"

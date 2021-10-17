@@ -35,8 +35,8 @@ export function WeeklyTodos() {
       scroll
       spacing="normal"
       px="5px"
+      py="10px"
     >
-      <div></div>
       <Stack vertical spacing="20px">
         <Separator
           thin
