@@ -14,7 +14,6 @@ export function MessageBox({
     <Stack
       vertical
       px="tight"
-      // py="tight"
       spacing="tight"
       background="widgetBackgroundColor"
     >
