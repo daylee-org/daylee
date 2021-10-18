@@ -39,6 +39,10 @@
   transform: translate(-50%, -50%);
 }
 
+.Checkbox:focus {
+  outline: 1px solid #be7bf6;
+}
+
 .Text {
   appearance: none;
   -webkit-appearance: none;

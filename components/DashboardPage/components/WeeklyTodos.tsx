@@ -17,7 +17,6 @@ const days = [
   'Saturday',
   'Sunday',
 ];
-
 export function WeeklyTodos() {
   const {
     get: { week, month, year },
@@ -91,7 +90,11 @@ function DailyMessage() {
   console.log(displayMessage);
 
   return displayMessage ? (
-    <MessageBox placeholder="I am grateful for..." />
+    <MessageBox
+      placeholder="I am grateful for..."
+      displayMessage={displayMessage}
+      setDisplayMessage={setDisplayMessage}
+    />
   ) : (
     <Button
       variant="add"
