@@ -6,7 +6,7 @@ import { useRef } from 'react';
 //   label: string;
 // }
 
-export function Todo({ handleAddTodo }: any) {
+export function Todo({ placeholder, handleAddTodo }: any) {
   const todoInput = useRef(null);
 
   return (
@@ -18,6 +18,7 @@ export function Todo({ handleAddTodo }: any) {
       />
       <input
         type="text"
+        placeholder={placeholder}
         onKeyDown={handleKeyPressed}
         className={styles.Text}
       />

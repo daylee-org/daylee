@@ -23,7 +23,7 @@ export function MessageBox({
         <Typography type="header5">{title}</Typography>
         <Button
           variant="nav"
-          label="close"
+          label="X"
           fontSize="small"
           onClick={() => setDisplayMessage(false)}
         />

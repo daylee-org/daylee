@@ -59,9 +59,15 @@ function DailyTodo({ day }: DailyTodosProps) {
     <Stack vertical spacing="tight" key={day}>
       <Typography type="header5">{day}</Typography>
       <Stack vertical>
-        <Todo handleAddTodo={handleAddTodo} />
+        <Todo
+          placeholder="To-do"
+          handleAddTodo={handleAddTodo}
+        />
         {todos.map(() => (
-          <Todo handleAddTodo={handleAddTodo} />
+          <Todo
+            placeholder="To-do"
+            handleAddTodo={handleAddTodo}
+          />
         ))}
         <Button
           variant="add"
