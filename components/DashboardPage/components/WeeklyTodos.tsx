@@ -53,7 +53,7 @@ interface DailyTodosProps {
 }
 
 function DailyTodo({ day }: DailyTodosProps) {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<Array<string>>([]);
 
   return (
     <Stack vertical spacing="tight" key={day}>
@@ -67,6 +67,7 @@ function DailyTodo({ day }: DailyTodosProps) {
           <Todo
             placeholder="To-do"
             handleAddTodo={handleAddTodo}
+            key="todoKey"
           />
         ))}
         <Button
@@ -85,7 +86,7 @@ function DailyTodo({ day }: DailyTodosProps) {
     </Stack>
   );
 
-  function handleAddTodo(todo) {
+  function handleAddTodo(todo: string) {
     setTodos([...todos, todo]);
   }
 }

@@ -7,7 +7,7 @@ import { useRef } from 'react';
 // }
 
 export function Todo({ placeholder, handleAddTodo }: any) {
-  const todoInput = useRef(null);
+  const todoInput = useRef<HTMLInputElement>(null);
 
   return (
     <label className={styles.Todo}>
@@ -29,7 +29,7 @@ export function Todo({ placeholder, handleAddTodo }: any) {
   function handleKeyPressed(e: any) {
     if (e.key === 'Enter' && handleAddTodo != null) {
       handleAddTodo();
-      todoInput.current.focus();
+      todoInput.current?.focus();
     }
   }
 }
