@@ -28,7 +28,8 @@ $loaderItemWidth: 25px;
 }
 .Loader div {
   width: $loaderItemWidth;
-  background: #fff;
+  background: var(--gradient);
+  border-radius: 8px;
   animation: Loader 1.2s cubic-bezier(0, 0.5, 0.5, 1)
     infinite;
 }
