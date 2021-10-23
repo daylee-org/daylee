@@ -37,7 +37,7 @@ export function WeeklyTodos() {
         <Separator
           thin
           color="secondaryTextColor"
-          label={`Week ${week}`}
+          label={week ? `Week ${week}` : 'Week 1'}
         />
         {days.map((day) => (
           <DailyTodo day={day} key={day} />
@@ -61,30 +61,6 @@ function DailyTodo({ day }: DailyTodosProps) {
   const [isEnterKeyPressed, setIsEnterKeyPressed] =
     useState(false);
   const [isTodoAdded, setIsTodoAdded] = useState(false);
-
-  const addToTodoInputRefs = (
-    refValue: HTMLInputElement,
-  ) => {
-    if (
-      refValue &&
-      !todoInputRefs.current.includes(refValue)
-    ) {
-      todoInputRefs.current.push(refValue);
-    }
-    setIsTodoAdded(true);
-  };
-
-  function handleAddTodo() {
-    setTodos([...todos, '']);
-  }
-
-  function handleKeyPressed(e: any, refIndex: number) {
-    if (e.key === 'Enter') {
-      handleAddTodo();
-      setRefIndex(refIndex);
-      setIsEnterKeyPressed(true);
-    }
-  }
 
   useEffect(() => {
     //We want to make sure this focus on next line is only triggered on KeyDown event
@@ -127,6 +103,28 @@ function DailyTodo({ day }: DailyTodosProps) {
       <DailyMessage />
     </Stack>
   );
+
+  function addToTodoInputRefs(refValue: HTMLInputElement) {
+    if (
+      refValue &&
+      !todoInputRefs.current.includes(refValue)
+    ) {
+      todoInputRefs.current.push(refValue);
+    }
+    setIsTodoAdded(true);
+  }
+
+  function handleAddTodo() {
+    setTodos([...todos, '']);
+  }
+
+  function handleKeyPressed(e: any, refIndex: number) {
+    if (e.key === 'Enter') {
+      handleAddTodo();
+      setRefIndex(refIndex);
+      setIsEnterKeyPressed(true);
+    }
+  }
 }
 
 function DailyMessage() {

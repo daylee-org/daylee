@@ -16,7 +16,7 @@ export function useRoutingState() {
     });
   }
 
-  function setToday() {
+  function setThisWeek() {
     set({
       week:
         moment().weeks() -
@@ -27,9 +27,17 @@ export function useRoutingState() {
     });
   }
 
+  function setThisMonth() {
+    set({
+      month: moment().month(),
+      year: moment().year(),
+    });
+  }
+
   return {
     set,
-    setToday,
+    setThisWeek,
+    setThisMonth,
     get: {
       year: getNumberValue(query.year),
       week: getNumberValue(query.week),

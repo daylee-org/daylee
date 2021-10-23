@@ -5,7 +5,8 @@ export function WeekMonthYearToggle() {
   const {
     get: { week, month, year },
     set,
-    setToday,
+    setThisWeek,
+    setThisMonth,
   } = useRoutingState();
 
   const hasWeek = week != null;
@@ -22,22 +23,32 @@ export function WeekMonthYearToggle() {
     />
   ) : (
     <Button
-      label="Today"
+      label="This Week"
       variant="nav"
-      onClick={setToday}
+      onClick={setThisWeek}
+    />
+  );
+
+  const monthButtonMarkup = hasMonth ? (
+    <Button
+      disabled={!hasMonth}
+      selected={!hasWeek && hasMonth && hasYear}
+      label="Month"
+      variant="nav"
+      onClick={handleMonthClick}
+    />
+  ) : (
+    <Button
+      label="This Month"
+      variant="nav"
+      onClick={setThisMonth}
     />
   );
 
   return (
     <Stack spread center width="80%" px="18rem" py="tight">
       {weekButtonMarkup}
-      <Button
-        disabled={!hasMonth}
-        selected={!hasWeek && hasMonth && hasYear}
-        label="Month"
-        variant="nav"
-        onClick={handleMonthClick}
-      />
+      {monthButtonMarkup}
       <Button
         disabled={!hasYear}
         selected={!hasWeek && !hasMonth && hasYear}

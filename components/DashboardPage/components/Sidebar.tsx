@@ -21,9 +21,9 @@ import { useTheme } from 'providers/ThemeProvider';
 export function Sidebar() {
   const router = useRouter();
   const { isLightMode } = useTheme();
-  const { setToday, set } = useRoutingState();
+  const { setThisWeek, set } = useRoutingState();
   useEffect(() => {
-    setToday();
+    setThisWeek();
 
     return () => {
       set({});
