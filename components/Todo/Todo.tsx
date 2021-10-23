@@ -1,35 +1,27 @@
 // import { Typography } from '../Typography/Typography';
+import { useState } from 'react';
 import styles from './Todo.module.scss';
-import { useRef } from 'react';
 
 // interface TodoProps {
 //   label: string;
 // }
 
-export function Todo({ placeholder, handleAddTodo }: any) {
-  const todoInput = useRef<HTMLInputElement>(null);
-
+export function Todo({ placeholder, innerRef, handleKeyPressed, refIndex}: any) {
   return (
     <label className={styles.Todo}>
       <input
         type="checkbox"
         className={styles.Checkbox}
-        ref={todoInput}
       />
       <input
         type="text"
         placeholder={placeholder}
-        onKeyDown={handleKeyPressed}
+        onKeyDown={(event) => handleKeyPressed(event, refIndex)}
         className={styles.Text}
+        ref = {innerRef}
       />
       {/* <Typography type="bigText">{label}</Typography>{' '} */}
     </label>
   );
 
-  function handleKeyPressed(e: any) {
-    if (e.key === 'Enter' && handleAddTodo != null) {
-      handleAddTodo();
-      todoInput.current?.focus();
-    }
-  }
 }

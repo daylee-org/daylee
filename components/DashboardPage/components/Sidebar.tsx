@@ -7,7 +7,7 @@ import {
   ThemeToggle,
   Typography,
 } from 'components';
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { MONTHS_MAP } from 'utils';
 import { Setting } from '../Icons/Setting';
 import { User } from '../Icons/User';
@@ -21,6 +21,14 @@ import { useTheme } from 'providers/ThemeProvider';
 export function Sidebar() {
   const router = useRouter();
   const { isLightMode } = useTheme();
+  const { setToday, set } = useRoutingState();
+  useEffect(() => {
+    setToday();
+
+    return () => {
+      set({});
+    };
+  }, []);
 
   const [signout, { loading: signingOut }] =
     useUserSignOutMutation({
@@ -122,7 +130,7 @@ function YearItem({ year }: YearItemProps) {
 
         return (
           <NavItem
-            onClick={handleYearSelectMonth(monthNumber)}
+            onClick={handleMonthSelect(monthNumber)}
             selected={isMonthSelected}
             key={`${year}-${month}`}
             label={month}
@@ -150,7 +158,7 @@ function YearItem({ year }: YearItemProps) {
     set({ year });
   }
 
-  function handleYearSelectMonth(month: number) {
+  function handleMonthSelect(month: number) {
     return function () {
       set({ year, month });
     };
@@ -176,6 +184,10 @@ function NavItem({
   onClick,
 }: NavItemProps) {
   const [collapsed, setCollapsed] = useState(selected);
+
+  useEffect(() => {
+    setCollapsed(selected);
+  }, [selected]);
 
   return (
     <Button

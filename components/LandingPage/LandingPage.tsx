@@ -107,12 +107,15 @@ export function LandingPage() {
           onChange={setEmail}
           placeholder="your@email.com"
           label="Email"
+          noAutocomplete
         />
         <Input
           value={password}
           onChange={setPassword}
           placeholder="abcd1234!"
           label="Password"
+          secure
+          noAutocomplete
         />
       </Stack>
       <div />

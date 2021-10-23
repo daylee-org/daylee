@@ -8,6 +8,7 @@ interface Props {
   secure?: boolean;
   placeholder?: string;
   fill?: boolean;
+  noAutocomplete?: boolean;
   onChange?: Dispatch<SetStateAction<string>>;
 }
 
@@ -18,6 +19,7 @@ export function Input({
   secure,
   onChange,
   placeholder,
+  noAutocomplete,
 }: Props) {
   const type = secure ? 'password' : 'text';
 
@@ -28,6 +30,7 @@ export function Input({
   return (
     <p className={classes}>
       <input
+        autoComplete={noAutocomplete ? 'off' : undefined}
         required
         type={type}
         value={value}
