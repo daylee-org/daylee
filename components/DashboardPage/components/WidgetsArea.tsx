@@ -1,4 +1,5 @@
 import { Stack } from 'components';
+import { Pomodoro } from './Pomodoro/Pomodoro';
 
 export function WidgetsArea() {
   return (
@@ -11,12 +12,8 @@ export function WidgetsArea() {
       py="10px"
       id="widgets"
     >
-      <Stack
-        height="100%"
-        width="100%"
-        background="widgetBackgroundColor"
-      >
-        Widgets
+      <Stack height="100%" width="100%">
+        <Pomodoro />
       </Stack>
     </Stack>
   );
