@@ -7,9 +7,9 @@ export function Timer() {
     useState<boolean>(false);
 
   useEffect(() => {
-    countdown &&
-      time > 0 &&
+    if (countdown && time > 0) {
       setTimeout(() => setTime(time - 1), 1000);
+    }
   }, [countdown, time]);
 
   return (
@@ -20,7 +20,9 @@ export function Timer() {
   );
 
   function startCountdown() {
-    setCountdown(!countdown);
-    setTime(time - 1);
+    if (time > 0) {
+      setCountdown(!countdown);
+      setTime(time - 1);
+    }
   }
 }
