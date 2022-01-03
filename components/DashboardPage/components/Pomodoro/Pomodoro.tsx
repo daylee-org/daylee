@@ -1,5 +1,6 @@
 import { Stack, Typography } from 'components';
 import { Timer } from './Timer';
+import { PomodoroBoard } from './PomodoroBoard';
 
 export function Pomodoro() {
   return (
@@ -14,6 +15,7 @@ export function Pomodoro() {
     >
       <Typography type="header5">Pomodoro</Typography>
       <Timer />
+      <PomodoroBoard />
     </Stack>
   );
 }
