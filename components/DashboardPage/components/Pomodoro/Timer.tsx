@@ -3,14 +3,18 @@ import { Stack, Typography } from 'components';
 
 export function Timer() {
   const [time, setTime] = useState<number>(25);
+  const [clock, setClock] = useState<boolean>(true);
   const [countdown, setCountdown] =
     useState<boolean>(false);
 
   useEffect(() => {
     if (countdown && time > 0) {
-      setTimeout(() => setTime(time - 1), 1000);
+      setTimeout(() => {
+        setClock(!clock);
+      }, 1000);
+      setTime(time - 1);
     }
-  }, [countdown, time]);
+  }, [countdown, clock, time]);
 
   return (
     <Stack vertical center background="gradient">
@@ -22,7 +26,6 @@ export function Timer() {
   function startCountdown() {
     if (time > 0) {
       setCountdown(!countdown);
-      setTime(time - 1);
     }
   }
 }
