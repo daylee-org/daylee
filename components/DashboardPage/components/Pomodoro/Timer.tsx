@@ -8,7 +8,9 @@ interface TimerProps {
 }
 
 export function Timer({ round, setRound }: TimerProps) {
-  const [time, setTime] = useState<number>(7);
+  let workTime = 25;
+  let breakTime = 5;
+  const [time, setTime] = useState<number>(workTime);
   const [clock, setClock] = useState<boolean>(true);
   const [countdown, setCountdown] =
     useState<boolean>(false);
@@ -22,10 +24,10 @@ export function Timer({ round, setRound }: TimerProps) {
     if (time === 0) {
       setWorkState((workState) => !workState);
       if (workState === false) {
-        setTime(4);
-        setRound((round) => round + 1);
+        setTime(breakTime);
+        setRound((round: number) => round + 1);
       }
-      if (workState === true) setTime(7);
+      if (workState === true) setTime(workTime);
     }
 
     if (countdown && time > 0) {
@@ -34,19 +36,27 @@ export function Timer({ round, setRound }: TimerProps) {
       }, 1000);
       setTime(time - 1);
     }
-    // setTimeout(() => {
-    //   setClock((clock) => !clock);
-    //   if (workState === false) setTime(4);
-    //   if (workState === true) setTime(7);
-    // }, 1000);
   }, [countdown, clock, workState]);
-  // console.log(workState);
 
   return (
     <Stack vertical center background="gradient">
-      <Typography type="header1">{time}</Typography>
-      <button onClick={startCountdown}>start/pause</button>
-      <p>{workState ? 'Break' : 'Work'}</p>
+      <Stack
+        vertical
+        center
+        background="widgetBackgroundColor"
+      >
+        {workState ? (
+          <Typography uppercase>Break</Typography>
+        ) : (
+          <Typography type="smallText" uppercase bold>
+            Work
+          </Typography>
+        )}
+        <Typography type="header1">{time}</Typography>
+        <button onClick={startCountdown}>
+          start/pause
+        </button>
+      </Stack>
     </Stack>
   );
 

@@ -7,7 +7,7 @@
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .underline {
@@ -118,4 +118,8 @@
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
