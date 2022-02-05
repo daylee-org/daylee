@@ -39,10 +39,11 @@ export function Timer({ round, setRound }: TimerProps) {
   }, [countdown, clock, workState]);
 
   return (
-    <Stack vertical center background="gradient">
+    <Stack vertical center round background="gradient">
       <Stack
         vertical
         center
+        round
         background="widgetBackgroundColor"
       >
         {workState ? (

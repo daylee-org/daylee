@@ -15,7 +15,10 @@ const Wrapper = styled.div<Props>`
     props.shadow ? 'var(--baseBoxShadow)' : 'none'};
 
   border-radius: ${(props) =>
-    props.noRadius ? '0px' : ' var(--borderRadius)'};
+    props.noRadius ? '0px' : 'var(--borderRadius)'};
+
+  border-radius: ${(props) =>
+    props.round ? '50%' : 'var(--borderRadius)'};
 
   ::-webkit-scrollbar {
     display: ${(props) =>
@@ -68,6 +71,7 @@ interface Props {
   shadow?: boolean;
   background?: ThemeColors;
   scroll?: boolean;
+  round?: boolean;
 }
 
 export function Stack({ children, id, ...props }: Props) {
