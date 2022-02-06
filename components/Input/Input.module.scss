@@ -18,7 +18,6 @@ $lighterColor: var(--disabledTextColor);
     border: 0;
     display: block;
     width: 100%;
-    // margin-top: 3em;
     border-bottom: 1px solid $lighterColor;
     color: $mainColor;
     background: linear-gradient(
@@ -56,6 +55,18 @@ $lighterColor: var(--disabledTextColor);
         color: $lighterColor;
       }
     }
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px
+      var(--widgetBackgroundColor) inset !important;
+  }
+
+  input:-webkit-autofill {
+    -webkit-text-fill-color: $mainColor !important;
   }
 }
 

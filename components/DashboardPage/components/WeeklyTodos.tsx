@@ -97,7 +97,7 @@ function DailyTodo({ day }: DailyTodosProps) {
         <Separator
           thin
           color="disabledTextColor"
-          padding="loose"
+          padding="extra-loose"
         />
       </Stack>
       <DailyMessage />

@@ -95,7 +95,7 @@ export function LandingPage() {
       shadow
       px="normal"
       py="normal"
-      background="separatorBackgroundColor"
+      background="widgetBackgroundColor"
       width="23rem"
       vertical
       id="inputs"
