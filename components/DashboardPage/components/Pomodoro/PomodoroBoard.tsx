@@ -2,9 +2,14 @@ import { Stack, Typography } from 'components';
 
 export function PomodoroBoard({ round }: any) {
   return (
-    <Stack background="mainBackgroundColor">
-      <Typography type="header5">Pomodoro Board</Typography>
-      <p>round: {round}</p>
+    <Stack
+      background="mainBackgroundColor"
+      width="100%"
+      center
+    >
+      <Typography type="mediumText">
+        round: {round}
+      </Typography>
     </Stack>
   );
 }

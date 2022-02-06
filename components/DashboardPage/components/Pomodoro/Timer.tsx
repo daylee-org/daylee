@@ -39,19 +39,45 @@ export function Timer({ round, setRound }: TimerProps) {
   }, [countdown, clock, workState]);
 
   return (
-    <Stack vertical center round background="gradient">
+    <Stack
+      center
+      round
+      background="gradient"
+      width="250px"
+      height="250px"
+    >
       <Stack
         vertical
         center
         round
         background="widgetBackgroundColor"
+        width="230px"
+        height="230px"
+        spread
+        py="normal"
       >
         {workState ? (
-          <Typography uppercase>Break</Typography>
+          <Stack
+            background="mainBackgroundColor"
+            py="tight"
+            px="tight"
+            opacity="0.7"
+          >
+            <Typography type="smallText" uppercase bold>
+              Break
+            </Typography>
+          </Stack>
         ) : (
-          <Typography type="smallText" uppercase bold>
-            Work
-          </Typography>
+          <Stack
+            background="mainBackgroundColor"
+            py="tight"
+            px="tight"
+            opacity="0.7"
+          >
+            <Typography type="smallText" uppercase bold>
+              Work
+            </Typography>
+          </Stack>
         )}
         <Typography type="header1">{time}</Typography>
         <button onClick={startCountdown}>

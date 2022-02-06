@@ -31,6 +31,8 @@ const Wrapper = styled.div<Props>`
   background: ${(prop) =>
     getBackgroundColor(prop.background)};
 
+  opacity: ${(prop) => prop.opacity};
+
   width: ${(prop) => getSize(prop.width, 'auto')};
   height: ${(prop) => getSize(prop.height, 'auto')};
   min-height: ${(prop) => getSize(prop.height, 'auto')};
@@ -70,6 +72,7 @@ interface Props {
   spread?: boolean;
   shadow?: boolean;
   background?: ThemeColors;
+  opacity?: string;
   scroll?: boolean;
   round?: boolean;
 }
@@ -87,3 +90,7 @@ function getBackgroundColor(background?: ThemeColors) {
     ? `var(--${background})`
     : 'transparent';
 }
+
+// function getOpacity(opacity?: string) {
+//   return opacity ? `opacity` : '1';
+// }
