@@ -7,7 +7,7 @@ export function PomodoroBoard({ round }: any) {
       width="100%"
       center
     >
-      <Typography type="mediumText">
+      <Typography type="mediumText" disabled>
         round: {round}
       </Typography>
     </Stack>

@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { useState, useEffect } from 'react';
-import { Stack, Typography } from 'components';
+import { Stack, Typography, Button } from 'components';
 
 interface TimerProps {
   round: number;
@@ -43,16 +43,16 @@ export function Timer({ round, setRound }: TimerProps) {
       center
       round
       background="gradient"
-      width="250px"
-      height="250px"
+      width="320px"
+      height="320px"
     >
       <Stack
         vertical
         center
         round
         background="widgetBackgroundColor"
-        width="230px"
-        height="230px"
+        width="300px"
+        height="300px"
         spread
         py="normal"
       >
@@ -79,10 +79,14 @@ export function Timer({ round, setRound }: TimerProps) {
             </Typography>
           </Stack>
         )}
-        <Typography type="header1">{time}</Typography>
-        <button onClick={startCountdown}>
-          start/pause
-        </button>
+        <Typography type="header1" thin>
+          00:{time}
+        </Typography>
+        <Button
+          label="Start/Pause"
+          variant="secondary"
+          onClick={startCountdown}
+        />
       </Stack>
     </Stack>
   );
