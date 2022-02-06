@@ -8,7 +8,7 @@ interface TimerProps {
 }
 
 export function Timer({ round, setRound }: TimerProps) {
-  let workTime = 25;
+  let workTime = 25 * 60;
   let breakTime = 5;
   const [time, setTime] = useState<number>(workTime);
   const [clock, setClock] = useState<boolean>(true);
@@ -22,6 +22,12 @@ export function Timer({ round, setRound }: TimerProps) {
   //   minutes: 25,
   // });
   // console.log(workTime.minutes());
+  const formattedTimeLeft = moment.duration(workTime, 's');
+  // .format('mm:ss');
+  console.log(formattedTimeLeft);
+  // .format('mm:ss', { trim: false });
+
+  console.log(formattedTimeLeft);
 
   useEffect(() => {
     if (time === 0) {

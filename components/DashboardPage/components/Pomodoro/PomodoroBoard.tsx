@@ -7,20 +7,20 @@ export function PomodoroBoard({ round }: any) {
         <Typography type="bigText" disabled uppercase bold>
           Round
         </Typography>
-        <Stack style={{ alignItems: 'end' }}>
+        <div style={{ alignItems: 'end' }}>
           <Typography type="header3">{round}</Typography>
           <Typography type="bigText">/4</Typography>
-        </Stack>
+        </div>
       </Stack>
-      <Separator color="secondaryTextColor" vertical />
+      <Separator color="secondaryTextColor" vertical thin />
       <Stack vertical center spacing="tight">
         <Typography type="bigText" disabled uppercase bold>
           Goal
         </Typography>
-        <Stack style={{ alignItems: 'end' }}>
+        <div style={{ alignItems: 'end' }}>
           <Typography type="header3">{round}</Typography>
           <Typography type="bigText">/12</Typography>
-        </Stack>
+        </div>
       </Stack>
     </Stack>
   );

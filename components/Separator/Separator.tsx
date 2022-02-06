@@ -62,6 +62,3 @@ export function Separator({
     </div>
   );
 }
-
-// paddingLeft: paddingValue,
-// paddingRight: paddingValue,
