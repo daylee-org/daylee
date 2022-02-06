@@ -55,6 +55,8 @@ const Wrapper = styled.div<Props>`
       : ``}
   ${(prop) => (prop.center ? `align-items: center;` : ``)}
   ${(prop) =>
+    prop.justifyCenter ? `justify-content: center;` : ``}
+  ${(prop) =>
     prop.spread ? `justify-content: space-between;` : ``}
 `;
 
@@ -65,6 +67,7 @@ interface Props {
   px?: SpacingType;
   py?: SpacingType;
   center?: boolean;
+  justifyCenter?: boolean;
   vertical?: boolean;
   children?: React.ReactNode;
   width?: string;

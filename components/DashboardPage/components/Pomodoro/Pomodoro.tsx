@@ -9,7 +9,8 @@ export function Pomodoro() {
 
   return (
     <Stack
-      width="33%"
+      width="250px"
+      height="400px"
       py="normal"
       px="tight"
       vertical

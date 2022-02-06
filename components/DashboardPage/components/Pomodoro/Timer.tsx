@@ -17,8 +17,11 @@ export function Timer({ round, setRound }: TimerProps) {
   const [workState, setWorkState] =
     useState<boolean>(false);
 
-  // const timez = moment.duration(25, 'seconds');
-  // console.log(timez);
+  // const workTime = moment.duration({
+  //   seconds: 0,
+  //   minutes: 25,
+  // });
+  // console.log(workTime.minutes());
 
   useEffect(() => {
     if (time === 0) {
@@ -43,18 +46,19 @@ export function Timer({ round, setRound }: TimerProps) {
       center
       round
       background="gradient"
-      width="320px"
-      height="320px"
+      width="230px"
+      height="230px"
+      justifyCenter
     >
       <Stack
         vertical
         center
         round
         background="widgetBackgroundColor"
-        width="300px"
-        height="300px"
-        spread
-        py="normal"
+        width="210px"
+        height="210px"
+        py="20px"
+        spacing="tight"
       >
         {workState ? (
           <Stack
@@ -83,8 +87,8 @@ export function Timer({ round, setRound }: TimerProps) {
           00:{time}
         </Typography>
         <Button
-          label="Start/Pause"
-          variant="secondary"
+          label={countdown ? 'Stop' : 'Start'}
+          variant="nav"
           onClick={startCountdown}
         />
       </Stack>
