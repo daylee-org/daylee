@@ -10,7 +10,7 @@ export function Pomodoro() {
   return (
     <Stack
       width="250px"
-      height="400px"
+      height="420px"
       py="normal"
       px="tight"
       vertical
@@ -21,7 +21,7 @@ export function Pomodoro() {
       <Stack center vertical spacing="normal">
         <Timer round={round} setRound={setRound} />
         <PomodoroBoard round={round} />
-      </Stack>{' '}
+      </Stack>
     </Stack>
   );
 }
