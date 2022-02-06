@@ -5,7 +5,6 @@ import { PomodoroBoard } from './PomodoroBoard';
 
 export function Pomodoro() {
   const [round, setRound] = useState<number>(0);
-  console.log(round);
 
   return (
     <Stack

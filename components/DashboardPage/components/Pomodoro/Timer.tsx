@@ -9,25 +9,13 @@ interface TimerProps {
 
 export function Timer({ round, setRound }: TimerProps) {
   let workTime = 25 * 60;
-  let breakTime = 5;
+  let breakTime = 5 * 60;
   const [time, setTime] = useState<number>(workTime);
   const [clock, setClock] = useState<boolean>(true);
   const [countdown, setCountdown] =
     useState<boolean>(false);
   const [workState, setWorkState] =
     useState<boolean>(false);
-
-  // const workTime = moment.duration({
-  //   seconds: 0,
-  //   minutes: 25,
-  // });
-  // console.log(workTime.minutes());
-  const formattedTimeLeft = moment.duration(workTime, 's');
-  // .format('mm:ss');
-  console.log(formattedTimeLeft);
-  // .format('mm:ss', { trim: false });
-
-  console.log(formattedTimeLeft);
 
   useEffect(() => {
     if (time === 0) {
@@ -46,6 +34,12 @@ export function Timer({ round, setRound }: TimerProps) {
       setTime(time - 1);
     }
   }, [countdown, clock, workState]);
+
+  var momentDurationFormatSetup = require('moment-duration-format');
+
+  const formattedTimeLeft = moment
+    .duration(time, 's')
+    .format('mm:ss', { trim: false });
 
   return (
     <Stack
@@ -90,7 +84,7 @@ export function Timer({ round, setRound }: TimerProps) {
           </Stack>
         )}
         <Typography type="header1" thin>
-          00:{time}
+          {formattedTimeLeft}
         </Typography>
         <Button
           label={countdown ? 'Stop' : 'Start'}
