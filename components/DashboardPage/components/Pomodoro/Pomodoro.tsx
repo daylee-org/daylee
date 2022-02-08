@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Stack, Typography } from 'components';
+import { Stack } from 'components';
 import { Timer } from './Timer';
 import { PomodoroBoard } from './PomodoroBoard';
 
