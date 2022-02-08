@@ -24,19 +24,46 @@ export function WidgetsArea() {
           title="Weather App"
           id="weather"
         />
-        <Pomodoro />
+        <GridItem
+          height="420px"
+          title="Pomodoro"
+          id="pomodoro"
+        >
+          <Pomodoro />
+        </GridItem>
+        <GridItem
+          height="420px"
+          title="Post-it Board"
+          id="post-it"
+        />
+        <GridItem
+          height="300px"
+          title="This Week’s Goals"
+          id="goals"
+        />
+        <GridItem
+          height="300px"
+          title="Week Review"
+          id="review"
+        />
       </div>
     </Stack>
   );
 }
 
 interface GridItemProps {
-  title: string;
+  title?: string;
   height: string;
+  children?: React.ReactNode;
   id: string;
 }
 
-function GridItem({ title, height, id }: GridItemProps) {
+function GridItem({
+  children,
+  title,
+  height,
+  id,
+}: GridItemProps) {
   return (
     <div className={styles.GridItem} id={styles[id]}>
       <Stack
@@ -44,8 +71,11 @@ function GridItem({ title, height, id }: GridItemProps) {
         background="widgetBackgroundColor"
         py="normal"
         px="tight"
+        vertical
+        spacing="normal"
       >
         <Typography type="header5">{title}</Typography>
+        {children}
       </Stack>
     </div>
   );

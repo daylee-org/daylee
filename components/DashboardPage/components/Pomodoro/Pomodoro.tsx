@@ -8,15 +8,11 @@ export function Pomodoro() {
 
   return (
     <Stack
-      width="250px"
-      height="420px"
-      py="normal"
       px="tight"
       vertical
       spacing="normal"
       background="widgetBackgroundColor"
     >
-      <Typography type="header5">Pomodoro</Typography>
       <Stack center vertical spacing="normal">
         <Timer round={round} setRound={setRound} />
         <PomodoroBoard round={round} />

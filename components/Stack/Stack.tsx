@@ -93,7 +93,3 @@ function getBackgroundColor(background?: ThemeColors) {
     ? `var(--${background})`
     : 'transparent';
 }
-
-// function getOpacity(opacity?: string) {
-//   return opacity ? `opacity` : '1';
-// }
