@@ -1,0 +1,16 @@
+.Grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 2em;
+  width: 100%;
+  height: 100%;
+
+  #habit-tracker {
+    grid-column: 1/6;
+  }
+
+  #weather {
+    grid-column: 6/9;
+  }
+}
