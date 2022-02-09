@@ -21,7 +21,7 @@ export function DashboardPage() {
           <Stack
             spacing="normal"
             px="normal"
-            height="75vh"
+            height="77vh"
             id="features"
           >
             <WidgetsArea />
