@@ -59,8 +59,9 @@ function DailyTodo({ day }: DailyTodosProps) {
   todoInputRefs.current = []; //initialze the object that we can access
   const [_, setRefIndex] = useState(1); //IMPROVE
   const [isEnterKeyPressed, setIsEnterKeyPressed] =
-    useState(false);
-  const [isTodoAdded, setIsTodoAdded] = useState(false);
+    useState<boolean>(false);
+  const [isTodoAdded, setIsTodoAdded] =
+    useState<boolean>(false);
 
   useEffect(() => {
     //We want to make sure this focus on next line is only triggered on KeyDown event
@@ -72,7 +73,7 @@ function DailyTodo({ day }: DailyTodosProps) {
       setIsTodoAdded(false);
       setIsEnterKeyPressed(false);
     }
-  }, [todoInputRefs.current]);
+  }, [isEnterKeyPressed, isTodoAdded]);
 
   return (
     <Stack vertical spacing="tight" key={day}>
