@@ -7,7 +7,7 @@
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .underline {
@@ -20,7 +20,7 @@
 }
 
 .thin {
-  font-weight: 200;
+  font-weight: 200 !important;
 }
 
 .center {
@@ -104,7 +104,7 @@
   color: var(--secondaryTextColor);
 }
 
-.mediumCText {
+.mediumText {
   font-weight: 400;
   font-size: 10px;
   color: var(--secondaryTextColor);
@@ -118,4 +118,8 @@
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }

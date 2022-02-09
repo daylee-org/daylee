@@ -15,7 +15,10 @@ const Wrapper = styled.div<Props>`
     props.shadow ? 'var(--baseBoxShadow)' : 'none'};
 
   border-radius: ${(props) =>
-    props.noRadius ? '0px' : ' var(--borderRadius)'};
+    props.noRadius ? '0px' : 'var(--borderRadius)'};
+
+  border-radius: ${(props) =>
+    props.round ? '50%' : 'var(--borderRadius)'};
 
   ::-webkit-scrollbar {
     display: ${(props) =>
@@ -27,6 +30,8 @@ const Wrapper = styled.div<Props>`
 
   background: ${(prop) =>
     getBackgroundColor(prop.background)};
+
+  opacity: ${(prop) => prop.opacity};
 
   width: ${(prop) => getSize(prop.width, 'auto')};
   height: ${(prop) => getSize(prop.height, 'auto')};
@@ -50,6 +55,8 @@ const Wrapper = styled.div<Props>`
       : ``}
   ${(prop) => (prop.center ? `align-items: center;` : ``)}
   ${(prop) =>
+    prop.justifyCenter ? `justify-content: center;` : ``}
+  ${(prop) =>
     prop.spread ? `justify-content: space-between;` : ``}
 `;
 
@@ -60,6 +67,7 @@ interface Props {
   px?: SpacingType;
   py?: SpacingType;
   center?: boolean;
+  justifyCenter?: boolean;
   vertical?: boolean;
   children?: React.ReactNode;
   width?: string;
@@ -67,7 +75,9 @@ interface Props {
   spread?: boolean;
   shadow?: boolean;
   background?: ThemeColors;
+  opacity?: string;
   scroll?: boolean;
+  round?: boolean;
 }
 
 export function Stack({ children, id, ...props }: Props) {
