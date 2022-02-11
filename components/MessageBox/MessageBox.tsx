@@ -27,7 +27,7 @@ export function MessageBox({
       px={smallBox ? 'tight' : ''}
       spacing="5px"
       background="widgetBackgroundColor"
-      height={smallBox ? '100px' : '100%'}
+      height={smallBox ? '100px' : '90%'}
       py="tight"
     >
       {closeOption ? (
