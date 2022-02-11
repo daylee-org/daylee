@@ -83,7 +83,7 @@ export function Timer({ round, setRound }: TimerProps) {
             </Typography>
           </Stack>
         )}
-        <Stack width="120px">
+        <Stack width="112px">
           <Typography type="header1" thin>
             {formattedTimeLeft}
           </Typography>
