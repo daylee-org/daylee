@@ -83,9 +83,11 @@ export function Timer({ round, setRound }: TimerProps) {
             </Typography>
           </Stack>
         )}
-        <Typography type="header1" thin>
-          {formattedTimeLeft}
-        </Typography>
+        <Stack width="120px">
+          <Typography type="header1" thin>
+            {formattedTimeLeft}
+          </Typography>
+        </Stack>
         <Button
           label={countdown ? 'Stop' : 'Start'}
           variant="nav"
