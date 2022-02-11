@@ -1,4 +1,4 @@
-### <div align="center"><img src="https://raw.githubusercontent.com/Daylee-Digital-Journal/daylee/main/public/favicon.ico" width="60%"></div>
+### <div align="center"><img src="https://raw.githubusercontent.com/Daylee-Digital-Journal/daylee/main/public/favicon.ico" width="40%"></div>
 
 
 # About
