@@ -42,7 +42,7 @@ Daylee is a a productivity app & digital journal designed to make your life easi
 Hello from the Daylee team! 👋 We are 3 passionate developers that care about empowering people with the necessary tools to help them live more intentionally.
 - We have Chi-Luc, a Frontend Developer currently working as a UX Designer in the Usage Analytics team at Coveo.
 - Next, we have Yann, a Fullstack Developer currently working as a Frontend Developer on the editor team at Shopify.
-- Last but not least, we have Alain, a Fullstack Developer currently working as a Software Consultant various client projects at Munvo.
+- Last but not least, we have Alain, a Fullstack Developer currently working as a Software Consultant for various client projects at Munvo.
 
 ## <a name="deployment"></a>Deployment
 
