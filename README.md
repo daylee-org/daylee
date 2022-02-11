@@ -13,7 +13,7 @@ Daylee is a a productivity app & digital journal designed to make your life easi
 1. [Technologies Used](#technologies)
 2. [App Features](#features)
 3. [Future Improvements](#improvements)
-4. [About the Developer](#about-me)
+4. [About the Developers](#about-me)
 5. [Deployment](#deployment)
 
 
