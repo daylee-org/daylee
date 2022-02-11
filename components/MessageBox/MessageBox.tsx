@@ -1,36 +1,49 @@
 import { Button, Stack, Typography } from '..';
+import classnames from 'classnames';
 import styles from './MessageBox.module.scss';
 interface MessageBoxProps {
   title?: string;
+  closeOption?: boolean;
   placeholder: string;
+  smallBox?: boolean;
   displayMessage?: boolean;
   setDisplayMessage?: any;
 }
 
 export function MessageBox({
   title,
+  closeOption,
   placeholder,
+  smallBox,
   setDisplayMessage,
 }: MessageBoxProps) {
+  const classes = classnames(styles.MessageBox, {
+    [styles.smallBox]: smallBox,
+  });
+
   return (
     <Stack
       vertical
-      px="tight"
-      spacing="-5px"
+      px={smallBox ? 'tight' : ''}
+      spacing="5px"
       background="widgetBackgroundColor"
+      height={smallBox ? '100px' : '100%'}
+      py="tight"
     >
-      <Stack spread center height="20px">
-        <Typography type="header5">{title}</Typography>
-        <Button
-          variant="nav"
-          label="X"
-          fontSize="small"
-          onClick={() => setDisplayMessage(false)}
-        />
-      </Stack>
+      {closeOption ? (
+        <Stack spread center height="10px">
+          <Typography type="header5">{title}</Typography>
+          <Button
+            variant="nav"
+            label="X"
+            fontSize="small"
+            onClick={() => setDisplayMessage(false)}
+          />
+        </Stack>
+      ) : null}
       <textarea
         placeholder={placeholder}
-        className={styles.MessageBox}
+        className={classes}
       />
     </Stack>
   );
