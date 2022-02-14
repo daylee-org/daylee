@@ -11,12 +11,12 @@ import {
 import { useUserSigninLazyQuery } from 'types/withhooks';
 import styles from './LandingPage.module.scss';
 import Image from 'next/image';
-import calendar from './Images/calendar.png';
-import plant from './Images/plant.png';
-import pomodoro from './Images/pomodoro.png';
-import postit from './Images/postit.png';
-import todo from './Images/todo.png';
-import tracker from './Images/tracker.png';
+import calendar from './Images/calendar.svg';
+import gratitude from './Images/gratitude.svg';
+import pomodoro from './Images/pomodoro.svg';
+import postit from './Images/postit.svg';
+import todo from './Images/todo.svg';
+import tracker from './Images/tracker.svg';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { URLS } from 'utils';
@@ -183,7 +183,7 @@ export function LandingPage() {
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
         />
         <GridItem
-          image={plant}
+          image={gratitude}
           title="Gratitude Practice"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
         />

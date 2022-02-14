@@ -33,7 +33,7 @@ $borderColor: var(--separatorBackgroundColor);
   }
 }
 
-$imageSize: 4rem;
+$imageSize: 3rem;
 
 .GridItem {
   margin: 0;
@@ -45,6 +45,6 @@ $imageSize: 4rem;
 
   img {
     height: $imageSize;
-    width: $imageSize;
+    // width: $imageSize;
   }
 }
