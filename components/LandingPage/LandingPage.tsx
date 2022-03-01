@@ -165,32 +165,32 @@ export function LandingPage() {
         <GridItem
           image={tracker}
           title="Habit Tracker"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
+          description="Build new behaviour and stick with your habits with our daily, weekly & monthly tracking system."
         />
         <GridItem
           image={todo}
           title="To-Do List"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
+          description="Create and manage lists of tasks that will help you achieve your day-to-day productivity goals."
         />
         <GridItem
           image={pomodoro}
           title="Pomodoro Clock"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
+          description="Experience your flow state and perform focused deep work with our precise timed sessions."
         />
         <GridItem
           image={calendar}
           title="Custom Calendar"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
+          description="Schedule, plan ahead and have a better overview of your day, week & month with our calendar tool."
         />
         <GridItem
           image={gratitude}
           title="Gratitude Practice"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
+          description="Write few words of gratitude a day to help you be more forgiving, patient and mindful of both your successes and misses."
         />
         <GridItem
           image={postit}
           title="Post-It Board"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod adipiscing elit, sed do eiusmod"
+          description="Highlight your most important tasks, take quick notes you need to remember and easily access information."
         />
       </div>
     </Stack>
