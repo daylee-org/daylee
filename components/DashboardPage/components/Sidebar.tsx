@@ -28,7 +28,8 @@ export function Sidebar() {
     return () => {
       set({});
     };
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const [signout, { loading: signingOut }] =
     useUserSignOutMutation({
