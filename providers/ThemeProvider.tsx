@@ -46,14 +46,14 @@ const DARK_THEME: ThemeType = {
   disabledTextColor: '#888888',
   dangerTextColor: '#FF6262',
 
-  borderRadius: '10px',
+  borderRadius: '6px',
 };
 
 const LIGHT_THEME: ThemeType = {
-  mainBackgroundColor: '#FFFFFF',
-  secondaryBackgroundColor: '#F5F5F5',
+  mainBackgroundColor: '#F8F8F8',
+  secondaryBackgroundColor: '#FFFFFF',
   separatorBackgroundColor: '#EBEBEB',
-  widgetBackgroundColor: '#F1F1F3',
+  widgetBackgroundColor: '#FFFFFF',
   gradient:
     'linear-gradient(242.9deg, #8E80F9 15.28%, #BE7BF6 116.16%)',
   baseBoxShadow: '3px 4px 10px rgba(105, 104, 104, 0.25);',
