@@ -7,16 +7,9 @@ export function Pomodoro() {
   const [round, setRound] = useState<number>(0);
 
   return (
-    <Stack
-      px="tight"
-      vertical
-      spacing="normal"
-      background="widgetBackgroundColor"
-    >
-      <Stack center vertical spacing="normal">
-        <Timer round={round} setRound={setRound} />
-        <PomodoroBoard round={round} />
-      </Stack>
+    <Stack center vertical spacing="normal">
+      <Timer round={round} setRound={setRound} />
+      <PomodoroBoard round={round} />
     </Stack>
   );
 }

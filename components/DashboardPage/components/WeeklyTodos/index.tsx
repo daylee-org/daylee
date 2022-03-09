@@ -135,8 +135,10 @@ function DailyMessage() {
   return displayMessage ? (
     <MessageBox
       placeholder="I am grateful for..."
+      smallBox={true}
       displayMessage={displayMessage}
       setDisplayMessage={setDisplayMessage}
+      closeOption={true}
     />
   ) : (
     <Button
