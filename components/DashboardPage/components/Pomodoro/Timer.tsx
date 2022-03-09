@@ -1,4 +1,6 @@
-import moment from 'moment';
+import * as moment from 'moment';
+import momentDurationFormatSetup from 'moment-duration-format';
+momentDurationFormatSetup(moment);
 import { useState, useEffect } from 'react';
 import { Stack, Typography, Button } from 'components';
 
@@ -34,8 +36,6 @@ export function Timer({ round, setRound }: TimerProps) {
       setTime(time - 1);
     }
   }, [countdown, clock, workState]);
-
-  var momentDurationFormatSetup = require('moment-duration-format');
 
   const formattedTimeLeft = moment
     .duration(time, 's')

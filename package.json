@@ -27,6 +27,7 @@
     "@graphql-codegen/typescript": "^1.17.11",
     "@graphql-codegen/typescript-operations": "^1.17.9",
     "@graphql-codegen/typescript-react-apollo": "^2.2.5",
+    "@types/moment-duration-format": "^2.2.3",
     "@types/react": "17.0.19",
     "@types/styled-components": "^5.1.13",
     "babel-plugin-styled-components": "^1.13.2",

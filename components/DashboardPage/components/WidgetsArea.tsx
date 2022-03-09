@@ -1,6 +1,7 @@
 import { Stack, Typography } from 'components';
 import { Pomodoro } from './Pomodoro';
 import { WeeklyGoals } from './WeeklyGoals';
+import { WeeklyReview } from './WeeklyReview';
 import styles from './WidgetsArea.module.scss';
 
 export function WidgetsArea() {
@@ -48,7 +49,9 @@ export function WidgetsArea() {
           height="300px"
           title="Week Review"
           id="review"
-        />
+        >
+          <WeeklyReview />
+        </GridItem>
       </div>
     </Stack>
   );
@@ -75,7 +78,7 @@ function GridItem({
         py="normal"
         px="tight"
         vertical
-        spacing="normal"
+        spacing="25px"
       >
         <Typography type="header5">{title}</Typography>
         {children}

@@ -20,7 +20,7 @@ import tracker from './Images/tracker.svg';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { URLS } from 'utils';
-
+//commit test A.J.U.U
 export function LandingPage() {
   const router = useRouter();
 
