@@ -16,10 +16,7 @@ export function TabInfo({
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="icon" href={iconPath} />
-      <meta
-        property="og:image"
-        content="https://ibb.co/4PM9t0q"
-      />
+      <meta property="og:image" content={iconPath} />
     </Head>
   );
 }

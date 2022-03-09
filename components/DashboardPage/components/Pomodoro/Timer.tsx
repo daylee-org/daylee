@@ -35,6 +35,7 @@ export function Timer({ round, setRound }: TimerProps) {
       }, 1000);
       setTime(time - 1);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countdown, clock, workState]);
 
   const formattedTimeLeft = moment

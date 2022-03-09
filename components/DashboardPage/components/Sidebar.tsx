@@ -28,9 +28,7 @@ export function Sidebar() {
     return () => {
       set({});
     };
-
-    //ignore next line
-  }, []);
+  });
 
   const [signout, { loading: signingOut }] =
     useUserSignOutMutation({
