@@ -1,5 +1,6 @@
 import { Stack, Typography } from 'components';
-import { Pomodoro } from './Pomodoro/Pomodoro';
+import { Pomodoro } from './Pomodoro';
+import { WeeklyGoals } from './WeeklyGoals';
 import styles from './WidgetsArea.module.scss';
 
 export function WidgetsArea() {
@@ -40,7 +41,9 @@ export function WidgetsArea() {
           height="300px"
           title="This Week’s Goals"
           id="goals"
-        />
+        >
+          <WeeklyGoals />
+        </GridItem>
         <GridItem
           height="300px"
           title="Week Review"
