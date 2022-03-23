@@ -1,0 +1,17 @@
+mutation pomodoroUpdate(
+  $args: PomodoroWidgetInput!
+  $month: Float!
+  $year: Float!
+) {
+  pomodoroWidgetUpdate(
+    args: $args
+    monthNumber: $month
+    year: $year
+  ) {
+    id
+    round
+    roundTarget
+    goal
+    goalTarget
+  }
+}

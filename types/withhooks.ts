@@ -233,6 +233,21 @@ export type MonthQuery = (
   )> }
 );
 
+export type PomodoroUpdateMutationVariables = Exact<{
+  args: PomodoroWidgetInput;
+  month: Scalars['Float'];
+  year: Scalars['Float'];
+}>;
+
+
+export type PomodoroUpdateMutation = (
+  { __typename?: 'Mutation' }
+  & { pomodoroWidgetUpdate: (
+    { __typename?: 'PomodoroWidget' }
+    & Pick<PomodoroWidget, 'id' | 'round' | 'roundTarget' | 'goal' | 'goalTarget'>
+  ) }
+);
+
 export type UserSigninQueryVariables = Exact<{
   args: UserSigninInput;
 }>;
@@ -321,6 +336,45 @@ export function useMonthLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Mont
 export type MonthQueryHookResult = ReturnType<typeof useMonthQuery>;
 export type MonthLazyQueryHookResult = ReturnType<typeof useMonthLazyQuery>;
 export type MonthQueryResult = Apollo.QueryResult<MonthQuery, MonthQueryVariables>;
+export const PomodoroUpdateDocument = gql`
+    mutation pomodoroUpdate($args: PomodoroWidgetInput!, $month: Float!, $year: Float!) {
+  pomodoroWidgetUpdate(args: $args, monthNumber: $month, year: $year) {
+    id
+    round
+    roundTarget
+    goal
+    goalTarget
+  }
+}
+    `;
+export type PomodoroUpdateMutationFn = Apollo.MutationFunction<PomodoroUpdateMutation, PomodoroUpdateMutationVariables>;
+
+/**
+ * __usePomodoroUpdateMutation__
+ *
+ * To run a mutation, you first call `usePomodoroUpdateMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `usePomodoroUpdateMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [pomodoroUpdateMutation, { data, loading, error }] = usePomodoroUpdateMutation({
+ *   variables: {
+ *      args: // value for 'args'
+ *      month: // value for 'month'
+ *      year: // value for 'year'
+ *   },
+ * });
+ */
+export function usePomodoroUpdateMutation(baseOptions?: Apollo.MutationHookOptions<PomodoroUpdateMutation, PomodoroUpdateMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<PomodoroUpdateMutation, PomodoroUpdateMutationVariables>(PomodoroUpdateDocument, options);
+      }
+export type PomodoroUpdateMutationHookResult = ReturnType<typeof usePomodoroUpdateMutation>;
+export type PomodoroUpdateMutationResult = Apollo.MutationResult<PomodoroUpdateMutation>;
+export type PomodoroUpdateMutationOptions = Apollo.BaseMutationOptions<PomodoroUpdateMutation, PomodoroUpdateMutationVariables>;
 export const UserSigninDocument = gql`
     query UserSignin($args: UserSigninInput!) {
   userSignin(args: $args) {
