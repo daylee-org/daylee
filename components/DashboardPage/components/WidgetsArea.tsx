@@ -1,10 +1,23 @@
 import { Stack, Typography } from 'components';
+import { useMonthQuery } from 'types/withhooks';
+import { useRoutingState } from 'hooks';
 import { Pomodoro } from './Pomodoro';
 import { WeeklyGoals } from './WeeklyGoals';
 import { WeeklyReview } from './WeeklyReview';
 import styles from './WidgetsArea.module.scss';
 
 export function WidgetsArea() {
+  const {
+    get: { month, year },
+  } = useRoutingState();
+
+  const { data } = useMonthQuery({
+    variables: { month: month ?? 0, year: year ?? 0 },
+    fetchPolicy: 'no-cache',
+  });
+
+  const round = data?.month?.pomodoroWidget?.round || 1;
+
   return (
     <Stack
       height="100%"
@@ -31,7 +44,7 @@ export function WidgetsArea() {
           title="Pomodoro"
           id="pomodoro"
         >
-          <Pomodoro />
+          <Pomodoro round={round} />
         </GridItem>
         <GridItem
           height="420px"

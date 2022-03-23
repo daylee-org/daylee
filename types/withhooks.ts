@@ -216,6 +216,23 @@ export type WeatherwidgetInput = {
   location: Scalars['String'];
 };
 
+export type MonthQueryVariables = Exact<{
+  month: Scalars['Float'];
+  year: Scalars['Float'];
+}>;
+
+
+export type MonthQuery = (
+  { __typename?: 'Query' }
+  & { month?: Maybe<(
+    { __typename?: 'Month' }
+    & { pomodoroWidget?: Maybe<(
+      { __typename?: 'PomodoroWidget' }
+      & Pick<PomodoroWidget, 'id' | 'round' | 'roundTarget' | 'goal' | 'goalTarget'>
+    )> }
+  )> }
+);
+
 export type UserSigninQueryVariables = Exact<{
   args: UserSigninInput;
 }>;
@@ -262,6 +279,48 @@ export type UserSignOutMutation = (
 );
 
 
+export const MonthDocument = gql`
+    query Month($month: Float!, $year: Float!) {
+  month(monthNumber: $month, year: $year) {
+    pomodoroWidget {
+      id
+      round
+      roundTarget
+      goal
+      goalTarget
+    }
+  }
+}
+    `;
+
+/**
+ * __useMonthQuery__
+ *
+ * To run a query within a React component, call `useMonthQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMonthQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMonthQuery({
+ *   variables: {
+ *      month: // value for 'month'
+ *      year: // value for 'year'
+ *   },
+ * });
+ */
+export function useMonthQuery(baseOptions: Apollo.QueryHookOptions<MonthQuery, MonthQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MonthQuery, MonthQueryVariables>(MonthDocument, options);
+      }
+export function useMonthLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MonthQuery, MonthQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MonthQuery, MonthQueryVariables>(MonthDocument, options);
+        }
+export type MonthQueryHookResult = ReturnType<typeof useMonthQuery>;
+export type MonthLazyQueryHookResult = ReturnType<typeof useMonthLazyQuery>;
+export type MonthQueryResult = Apollo.QueryResult<MonthQuery, MonthQueryVariables>;
 export const UserSigninDocument = gql`
     query UserSignin($args: UserSigninInput!) {
   userSignin(args: $args) {

@@ -3,8 +3,13 @@ import { Stack } from 'components';
 import { Timer } from './Timer';
 import { PomodoroBoard } from './PomodoroBoard';
 
-export function Pomodoro() {
-  const [round, setRound] = useState<number>(0);
+interface Props {
+  round: number;
+}
+
+export function Pomodoro({ round: roundFromProps }: Props) {
+  const [round, setRound] =
+    useState<number>(roundFromProps);
 
   return (
     <Stack center vertical spacing="normal">

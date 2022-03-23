@@ -1,0 +1,11 @@
+query Month($month: Float!, $year: Float!) {
+  month(monthNumber: $month, year: $year) {
+    pomodoroWidget {
+      id
+      round
+      roundTarget
+      goal
+      goalTarget
+    }
+  }
+}
