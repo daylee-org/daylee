@@ -6,6 +6,7 @@
 Daylee is a productivity app & digital journal designed to make your life easier by organizing your thoughts, schedule and life. Balancing your work, projects, social life and personal growth has never been so easy and intuitive!
 
 #### 👉 [Try it out here](https://daylee-web.herokuapp.com/)
+#### 👉 [Read about the process here](https://chilucdiep.com/daylee)
 #### 👉 [Figma design here](https://www.figma.com/file/BH6GRyC4CYVTOO4zrqESCs/Daylee)
 
 # Table of Contents
