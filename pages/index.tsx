@@ -3,9 +3,11 @@ import {
   DashboardPage,
   Loader,
 } from 'components';
+import { useState } from 'react';
 import { useUserAccountQuery } from 'types/withhooks';
 
 export default function Home() {
+  const [isGuest, setIsGuest] = useState(false);
   const { data, loading } = useUserAccountQuery({
     fetchPolicy: 'network-only',
   });
@@ -16,9 +18,14 @@ export default function Home() {
     return <Loader />;
   }
 
-  if (isSignedIn) {
+  if (isSignedIn || isGuest) {
     return <DashboardPage />;
   }
 
-  return <LandingPage />;
+  return (
+    <LandingPage
+      isGuest={isGuest}
+      setIsGuest={setIsGuest}
+    />
+  );
 }

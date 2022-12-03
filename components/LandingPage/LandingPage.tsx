@@ -21,7 +21,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { URLS } from 'utils';
 //commit test A.J.U.U
-export function LandingPage() {
+export function LandingPage({ isGuest, setIsGuest }: any) {
   const router = useRouter();
 
   const [signin, { loading }] = useUserSigninLazyQuery({
@@ -64,7 +64,11 @@ export function LandingPage() {
           variant="nav"
           onClick={goToContact}
         />
-        <Button label="Use as guest" variant="secondary" />
+        <Button
+          label="Use as guest"
+          variant="secondary"
+          onClick={() => setIsGuest(true)}
+        />
       </Stack>
     </Stack>
   );
@@ -86,7 +90,11 @@ export function LandingPage() {
         schedule and life. Balance your work, projects,
         social life and personal growth.
       </Typography>
-      <Button label="Use as guest" tight />
+      <Button
+        label="Use as guest"
+        tight
+        onClick={() => setIsGuest(true)}
+      />
     </Stack>
   );
 
