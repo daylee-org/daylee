@@ -1,4 +1,5 @@
 import { Stack, Typography } from 'components';
+import { HabitsList } from './HabitsList';
 
 export function HabitTracker() {
   let orderedWeekdays: string[] = [];
@@ -29,6 +30,7 @@ export function HabitTracker() {
           </Stack>
         </Stack>
       </Stack>
+      <HabitsList />
     </>
   );
 
