@@ -18,15 +18,11 @@ export function HabitTracker() {
   return (
     <>
       <Stack spacing="tight">
-        <Stack width="25%">ok</Stack>
-        <Stack width="75%">
-          <Stack
-            width="100%"
-            spread
-            background="dangerTextColor"
-          >
+        <Stack width="30%"></Stack>
+        <Stack width="70%">
+          <Stack width="100%" spread>
             {orderedWeekdays.map((weekDay) => (
-              <Typography key={weekDay}>
+              <Typography type="bigText" key={weekDay}>
                 {weekDay}
               </Typography>
             ))}
