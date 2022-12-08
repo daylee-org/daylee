@@ -1,0 +1,21 @@
+.Checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 2px solid #be7bf6;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.Checkbox:checked {
+  background: var(--gradient);
+  border: none;
+}
+
+.Checkbox:focus {
+  outline: 1px solid #be7bf6;
+}
