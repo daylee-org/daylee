@@ -17,10 +17,10 @@ export function Header() {
   setOrderedWeekDays();
 
   return (
-    <Stack spacing="tight">
-      <Stack width="30%"></Stack>
-      <Stack width="70%">
-        <Stack width="100%" spread>
+    <Stack>
+      <Stack width="25%"></Stack>
+      <Stack width="75%">
+        <Stack width="100%" spreadEvenly>
           {orderedWeekdays.map((weekDay) => (
             <Typography type="bigText" key={weekDay}>
               {weekDay}

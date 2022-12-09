@@ -4,7 +4,7 @@ import { Header } from './Header';
 
 export function HabitTracker() {
   return (
-    <Stack vertical scroll>
+    <Stack vertical scroll spacing="tight">
       <Header />
       <HabitsList />
     </Stack>

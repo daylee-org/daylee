@@ -58,6 +58,10 @@ const Wrapper = styled.div<Props>`
     prop.justifyCenter ? `justify-content: center;` : ``}
   ${(prop) =>
     prop.spread ? `justify-content: space-between;` : ``}
+    ${(prop) =>
+    prop.spreadEvenly
+      ? `justify-content: space-around;`
+      : ``}
 `;
 
 interface Props {
@@ -73,6 +77,7 @@ interface Props {
   width?: string;
   height?: string;
   spread?: boolean;
+  spreadEvenly?: boolean;
   shadow?: boolean;
   background?: ThemeColors;
   opacity?: string;

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Stack, Todo, Button } from 'components';
+import { Stack, Todo } from 'components';
 
 export function WeeklyGoals() {
   const [todos, setTodos] = useState<Array<string>>(['']);
