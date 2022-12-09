@@ -7,17 +7,26 @@ interface Habit {
 }
 
 export function HabitsList() {
-  const [habitsList, setHabitsList] = useState<Habit[]>([
+  const [habitsList, setHabitsList] = useState<any>([
     {
       label: 'Habit 1',
     },
   ]);
 
+  function handleChange(e: any) {
+    console.log(e.target.value);
+    // setHabitsList({ label: e.target.value });
+  }
+
   return (
     <Stack vertical>
       <Stack vertical spacing="tight">
-        {habitsList.map((habit) => (
-          <Habit key={habit.label} label={habit.label} />
+        {habitsList.map((habit: any) => (
+          <Habit
+            key={habit.label}
+            label={habit.label}
+            handleChange={handleChange}
+          />
         ))}
       </Stack>
       <Button
