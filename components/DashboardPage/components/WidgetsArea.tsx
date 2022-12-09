@@ -1,7 +1,8 @@
+import { HabitTracker } from './HabitTracker';
+import { Pomodoro } from './Pomodoro';
 import { Stack, Typography } from 'components';
 import { useMonthQuery } from 'types/withhooks';
 import { useRoutingState } from 'hooks';
-import { Pomodoro } from './Pomodoro';
 import { WeeklyGoals } from './WeeklyGoals';
 import { WeeklyReview } from './WeeklyReview';
 import styles from './WidgetsArea.module.scss';
@@ -33,7 +34,9 @@ export function WidgetsArea() {
           height="300px"
           title="Habit Tracker"
           id="habit-tracker"
-        />
+        >
+          <HabitTracker />
+        </GridItem>
         <GridItem
           height="300px"
           title="Weather App"
