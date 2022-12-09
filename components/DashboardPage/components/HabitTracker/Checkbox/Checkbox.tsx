@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import styles from './Checkbox.module.scss';
 
-export function Checkbox() {
-  const [isChecked, setIsChecked] = useState(false);
+interface CheckboxProps {
+  isChecked: boolean;
+  onChecked: any;
+}
 
+export function Checkbox({
+  isChecked,
+  onChecked,
+}: CheckboxProps) {
   return (
     <input
       className={styles.Checkbox}
       type="checkbox"
       checked={isChecked}
-      onChange={handleChange}
+      onChange={onChecked}
     />
   );
-
-  function handleChange() {
-    setIsChecked((prevState) => !prevState);
-  }
 }

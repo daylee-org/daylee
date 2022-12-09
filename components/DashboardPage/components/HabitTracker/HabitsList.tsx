@@ -4,28 +4,37 @@ import { Habit } from './Habit';
 
 interface Habit {
   label: string;
+  days: boolean[];
 }
 
 export function HabitsList() {
-  const [habitsList, setHabitsList] = useState<any>([
+  const [habitsList, setHabitsList] = useState<Habit[]>([
     {
-      label: 'Habit 1',
+      label: '',
+      days: [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+      ],
     },
   ]);
-
-  function handleChange(e: any) {
-    console.log(e.target.value);
-    // setHabitsList({ label: e.target.value });
-  }
 
   return (
     <Stack vertical>
       <Stack vertical spacing="tight">
-        {habitsList.map((habit: any) => (
+        {habitsList.map((habit: Habit, index: number) => (
           <Habit
-            key={habit.label}
+            key={index}
             label={habit.label}
-            handleChange={handleChange}
+            days={habit.days}
+            onChange={(e: Event) => handleChange(e, index)}
+            onChecked={(dayIndex: number) =>
+              handleChecked(dayIndex, index)
+            }
           />
         ))}
       </Stack>
@@ -42,8 +51,33 @@ export function HabitsList() {
     setHabitsList([
       ...habitsList,
       {
-        label: 'New Habit',
+        label: '',
+        days: [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ],
       },
     ]);
+  }
+
+  function handleChange(e: Event, index: number) {
+    const target = e.target as HTMLTextAreaElement;
+    const newHabitsList = [...habitsList];
+
+    newHabitsList[index].label = target.value;
+    setHabitsList(newHabitsList);
+  }
+
+  function handleChecked(dayIndex: number, index: number) {
+    const newHabitsList = [...habitsList];
+    newHabitsList[index].days[dayIndex] =
+      !newHabitsList[index].days[dayIndex];
+
+    setHabitsList(newHabitsList);
   }
 }
