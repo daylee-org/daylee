@@ -1,8 +1,4 @@
-import {
-  ChangeEvent,
-  ChangeEventHandler,
-  useState,
-} from 'react';
+import { ChangeEvent, useState } from 'react';
 import { Button, Stack } from 'components';
 import { Habit } from './Habit';
 

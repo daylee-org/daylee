@@ -1,9 +1,5 @@
-import { Stack, Typography } from 'components';
-import {
-  ChangeEvent,
-  ChangeEventHandler,
-  useState,
-} from 'react';
+import { Stack } from 'components';
+import { ChangeEvent } from 'react';
 import { Checkbox } from '../Checkbox';
 import styles from './Habit.module.scss';
 
@@ -20,28 +16,31 @@ export function Habit({
   onChange,
   onChecked,
 }: HabitProps) {
+  const habitInputMarkup = (
+    <input
+      type="text"
+      placeholder="Add a habit"
+      className={styles.Text}
+      onChange={onChange}
+      value={label}
+    />
+  );
+
+  const habitCheckboxesMarkup = days.map(
+    (isChecked: boolean, dayIndex: number) => (
+      <Checkbox
+        key={dayIndex}
+        isChecked={isChecked}
+        onChecked={() => onChecked(dayIndex)}
+      />
+    ),
+  );
   return (
     <Stack>
-      <Stack width="25%">
-        <input
-          type="text"
-          placeholder="Add a habit"
-          className={styles.Text}
-          onChange={onChange}
-          value={label}
-        />
-      </Stack>
+      <Stack width="25%">{habitInputMarkup}</Stack>
       <Stack width="75%">
         <Stack width="100%" spreadEvenly>
-          {days.map(
-            (isChecked: boolean, dayIndex: number) => (
-              <Checkbox
-                key={dayIndex}
-                isChecked={isChecked}
-                onChecked={() => onChecked(dayIndex)}
-              />
-            ),
-          )}
+          {habitCheckboxesMarkup}
         </Stack>
       </Stack>
     </Stack>
