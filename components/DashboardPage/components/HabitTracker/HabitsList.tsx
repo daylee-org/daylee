@@ -1,4 +1,8 @@
-import { useState } from 'react';
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  useState,
+} from 'react';
 import { Button, Stack } from 'components';
 import { Habit } from './Habit';
 
@@ -7,69 +11,61 @@ interface Habit {
   days: boolean[];
 }
 
+const newHabit = {
+  label: '',
+  days: [false, false, false, false, false, false, false],
+};
+
 export function HabitsList() {
   const [habitsList, setHabitsList] = useState<Habit[]>([
-    {
-      label: '',
-      days: [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-    },
+    newHabit,
   ]);
+
+  const habitsListMarkup = habitsList.map(
+    (habit: Habit, index: number) => (
+      <Habit
+        key={index}
+        label={habit.label}
+        days={habit.days}
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          handleChange(e, index)
+        }
+        onChecked={(dayIndex: number) =>
+          handleChecked(dayIndex, index)
+        }
+      />
+    ),
+  );
+
+  const buttonMarkup = (
+    <Button
+      fontSize="medium"
+      label="New"
+      variant="add"
+      onClick={handleAddHabit}
+    ></Button>
+  );
 
   return (
     <Stack vertical>
       <Stack vertical spacing="tight">
-        {habitsList.map((habit: Habit, index: number) => (
-          <Habit
-            key={index}
-            label={habit.label}
-            days={habit.days}
-            onChange={(e: Event) => handleChange(e, index)}
-            onChecked={(dayIndex: number) =>
-              handleChecked(dayIndex, index)
-            }
-          />
-        ))}
+        {habitsListMarkup}
       </Stack>
-      <Button
-        fontSize="medium"
-        label="New"
-        variant="add"
-        onClick={handleAddHabit}
-      ></Button>
+      {buttonMarkup}
     </Stack>
   );
 
   function handleAddHabit() {
-    setHabitsList([
-      ...habitsList,
-      {
-        label: '',
-        days: [
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-        ],
-      },
-    ]);
+    setHabitsList([...habitsList, newHabit]);
   }
 
-  function handleChange(e: Event, index: number) {
-    const target = e.target as HTMLTextAreaElement;
+  function handleChange(
+    e: ChangeEvent<HTMLInputElement>,
+    index: number,
+  ) {
     const newHabitsList = [...habitsList];
 
-    newHabitsList[index].label = target.value;
+    newHabitsList[index].label = e.target.value;
     setHabitsList(newHabitsList);
   }
 

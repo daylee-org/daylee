@@ -1,13 +1,17 @@
 import { Stack, Typography } from 'components';
-import { ChangeEventHandler, useState } from 'react';
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  useState,
+} from 'react';
 import { Checkbox } from '../Checkbox';
 import styles from './Habit.module.scss';
 
 interface HabitProps {
   label: string;
   days: boolean[];
-  onChange: any;
-  onChecked: any;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChecked: (dayIndex: number) => void;
 }
 
 export function Habit({
