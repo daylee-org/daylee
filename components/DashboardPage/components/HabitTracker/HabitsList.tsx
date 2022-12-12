@@ -3,13 +3,23 @@ import { Button, Stack } from 'components';
 import { Habit } from './Habit';
 
 interface Habit {
+  id: string;
   label: string;
-  days: boolean[];
+  weeklyStreak: boolean[];
 }
 
 const newHabit = {
+  id: 'id',
   label: '',
-  days: [false, false, false, false, false, false, false],
+  weeklyStreak: [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ],
 };
 
 export function HabitsList() {
@@ -20,9 +30,9 @@ export function HabitsList() {
   const habitsListMarkup = habitsList.map(
     (habit: Habit, index: number) => (
       <Habit
-        key={index}
+        key={habit.id}
         label={habit.label}
-        days={habit.days}
+        weeklyStreak={habit.weeklyStreak}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           handleChange(e, index)
         }
@@ -67,8 +77,8 @@ export function HabitsList() {
 
   function handleChecked(dayIndex: number, index: number) {
     const newHabitsList = [...habitsList];
-    newHabitsList[index].days[dayIndex] =
-      !newHabitsList[index].days[dayIndex];
+    newHabitsList[index].weeklyStreak[dayIndex] =
+      !newHabitsList[index].weeklyStreak[dayIndex];
 
     setHabitsList(newHabitsList);
   }

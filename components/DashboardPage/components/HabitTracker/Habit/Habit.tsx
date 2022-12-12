@@ -5,14 +5,14 @@ import styles from './Habit.module.scss';
 
 interface HabitProps {
   label: string;
-  days: boolean[];
+  weeklyStreak: boolean[];
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onChecked: (dayIndex: number) => void;
 }
 
 export function Habit({
   label,
-  days,
+  weeklyStreak,
   onChange,
   onChecked,
 }: HabitProps) {
@@ -26,7 +26,7 @@ export function Habit({
     />
   );
 
-  const habitCheckboxesMarkup = days.map(
+  const habitCheckboxesMarkup = weeklyStreak.map(
     (isChecked: boolean, dayIndex: number) => (
       <Checkbox
         key={dayIndex}
